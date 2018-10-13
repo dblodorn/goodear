@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Authentic';
+  src: url('/assets/fonts/authentic-sans.woff');
+}
+@font-face {
+  font-family: "Knif Mono";
+  src: url("/assets/fonts/knif-mono.woff");
+}
+@font-face {
+  font-family: "David Regular";
+  src: url("/assets/fonts/david-regular.otf");
+}
+@font-face {
+  font-family: "Platform Bold";
+  src: url("/assets/fonts/platform-bold.otf");
+}
+@font-face {
+  font-family: "FFF Regular";
+  src: url("/assets/fonts/fff-regular.woff");
+}
+@font-face {
+  font-family: "FFF Regular Italic";
+  src: url("/assets/fonts/fff-regular-italic.woff");
+}
+@font-face {
+  font-family: "GT America Expanded";
+  src: url("/assets/fonts/gt-america-expanded.woff2");
+}
+@font-face {
+  font-family: "GT America Extended";
+  src: url("/assets/fonts/gt-america-extended.woff2");
+}

@@ -1,0 +1,103 @@
+{
+  "breakpoints": {
+    "mobile": 0,
+    "medium": 570,
+    "desktop": 768,
+    "big": 1500
+  },
+  "transitions": {
+    "stiffness_fast": 300,
+    "damping_fast": 30
+  },
+  "widths": {
+    "max_large": "124rem",
+    "max_medium": "92rem",
+    "max_small": "72rem",
+    "sidebar_desktop": "24rem"
+  },
+  "heights": {
+    "header": "6rem",
+    "mobile_header": "6rem",
+    "footer": "6rem",
+    "player_icons": "2.5rem"
+  },
+  "spacing": {
+    "micro_pad": ".5rem",
+    "single_pad": "1rem",
+    "double_pad": "2rem",
+    "big_pad": "6rem"
+  },
+  "colors": {
+    "white": "#ffffff",
+    "black": "#180c06",
+    "grey": "#8f8f8f",
+    "blue": "#2619d1",
+    "med_grey": "#939393",
+    "hover_color": "red",
+    "active_color": "purple",
+    "lt_grey": "#D8D8D8",
+    "green": "green",
+    "yellow": "yellow",
+    "logo_color_a": "#e81900",
+    "logo_color_b": "#29bdad",
+    "display_font_a_color": "#2619d1",
+    "display_font_b_color": "#fff",
+    "body_font_a_color": "#8f8f8f",
+    "body_font_b_color": "#fff",
+    "footer_bg_color": "#fff",
+    "footer_type_color": "#2619d1",
+    "header_bg_color": "#fff",
+    "header_type_color": "#2619d1",
+    "button_color": "#2619d1",
+    "button_typs_color": "#fff",
+    "popup_bg_color_a": "#180c06",
+    "popup_bg_color_b": "#2619d1",
+    "popup_close_color_a": "#ffffff",
+    "popup_close_color_b": "#ffffff"
+  },
+  "fonts": {
+    "sans": "FFF Regular, system-ui, sans-serif",
+    "display_font_a": "David, system-ui, sans-serif",
+    "body_copy_font_a": "FFF Regular, Monaco, monospace",
+    "nav_font_a": "FFF Regular, Monaco, monospace",
+    "display_font_b": "GT America Expanded, system-ui, sans-serif",
+    "body_copy_font_b": "Knif Mono, system-ui, sans-serif",
+    "nav_font_b": "David, system-ui, sans-serif",
+    "sizes": {
+      "giant": "6.75rem",
+      "giant_sm": "4.5rem",
+      "medium": "3rem",
+      "medium_sm": "2.5rem",
+      "body": "2.5rem",
+      "body_sm": "2.25rem",
+      "small": "1.75rem",
+      "small_sm": "1.75rem",
+      "micro": "1rem",
+      "micro_sm": "1rem"
+    }
+  },
+  "global": {
+    "logo_size": "25vmin",
+    "border_weight": "5px",
+    "logo_size_desk": "8rem",
+    "article_width": "70rem",
+    "max_width": "92rem",
+    "super_wide": "124rem",
+    "column_width": "40rem",
+    "menu_width": "6.5rem",
+    "border_thin": "1px solid #180c06",
+    "border_thick": "4px solid #180c06"
+  },
+  "shared": {
+    "logo_size": "25vmin",
+    "border_weight": "5px",
+    "logo_size_desk": "8rem",
+    "article_width": "70rem",
+    "max_width": "92rem",
+    "super_wide": "124rem",
+    "column_width": "40rem",
+    "menu_width": "6.5rem",
+    "border_thin": "1px solid #180c06",
+    "border_thick": "3px solid #180c06"
+  }
+}
