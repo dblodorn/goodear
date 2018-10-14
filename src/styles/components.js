@@ -177,7 +177,8 @@ const NavItem = styled.li`
   }
   &.sidebar {
     ${_.media.desktopNav`
-      padding-bottom: ${spacing.single_pad};
+      padding-bottom: ${spacing.double_pad};
+      padding-right: 0;
       &.footer {
         padding-bottom: 0;
       }

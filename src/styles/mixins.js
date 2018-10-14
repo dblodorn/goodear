@@ -86,6 +86,8 @@ const mediumType = css`
   ${sansFont};  
   font-size: ${fonts.sizes.medium_sm};
   line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 3px;
   ${media.medium`
     font-size: ${fonts.sizes.medium};
   `}
@@ -411,18 +413,19 @@ const fancyScroll = css`
     width: 2px;
   }
   ::-webkit-scrollbar-track {
+    border-left: ${shared.border_thin};
     background: ${colors.white};
     border: 0;
-    width: 2px;
+    width: 5px;
   }
   ::-webkit-scrollbar-thumb {
     background: ${colors.blue};
-    width: 2px;
+    width: 5px;
     border: 0;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: ${colors.grey};
-    width: 2px;
+    width: 4px;
     border: 0;
   }
 `

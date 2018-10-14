@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import styled, { injectGlobal } from 'styled-components'
-import { animationFadeIn, flexColumn, media } from './styles/mixins'
-import { colors, fonts, heights, widths } from './styles/theme.json'
+import { animationFadeIn, flexColumn, media, fancyScroll } from './styles/mixins'
+import { colors, fonts, heights, widths, shared } from './styles/theme.json'
 import { routeName } from './scripts'
 import { Footer, Header } from './components'
 import { LoadingPage } from './views'
@@ -56,6 +56,7 @@ const Main = styled.main`
 injectGlobal`
   html {
     font-size: 58%;
+    ${fancyScroll};
   }
   @media screen and (min-width: 960px) {
     html {
@@ -85,5 +86,26 @@ injectGlobal`
     color: white;
     font-size: 15vmin;
     ${fonts.sans};
+  }
+  ::-webkit-scrollbar {
+    width: 1rem;
+    border-left: ${shared.border_thin};
+    position: absolute;
+    z-index: 9000;
+  }
+  ::-webkit-scrollbar-track {
+    border-left: ${shared.border_thin};
+    background: ${colors.white};
+    width: 1rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${colors.blue};
+    border-left: ${shared.border_thin};
+    width: 1rem;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${colors.grey};
+    width: 1rem;
+    cursor: pointer;
   }
 `

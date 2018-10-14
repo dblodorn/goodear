@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { themeA, themes } from './../../styles/theme'
 import { bodyType } from './../../styles/mixins'
-import { spacing } from './../../styles/theme.json'
+import { spacing, shared } from './../../styles/theme.json'
 import { StyledLink } from './../../styles/components'
 
 export default (props) =>
@@ -10,7 +10,7 @@ export default (props) =>
     <Logo to={'/'} className={props.orientation}>
       <svg width="490px" height="184px" viewBox="0 0 490 184" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <title>{props.title}</title>
-        <g id="LOGOS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="LOGOS" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g id="V1" transform="translate(-267.000000, -420.000000)" fill="#333231">
             <g id="Logo-Surround" transform="translate(267.000000, 420.000000)">
               <g>
@@ -37,6 +37,8 @@ const Logo = styled(StyledLink)`
   &.sidebar {
     height: auto;
     width: 100%;
+    padding: ${spacing.double_pad};
+    border-bottom: ${shared.border_thin};
   }
   svg {
     width: 100%;
