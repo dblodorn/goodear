@@ -79,6 +79,7 @@ class Video extends Component {
     this.props.video_state('stopped')
   }
   onPlay = () => {
+    console.log('play')
     setTimeout(() => {
       this.setState({
         playing: true,
@@ -86,7 +87,7 @@ class Video extends Component {
       })
       this.props.video_playing(this.props.videoUrl)
       this.props.video_state('playing')
-    }, 1)
+    }, 1000)
   }
   onPause = () => {
     this.setState({
@@ -157,7 +158,8 @@ class Video extends Component {
                   vimeo: {
                     playerVars: {
                       showinfo: 0,
-                      controls: 1
+                      controls: 1,
+                      autoplay: 1
                     }
                   }
                 }}

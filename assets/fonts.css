@@ -7,3 +7,13 @@
   font-family: 'Circular Medium';
   src: url('/assets/fonts/CircularStd-Medium.otf');
 }
+
+@font-face {
+  font-family: 'Austin Roman';
+  src: url('/assets/fonts/Austin-Roman.otf');
+}
+
+@font-face {
+  font-family: 'Austin Italic';
+  src: url('/assets/fonts/Austin-Italic.otf');
+}

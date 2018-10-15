@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import MenuLink from './MenuLink'
-import { flexRow, flexColumn, flexCenteredAll, media, defaultLink, smallType } from './../../styles/mixins'
+import { flexRow, flexColumn, flexCenteredAll, media, defaultLink, mediumType } from './../../styles/mixins'
 import { NavItem } from './../../styles/components'
 import { spacing } from './../../styles/theme.json'
 
@@ -85,5 +85,5 @@ const NavList = styled.ul`
 
 const ExternalLink = styled.a`
   ${defaultLink};
-  ${smallType};
+  ${mediumType};
 `

@@ -30,9 +30,9 @@ export default connect(
 const FooterWrapper =  styled.footer`
   ${flexColumn};
   ${mainPadding};
-  border-top: 1px solid ${colors.black};
+  border-top: ${colors.border_a};
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   z-index: 100;
   padding-bottom: ${spacing.big_pad};
   background-color: ${colors.black};
@@ -43,7 +43,7 @@ const FooterWrapper =  styled.footer`
   ${media.desktopNav`
     ${flexRowCenteredVert};
     height: ${heights.footer};
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     ${mainPadding};
@@ -54,8 +54,7 @@ const FooterWrapper =  styled.footer`
   `}
   &.sidebar {
     ${media.desktopNav`
-      padding-left: calc(${widths.sidebar_desktop} + ${spacing.double_pad});
-      justify-content: flex-end;
+      justify-content: center;
     `}
   }
 `

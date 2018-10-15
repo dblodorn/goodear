@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router'
 import Document from './Document'
-import { NotFound, Templates, SingleVideo, Shop } from './views'
+import { NotFound, Templates, SingleVideo, Home } from './views'
 
 class Routes extends Component {
   constructor(props) {
@@ -24,10 +24,6 @@ class Routes extends Component {
           return(
             <Route exact path={`/${page.slug}`} component={Templates} key={'page' + page.slug + i}/>
           )
-        } else {
-          return (
-            <Route exact path={'/'} component={Templates} key={'home'}/>
-          )
         }
       })
       this.setState({
@@ -40,6 +36,7 @@ class Routes extends Component {
     return (
       <Document>
         <Switch>
+          {(this.props.api_data) && <Route exact path={'/'} component={Home}/>}
           {(this.props.api_data) && this._buildRoutes(this.props.api_data.posts.pages)}
           {(this.props.api_data) && <Route exact path={'/project/:id'} component={Templates}/>}
           {(this.props.api_data) && <Route exact path={'/video/:id'} component={SingleVideo}/>}

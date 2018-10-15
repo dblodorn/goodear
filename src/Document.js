@@ -15,7 +15,6 @@ const Document = (props) => {
         <Main id={routeName(props.router.location.pathname).routeClass} className={props.header_style}>
           {props.children}
         </Main>
-        <Footer orientation={props.header_style}/>
       </Fragment>
     )
   } else {
@@ -41,7 +40,7 @@ const Main = styled.main`
   &.sidebar {
     ${media.desktopNav`
       padding-left: ${widths.sidebar_desktop};
-      padding-bottom: ${heights.footer};
+      padding-bottom: 0;
     `}
   }
   &.top-horizontal {
@@ -86,26 +85,5 @@ injectGlobal`
     color: white;
     font-size: 15vmin;
     ${fonts.sans};
-  }
-  ::-webkit-scrollbar {
-    width: 1rem;
-    border-left: ${shared.border_thin};
-    position: absolute;
-    z-index: 9000;
-  }
-  ::-webkit-scrollbar-track {
-    border-left: ${shared.border_thin};
-    background: ${colors.white};
-    width: 1rem;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: ${colors.blue};
-    border-left: ${shared.border_thin};
-    width: 1rem;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: ${colors.grey};
-    width: 1rem;
-    cursor: pointer;
   }
 `

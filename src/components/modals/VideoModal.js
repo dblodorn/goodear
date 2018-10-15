@@ -3,12 +3,14 @@ import propTypes from 'prop-types'
 import { Transition } from 'react-spring'
 import styled, { ThemeProvider } from 'styled-components'
 import { themeA, themes } from './../../styles/theme'
+import { colors } from './../../styles/theme.json'
 import { ModalWrapper, ModalContentWrapper } from './../../styles/components'
 import { absoluteTopFull, buttonInit } from './../../styles/mixins'
 import Modal from './Modal'
 import Video from './../video/Video'
 import FitImage from './../utils/FitImage'
 import Close from './../utils/Close'
+import PlayButton from './../utils/PlayButton'
 
 class VideoModal extends Component {
   constructor(props) {
@@ -26,7 +28,8 @@ class VideoModal extends Component {
   render() {
     return (
       <Fragment>
-        <VideoPopper onClick={() => this._Popup()}>
+        <VideoPopper>
+          <PlayButton color={colors.white} clickFunction={() => this._Popup()}/>
           <FitImage src={this.props.thumbnail} fit={'cover'}/>
         </VideoPopper>
         <Transition from={{ opacity: 0 }} enter={{ opacity: 1 }} leave={{ opacity: 0, pointerEvents: 'none' }}>
@@ -56,7 +59,6 @@ VideoModal.propTypes = {
 
 export default VideoModal
 
-const VideoPopper = styled.button`
+const VideoPopper = styled.div`
   ${absoluteTopFull};
-  ${buttonInit};
 `

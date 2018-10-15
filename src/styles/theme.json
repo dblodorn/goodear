@@ -19,7 +19,8 @@
     "header": "6rem",
     "mobile_header": "6rem",
     "footer": "6rem",
-    "player_icons": "2.5rem"
+    "player_icons": "2.5rem",
+    "home_bottom": "20rem"
   },
   "spacing": {
     "micro_pad": ".5rem",
@@ -33,10 +34,10 @@
     "grey": "#8f8f8f",
     "blue": "#333231",
     "med_grey": "#939393",
-    "hover_color": "red",
-    "active_color": "purple",
+    "hover_color": "#33FF7D",
+    "active_color": "#33FF7D",
     "lt_grey": "#D8D8D8",
-    "green": "green",
+    "green": "#33FF7D",
     "yellow": "yellow",
     "logo_color_a": "#e81900",
     "logo_color_b": "#29bdad",
@@ -50,13 +51,17 @@
     "header_type_color": "#333231",
     "button_color": "#333231",
     "button_typs_color": "#fff",
-    "popup_bg_color_a": "#180c06",
+    "popup_bg_color_a": "#ffffff",
     "popup_bg_color_b": "#333231",
-    "popup_close_color_a": "#ffffff",
-    "popup_close_color_b": "#ffffff"
+    "popup_close_color_a": "#33FF7D",
+    "popup_close_color_b": "#33FF7D",
+    "spinner_color": "#33FF7D",
+    "border_a": "2px solid #33FF7D",
+    "border_b": "2px solid #8f8f8f"
   },
   "fonts": {
     "sans": "Circular Book, system-ui, sans-serif",
+    "serif": "Austin Roman, Times New Roman, serif",
     "display_font_a": "Circular Medium, system-ui, sans-serif",
     "body_copy_font_a": "Circular Book, Monaco, monospace",
     "nav_font_a": "Circular Book, Monaco, monospace",
@@ -70,8 +75,8 @@
       "medium_sm": "2.5rem",
       "body": "2.5rem",
       "body_sm": "2.25rem",
-      "small": "1.75rem",
-      "small_sm": "1.75rem",
+      "small": "1.25rem",
+      "small_sm": "1.25rem",
       "micro": "1rem",
       "micro_sm": "1rem"
     }
@@ -97,7 +102,7 @@
     "super_wide": "124rem",
     "column_width": "40rem",
     "menu_width": "6.5rem",
-    "border_thin": "1px solid #180c06",
-    "border_thick": "3px solid #180c06"
+    "border_thin": "2px solid #33FF7D",
+    "border_thick": "3px solid #33FF7D"
   }
 }

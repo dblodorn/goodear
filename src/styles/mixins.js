@@ -400,7 +400,7 @@ const grid = css`
       width: calc(100% / 3);
     }
     &.four_col > li {
-      width: 25%;
+      width: calc(100% / 6);
     }
     &.two_col > li {
       width: 50%;
@@ -409,24 +409,27 @@ const grid = css`
 `
 
 const fancyScroll = css`
-  ::-webkit-scrollbar {
-    width: 2px;
+  &::-webkit-scrollbar {
+    width: 1rem;
+    border-left: ${shared.border_thin};
+    position: absolute;
+    z-index: 9000;
+    display: none;
   }
-  ::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-track {
     border-left: ${shared.border_thin};
     background: ${colors.white};
-    border: 0;
-    width: 5px;
+    width: 1rem;
   }
-  ::-webkit-scrollbar-thumb {
-    background: ${colors.blue};
-    width: 5px;
-    border: 0;
+  &::-webkit-scrollbar-thumb {
+    background: ${colors.green};
+    border-left: ${shared.border_thin};
+    width: 1rem;
   }
-  ::-webkit-scrollbar-thumb:hover {
+  &::-webkit-scrollbar-thumb:hover {
     background: ${colors.grey};
-    width: 4px;
-    border: 0;
+    width: 1rem;
+    cursor: pointer;
   }
 `
 
@@ -524,5 +527,6 @@ export {
   textShadow,
   fixedHero,
   halfFixed,
-  fixedWindow
+  fixedWindow,
+  fancyScroll
 }

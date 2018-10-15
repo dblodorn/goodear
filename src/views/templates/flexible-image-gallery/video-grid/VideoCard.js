@@ -5,44 +5,36 @@ import { themeA, themes } from './../../../../styles/theme'
 import LazyLoad from 'react-lazyload'
 import { ProportionWrapper, H3, SmallP } from './../../../../styles/components'
 import { absoluteTopFull, opacityTransition, mainPadding, textShadow  } from './../../../../styles/mixins'
-import { colors } from './../../../../styles/theme.json'
+import { colors, spacing } from './../../../../styles/theme.json'
 
 const VideoCaption = (props) =>
-  <VideoCaptionWrapper className={'hover-reveal'}>
-    <H3>{props.item.title}</H3>
-    <SmallP>{props.item.short_description}</SmallP>
+  <VideoCaptionWrapper>
+    <SmallP>{props.item.title}</SmallP>
   </VideoCaptionWrapper>
 
 const VideoCard = (props) =>
   <VideoThumb className={(!props.playing) && 'video-playing'} className={props.overflow}>
     <ProportionWrapper
-      Desktop={props.proportion || 56.25}
-      Mobile={props.proportion || 56.25}
-      Max={props.proportion || 56.25}
+      Desktop={props.proportion || 100}
+      Mobile={props.proportion || 100}
+      Max={props.proportion || 100}
     >
       {(!props.overflow)
         ? <LazyLoad height='100%'>
-            {((props.video_state == 'stopped') || (props.video_state == 'paused')) &&
-              <ThemeProvider theme={themes[props.item.theme] || themeA}>
-                <VideoCaption item={props.item}/>
-              </ThemeProvider>
-            }
             <VideoWrapper>
               {props.children}
             </VideoWrapper>
           </LazyLoad>
         : <Fragment>
-            {((props.video_state == 'stopped') || (props.video_state == 'paused')) &&
-              <ThemeProvider theme={themes[props.item.theme] || themeA}>
-                <VideoCaption item={props.item}/>
-              </ThemeProvider>
-            }
             <VideoWrapper>
               {props.children}
             </VideoWrapper>
           </Fragment>
       }
     </ProportionWrapper>
+    <ThemeProvider theme={themes[props.item.theme] || themeA}>
+      <VideoCaption item={props.item}/>
+    </ThemeProvider>
   </VideoThumb>
 
 export default connect(
@@ -55,21 +47,17 @@ export default connect(
 // STYLES
 const VideoCaptionWrapper = styled.div`
   ${opacityTransition};
-  opacity: 0;
-  .playing {
-    opacity: 0!important;
-  }
+  opacity: 1;
   pointer-events: none;
-  ${mainPadding};  
-  ${absoluteTopFull};
+  padding-top: ${spacing.micro_pad};
   z-index: 1;
   * {
-    ${textShadow(0, colors.blue)};
-    color: ${colors.white}!important;
+    color: ${colors.black}!important;
   }
 `
 
 const VideoThumb = styled.li`
+  padding: ${spacing.single_pad};
   &:hover {
     .hover-reveal {
       opacity: 1;

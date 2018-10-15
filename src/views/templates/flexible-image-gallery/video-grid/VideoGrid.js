@@ -57,3 +57,7 @@ const VideoLink = styled(Link)`
   ${absoluteTopFull};
   ${flexCenteredAll};
 `
+
+const PlayWrap = styled.div`
+  pointer-events: none;
+`

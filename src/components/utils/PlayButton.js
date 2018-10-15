@@ -12,8 +12,8 @@ export default (props) =>
 
 const PlayButtonWrapper = styled.div`
   ${absoluteCentered};
-  width: 15%;
-  height: 15%;
+  width: 50%;
+  height: 50%;
   padding: 1px;
   margin: auto;
   pointer-events: none;

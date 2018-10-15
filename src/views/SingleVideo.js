@@ -1,9 +1,9 @@
 import React, { Fragment, Component } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { themeA, themes } from './../styles/theme'
-import { Video, PostBasics, pageData, BackClose } from './../components'
+import { Video, PostBasics, pageData, BackClose, VideoCaption } from './../components'
 import { Section } from './../styles/components'
-import { flexCenteredAll, buttonInit } from './../styles/mixins'
+import { flexCenteredAll } from './../styles/mixins'
 import { colors } from './../styles/theme.json'
 
 export default pageData((props) => {
@@ -15,6 +15,7 @@ export default pageData((props) => {
           <BackClose color={themes[props.project.theme].popup_close_color || themeA.popup_close_color}/>
           <VideoWrapper>
             <Video coverUrl={props.project.thumbnail} videoUrl={props.project.video_url} autoplay={true} single={true}/>
+            <VideoCaption content={props.project.short_description}/>
           </VideoWrapper>
         </VideoSection>
       </ThemeProvider>
@@ -29,16 +30,9 @@ const VideoSection = styled(Section)`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: ${colors.black};
+  background-color: ${colors.white};
 `
 
 const VideoWrapper = styled.div`
   width: 75vw;
-`
-const BackButtonStyle = styled.button`
-  ${buttonInit};
-  color: white;
-  position: fixed;
-  top: 1.5rem;
-  right: 1.5rem;
 `
