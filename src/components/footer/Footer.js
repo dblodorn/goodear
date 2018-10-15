@@ -5,7 +5,7 @@ import { Transition } from 'react-spring'
 import { setMenuState } from './../../state/actions'
 import { flexColumn, mainPadding, media, flexRowCenteredVert } from '../../styles/mixins'
 import Menu from './../menus/Menu'
-import { heights, colors, spacing, widths } from './../../styles/theme.json'
+import { heights, colors, spacing, fonts } from './../../styles/theme.json'
 
 const Footer = (props) =>
   <Transition from={{ opacity: 0, transform: `translateY(${heights.footer})` }} enter={{ opacity: 1, transform: `translateY(0})` }} leave={{ opacity: 0, transform: `translateY(${heights.footer})`, pointerEvents: 'none' }}>
@@ -39,6 +39,12 @@ const FooterWrapper =  styled.footer`
   position: relative;
   * {
     color: ${colors.white};
+    font-size: ${fonts.sizes.small};
+    li {
+      &:first-child {
+        margin-right: 1.5rem;
+      }
+    }
   }
   ${media.desktopNav`
     ${flexRowCenteredVert};

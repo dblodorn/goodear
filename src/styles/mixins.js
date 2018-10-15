@@ -127,6 +127,8 @@ const defaultLink = css`
   text-decoration: none;
   color: ${colors.black};
   cursor: pointer;
+  display: block;
+  position: relative;
   span {
     position: relative;
     z-index: 10;
@@ -389,7 +391,7 @@ const grid = css`
   flex-grow: 0;
   flex-shrink: 0;
   li {
-    width: 100%;
+    width: 50%;
     position: relative;
   }
   ${media.desktopNav`

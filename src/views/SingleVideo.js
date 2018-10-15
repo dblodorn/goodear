@@ -3,8 +3,8 @@ import styled, { ThemeProvider } from 'styled-components'
 import { themeA, themes } from './../styles/theme'
 import { Video, PostBasics, pageData, BackClose, VideoCaption } from './../components'
 import { Section } from './../styles/components'
-import { flexCenteredAll } from './../styles/mixins'
-import { colors } from './../styles/theme.json'
+import { flexCenteredAll, media } from './../styles/mixins'
+import { colors, spacing } from './../styles/theme.json'
 
 export default pageData((props) => {
   return (
@@ -34,5 +34,10 @@ const VideoSection = styled(Section)`
 `
 
 const VideoWrapper = styled.div`
-  width: 75vw;
+  width: 100%;
+  padding: ${spacing.double_pad} ${spacing.double_pad} 10rem;
+  ${media.desktopNav`
+    width: 75vw;
+    padding: 0;
+  `}
 `

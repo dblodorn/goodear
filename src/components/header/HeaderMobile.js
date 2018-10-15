@@ -42,7 +42,7 @@ export default connect(
 const HeaderWrapper = styled.header`
   width: 100vw;
   height: ${heights.mobile_header};
-  padding: 0 ${spacing.double_pad} ${spacing.double_pad};
+  padding: 0 ${spacing.double_pad} 8rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -76,16 +76,15 @@ const MobileButton = styled.button`
   ${defaultLink};
   ${buttonInit};
   ${microType};
-  ${shadow};
   ${flexRowCenteredAll};
-  ${borderRadius(`50%`)};
   width: 6rem;
-  height: 6rem;
+  height: 4rem;
   padding-top: .2rem;
   text-transform: uppercase;
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: 0;
+  right: 0;
   z-index: 10000;
-  background-color: ${colors.yellow};
+  background-color: ${colors.green};
+  text-decoration: none!important;
 `

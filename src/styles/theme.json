@@ -23,7 +23,7 @@
     "home_bottom": "20rem"
   },
   "spacing": {
-    "micro_pad": ".5rem",
+    "micro_pad": ".75rem",
     "single_pad": "1rem",
     "double_pad": "2rem",
     "big_pad": "6rem"
@@ -74,7 +74,7 @@
       "medium": "2.5rem",
       "medium_sm": "2.5rem",
       "body": "2.5rem",
-      "body_sm": "2.25rem",
+      "body_sm": "2rem",
       "small": "1.25rem",
       "small_sm": "1.25rem",
       "micro": "1rem",

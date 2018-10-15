@@ -243,8 +243,8 @@ const CloseButton = styled.button`
   width: ${props => props.size};
   height: ${props => props.size};
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 1rem;
+  right: 1rem;
   padding: 0;
   z-index: 11000;
   cursor: pointer;

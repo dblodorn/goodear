@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Transition } from 'react-spring'
-import { flexCenteredAll } from './../../styles/mixins'
+import { flexCenteredAll, media } from './../../styles/mixins'
 import { StyledMarkup, Section } from './../../styles/components'
 import { heights, colors, spacing, widths, fonts } from './../../styles/theme.json'
 
@@ -29,11 +29,14 @@ const IntroSection = styled(Section)`
   position: fixed;
   bottom: 0;
   right: 0;
-  padding-left: calc(${widths.sidebar_desktop} + ${spacing.double_pad});
+  padding: ${spacing.double_pad};
   background-color: ${colors.white};
   border-top: ${colors.border_a};
   z-index: 10;
   * {
     font-family: ${fonts.serif}!important;
   }
+  ${media.desktopNav`
+    padding-left: calc(${widths.sidebar_desktop} + ${spacing.double_pad});
+  `}
 `
