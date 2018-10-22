@@ -35,7 +35,7 @@ function video_cpt() {
     'query_var'          => true,
     'rewrite'            => array( 'slug' => 'videos' ),
     'capability_type'    => 'post',
-    'taxonomies'         => array('capability', 'client', 'industry', 'category'),
+    'taxonomies'         => array('brand', 'agency', 'cover', 'campaign', 'category'),
     'has_archive'        => true,
     'hierarchical'       => false,
     'menu_position'      => null,

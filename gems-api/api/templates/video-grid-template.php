@@ -9,10 +9,9 @@
           'post_id' => $p_data->ID,
           'slug' => $p_data->post_name,
           'title' => get_the_title($p_data),
-          'post_type' => $p_data->post_type,
           'thumbnail' => get_the_post_thumbnail_url($p->ID),
           'video_url' => get_field('video_url', $p->ID, false, false),
-          'video_cover' => get_field('video_cover_image', $p->ID),
+          'taxonomies' => taxonomy_data($post),
         );
       endforeach;
     endif;
