@@ -25,8 +25,8 @@ export default connect(
 const IntroSection = styled(Section)`
   ${flexCenteredAll};
   width: 100%;
-  height: ${heights.home_bottom};
   position: fixed;
+  height: ${heights.home_bottom};
   bottom: 0;
   right: 0;
   padding: ${spacing.double_pad};

@@ -140,7 +140,7 @@ const StyledMarkup = styled.div`
     color: ${props => props.theme.body_copy_color}!important;
     font-family: ${props => props.theme.body_copy_font}!important;
     margin-bottom: ${spacing.single_pad};
-    max-width: ${widths.max_medium};
+    max-width: ${widths.max_large};
     &:last-child {
       margin-bottom: 0;
     }
@@ -222,7 +222,7 @@ const ModalWrapper = styled.div`
   z-index: 12000;
   width: 100vw;
   height: 100vh;
-  background-color: ${props => props.theme.popup_bg_color || colors.black};
+  background-color: rgba(255,255,255,.95);
   padding: calc(${heights.header} / 2) 0;
   ${_.media.desktopNav`
     padding: calc(${heights.header} / 2);
@@ -243,14 +243,16 @@ const CloseButton = styled.button`
   width: ${props => props.size};
   height: ${props => props.size};
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: .75rem;
+  right: .75rem;
   padding: 0;
   z-index: 11000;
   cursor: pointer;
   svg {
+    ${_.absoluteCentered};
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 `
 

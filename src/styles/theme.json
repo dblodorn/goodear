@@ -13,19 +13,19 @@
     "max_large": "124rem",
     "max_medium": "92rem",
     "max_small": "72rem",
-    "sidebar_desktop": "24rem"
+    "sidebar_desktop": "30rem"
   },
   "heights": {
     "header": "6rem",
     "mobile_header": "6rem",
     "footer": "6rem",
     "player_icons": "2.5rem",
-    "home_bottom": "20rem"
+    "home_bottom": "16rem"
   },
   "spacing": {
     "micro_pad": ".75rem",
     "single_pad": "1rem",
-    "double_pad": "2rem",
+    "double_pad": "3rem",
     "big_pad": "6rem"
   },
   "colors": {

@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import propTypes from 'prop-types'
 import { Transition } from 'react-spring'
-import styled, { ThemeProvider } from 'styled-components'
-import { themeA, themes } from './../../styles/theme'
+import styled from 'styled-components'
 import { colors } from './../../styles/theme.json'
 import { ModalWrapper, ModalContentWrapper } from './../../styles/components'
-import { absoluteTopFull, buttonInit } from './../../styles/mixins'
+import { absoluteTopFull } from './../../styles/mixins'
 import Modal from './Modal'
 import Video from './../video/Video'
 import FitImage from './../utils/FitImage'
@@ -34,16 +33,14 @@ class VideoModal extends Component {
         </VideoPopper>
         <Transition from={{ opacity: 0 }} enter={{ opacity: 1 }} leave={{ opacity: 0, pointerEvents: 'none' }}>
           {this.state.modal && (styles => 
-            <ThemeProvider theme={themes[this.props.theme] || themeA}>
-              <Modal>
-                <ModalWrapper style={styles}>
-                  <Close clickFunction={() => this._Popup()} color={themes[this.props.theme].popup_close_color || themeA.popup_close_color}/>
-                  <ModalContentWrapper>
-                    <Video coverUrl={this.props.thumbnail} videoUrl={this.props.video_url} autoplay={true} single={true}/>
-                  </ModalContentWrapper>
-                </ModalWrapper>
-              </Modal>
-            </ThemeProvider>
+            <Modal>
+              <ModalWrapper style={styles}>
+                <Close clickFunction={() => this._Popup()} color={colors.black}/>
+                <ModalContentWrapper>
+                  <Video coverUrl={this.props.thumbnail} videoUrl={this.props.video_url} autoplay={true} single={true}/>
+                </ModalContentWrapper>
+              </ModalWrapper>
+            </Modal>
           )}
         </Transition>
       </Fragment>
