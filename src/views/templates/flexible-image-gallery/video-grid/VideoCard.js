@@ -3,13 +3,16 @@ import { connect } from 'react-redux'
 import styled, { ThemeProvider } from 'styled-components'
 import { themeA, themes } from './../../../../styles/theme'
 import LazyLoad from 'react-lazyload'
-import { ProportionWrapper, H3, SmallP } from './../../../../styles/components'
-import { absoluteTopFull, opacityTransition, mainPadding, textShadow  } from './../../../../styles/mixins'
+import { ProportionWrapper, SmallP } from './../../../../styles/components'
+import { absoluteTopFull, opacityTransition } from './../../../../styles/mixins'
 import { colors, spacing } from './../../../../styles/theme.json'
 
 const VideoCaption = (props) =>
   <VideoCaptionWrapper>
-    <SmallP>{props.item.title}</SmallP>
+    <SmallP>
+      {props.item.title}<br/>
+      {(props.item.taxonomies.brand) && props.item.taxonomies.brand[0]}
+    </SmallP>
   </VideoCaptionWrapper>
 
 const VideoCard = (props) =>

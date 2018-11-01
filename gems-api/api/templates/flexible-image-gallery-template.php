@@ -179,6 +179,13 @@
             'thumbnail_description' =>  return_thumb_meta($p),
             'video_url' => get_field('video_url', $p->ID, false, false),
             'video_cover' => get_field('video_cover_image', $p->ID),
+            'taxonomies' => array (
+              'category' => return_taxonomy_array($p_data, 'category'),
+              'brand' => return_taxonomy_array($p_data, 'brand'),
+              'cover' => return_taxonomy_array($p_data, 'cover'),
+              'campaign' => return_taxonomy_array($p_data, 'campaign'),
+              'agency' => return_taxonomy_array($p_data, 'agency'),
+            )
           );
         endforeach;
       endif;
