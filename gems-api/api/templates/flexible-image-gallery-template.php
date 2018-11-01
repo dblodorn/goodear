@@ -174,6 +174,7 @@
             'post_id' => $p_data->ID,
             'slug' => $p_data->post_name,
             'title' => get_the_title($p_data),
+            'short_description' => get_field('short_description', $p_data->ID),
             'post_type' => $p_data->post_type,
             'thumbnail' => return_thumb_url($p_data),
             'thumbnail_description' =>  return_thumb_meta($p),
