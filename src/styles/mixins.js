@@ -402,10 +402,15 @@ const grid = css`
       width: calc(100% / 3);
     }
     &.four_col > li {
-      width: calc(100% / 6);
+      width: calc(100% / 5);
     }
     &.two_col > li {
       width: 50%;
+    }
+  `}
+  ${media.big`
+    &.four_col > li {
+      width: calc(100% / 6);
     }
   `}
 `

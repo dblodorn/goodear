@@ -49,7 +49,6 @@ export default (props) => {
 }
 
 const VideoGridSection = styled(Section)`
-  background-color: ${colors.white};
   ${halfFixed};
 `
 

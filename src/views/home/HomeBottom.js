@@ -30,11 +30,11 @@ const IntroSection = styled(Section)`
   bottom: 0;
   right: 0;
   padding: ${spacing.double_pad};
-  background-color: ${colors.white};
-  border-top: ${colors.border_a};
+  background-color: #4A90E2;
   z-index: 10;
   * {
     font-family: ${fonts.serif}!important;
+    color: ${colors.white}!important;
   }
   ${media.desktopNav`
     padding-left: calc(${widths.sidebar_desktop} + ${spacing.double_pad});
