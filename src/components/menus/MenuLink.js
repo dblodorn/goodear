@@ -4,7 +4,7 @@ import { themeA, themes } from './../../styles/theme'
 import { connect } from 'react-redux'
 import { StyledLink, NavItem } from './../../styles/components'
 import { setMenuState } from './../../state/actions'
-import { mediumType } from './../../styles/mixins'
+import { bigType } from './../../styles/mixins'
 
 const returnLink = (slug, subroute) => {
   if (subroute) {
@@ -37,5 +37,5 @@ export default connect(
 
 // STYLES
 const NavLink = styled(StyledLink)`
-  ${mediumType}
+  ${bigType};
 `

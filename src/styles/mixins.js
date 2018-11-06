@@ -77,6 +77,8 @@ const bigType = css`
   ${sansFont};
   font-size: ${fonts.sizes.giant_sm};
   line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   ${media.medium`
     font-size: ${fonts.sizes.giant};
   `}
@@ -87,7 +89,7 @@ const mediumType = css`
   font-size: ${fonts.sizes.medium_sm};
   line-height: 1;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   ${media.medium`
     font-size: ${fonts.sizes.medium};
   `}
@@ -495,6 +497,18 @@ const halfFixed = css`
   }
 `
 
+const rotoHalf = css`
+  transform: rotate(90deg) translateX(0) translateY(-4rem);
+  transform-origin: 0 0;
+  height: 4rem;
+  width: 50vh;
+  top: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 0 ${spacing.single_pad};
+`
+
 export {
   media,
   maxWidth,
@@ -535,5 +549,6 @@ export {
   fixedHero,
   halfFixed,
   fixedWindow,
-  fancyScroll
+  fancyScroll,
+  rotoHalf
 }

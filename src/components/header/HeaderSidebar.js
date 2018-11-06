@@ -13,10 +13,10 @@ export default (props) =>
     {props.header_state && (styles => 
       <Sidebar style={styles}>
         <HeaderTop>
-          <Logo theme={'a'} title={meta_defaults.title} orientation={props.orientation}/>
           <Menu location={0} orientation={props.orientation} navLocation={'header'}/>
         </HeaderTop>
         <SidebarNav/>
+        <Logo theme={'a'} title={meta_defaults.title} orientation={props.orientation}/>
       </Sidebar>
     )}
   </Transition>

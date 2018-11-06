@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import MenuLink from './MenuLink'
-import { flexRow, flexColumn, flexCenteredAll, media, defaultLink, mediumType } from './../../styles/mixins'
-import { NavItem } from './../../styles/components'
+import { flexRow, flexColumn, flexCenteredAll, media } from './../../styles/mixins'
+import { NavItem, ExternalLink } from './../../styles/components'
 import { spacing } from './../../styles/theme.json'
 
 const Menu = (props) => {
@@ -61,12 +61,12 @@ const MenuWrapper = styled.menu`
 const NavList = styled.ul`
   ${flexColumn};
   position: relative;
-  text-align: center;
+  text-align: right;
   &.sidebar {
     ${media.desktopNav`
       ${flexColumn};
       margin-right: auto;
-      text-align: center;
+      text-align: right;
       width: 100%;
       &.footer {
         ${flexRow};
@@ -81,9 +81,4 @@ const NavList = styled.ul`
       transform: translateY(4px);
     `}
   }
-`
-
-const ExternalLink = styled.a`
-  ${defaultLink};
-  ${mediumType};
 `

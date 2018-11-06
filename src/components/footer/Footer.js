@@ -25,17 +25,22 @@ export default connect(
 const FooterWrapper =  styled.footer`
   ${flexColumn};
   width: 100%;
+  height: 50vh;
   z-index: 100;
-  position: relative;
-  transform: rotate(90deg);
-  * {
-    color: ${colors.white};
-    font-size: ${fonts.sizes.small};
-    li {
-      &:first-child {
-        margin-right: 1.5rem;
-      }
-    }
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  menu {
+    transform: rotate(90deg) translateX(0) translateY(-4rem);
+    transform-origin: 0 0;
+    height: 4rem;
+    width: 50vh;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 ${spacing.single_pad};
+   
   }
   ${media.desktopNav`
     ${flexRowCenteredVert};

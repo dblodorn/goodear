@@ -158,13 +158,18 @@ const StyledLink = styled(Link)`
   color: ${props => props.theme.display_font_color}!important;
 `
 
+const ExternalLink = styled.a`
+  ${_.defaultLink};
+  ${_.mediumType};
+`
+
 const NavItem = styled.li`
-  padding-bottom: ${spacing.double_pad};
+  padding-right: ${spacing.single_pad};
   &:last-child {
     padding-bottom: 0;
   }
   ${_.media.medium`
-    padding-right: ${spacing.double_pad};
+    padding-right: ${spacing.single_pad};
     padding-bottom: 0;
     &:last-child {
       padding-right: 0;
@@ -177,7 +182,7 @@ const NavItem = styled.li`
   }
   &.sidebar {
     ${_.media.desktopNav`
-      padding-bottom: ${spacing.double_pad};
+      padding-bottom: ${spacing.single_pad};
       padding-right: 0;
       &.footer {
         padding-bottom: 0;
@@ -280,5 +285,6 @@ export {
   ProportionWrapper,
   ModalWrapper,
   ModalContentWrapper,
-  CloseButton
+  CloseButton,
+  ExternalLink
 }
