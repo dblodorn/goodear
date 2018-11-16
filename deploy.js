@@ -1,13 +1,16 @@
 require('dotenv').config();
-let Client = require('ssh2-sftp-client');
-let sftp = new Client();
+var fs = require('fs');
+var Client = require('ssh2-sftp-client');
 
-const REMOTE_DIRECTORY = '/var/www/html/wp_content/themes/gems-api';
+var sftp = new Client();
+
+const REMOTE_DIRECTORY = '/var/www/html/wp-content/themes/gems-api';
+const PUB_KEY = fs.readFileSync('/Users/dmbk/.ssh/id_rsa')
 
 sftp.connect({
   host: process.env.SFTP_HOST,
   port: '22',
-  privateKey: require('fs').readFileSync('id_rsa'),
+  privateKey: PUB_KEY,
   username: process.env.SFTP_USER,
   passphrase: process.env.SFTP_PASS
 }).then(() => {
