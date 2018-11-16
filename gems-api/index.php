@@ -1,3 +1,3 @@
 <?php
-  //* SILENCE IS GOLDEN
+  //* SILENCE IS GOLDENS
 ?>

@@ -8,4 +8,4 @@
 <body>
   <main>
     <h1><?php bloginfo('name') ?> | API</h1>
-  </main>
+  </main> 
