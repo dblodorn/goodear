@@ -193,12 +193,13 @@ const NavItem = styled.li`
 `
 
 const SocialLink = styled.a`
-  display: block;
-  width: 3rem;
-  height: 3rem;
+  ${_.flexCenteredAll};
+  width: 4rem;
+  height: 4rem;
   svg {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
   }
 `
 

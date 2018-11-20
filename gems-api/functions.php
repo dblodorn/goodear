@@ -47,18 +47,16 @@ add_filter( 'template_include', 'phpless_template');
 /* ACF Add Options Page
 /*-----------------------------------------------------------------------------------*/
 
-/*
 if(function_exists('acf_add_options_page')) {
   acf_add_options_page(array(
-    'page_title' 	=> 'Site Styling',
-    'menu_title' 	=> 'Site Styling',
-    'menu_slug' 	=> 'site-content',
+    'page_title' 	=> 'General Content',
+    'menu_title' 	=> 'General Content',
+    'menu_slug' 	=> 'general-content',
     'capability' 	=> 'edit_posts', 
     'icon_url' => 'dashicons-welcome-view-site',
     'position' => 30
   ));
 }
-*/
 
 function get_current_template() {
   global $template;

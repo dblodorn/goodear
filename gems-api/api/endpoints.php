@@ -2,6 +2,7 @@
   function main_data(){
     $data = array();
     $data['site_basics'] = site_basics_data();
+    $data['options'] = options_data();
     $data['menus'] = menu_data();
     $data['posts'] = array(
       'pages' => page_data(),

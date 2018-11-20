@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import MenuLink from './MenuLink'
 import { flexColumn, defaultLink, mediumType } from './../../styles/mixins'
-import { NavItem } from './../../styles/components'
 import { spacing, colors } from './../../styles/theme.json'
 
 const HeaderMenu = (props) => {
