@@ -63,6 +63,7 @@
   "fonts": {
     "sans": "Circular Book, system-ui, sans-serif",
     "serif": "Austin Roman, Times New Roman, serif",
+    "mono": "'Nitti Light', Courier, monospace",
     "display_font_a": "Circular Medium, system-ui, sans-serif",
     "body_copy_font_a": "Circular Book, Monaco, monospace",
     "nav_font_a": "Circular Book, Monaco, monospace",

@@ -17,3 +17,8 @@
   font-family: 'Austin Italic';
   src: url('/assets/fonts/Austin-Italic.otf');
 }
+
+@font-face {
+  font-family: 'Nitti Light';
+  src: url('/assets/fonts/nitti-light.woff');
+}

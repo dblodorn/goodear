@@ -1,18 +1,15 @@
 import React,  { Fragment } from 'react'
 import { connect } from 'react-redux'
-import styled, { ThemeProvider } from 'styled-components'
-import { themeA, themes } from './../../../../styles/theme'
+import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
-import { ProportionWrapper, SmallP } from './../../../../styles/components'
-import { absoluteTopFull, opacityTransition } from './../../../../styles/mixins'
+import { ProportionWrapper } from './../../../../styles/components'
+import { absoluteTopFull, opacityTransition, monoP, microType, flexColumn } from './../../../../styles/mixins'
 import { colors, spacing } from './../../../../styles/theme.json'
 
 const VideoCaption = (props) =>
   <VideoCaptionWrapper>
-    <SmallP>
-      {props.item.title}<br/>
-      {(props.item.taxonomies.brand) && props.item.taxonomies.brand[0]}
-    </SmallP>
+    <h4 className={'title'} dangerouslySetInnerHTML={{ __html: props.item.title }}/>
+    <h5 className={'brand'} dangerouslySetInnerHTML={{ __html: (props.item.taxonomies.brand) && props.item.taxonomies.brand[0] }}/>
   </VideoCaptionWrapper>
 
 const VideoCard = (props) =>
@@ -50,12 +47,23 @@ export default connect(
 // STYLES
 const VideoCaptionWrapper = styled.div`
   ${opacityTransition};
+  ${flexColumn};
   opacity: 1;
   pointer-events: none;
   padding-top: ${spacing.micro_pad};
   z-index: 1;
   * {
     color: ${colors.black}!important;
+  }
+  h4 {
+    ${microType};
+    text-transform: uppercase;
+    padding-bottom: ${spacing.micro_pad};
+  }
+  h5 {
+    ${monoP};
+    align-self: flex-end;
+    line-height: .9;
   }
 `
 

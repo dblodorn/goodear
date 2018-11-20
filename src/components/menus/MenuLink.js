@@ -1,10 +1,10 @@
 import React from 'react'
-import styled, { ThemeProvider } from 'styled-components'
-import { themeA, themes } from './../../styles/theme'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { StyledLink, NavItem } from './../../styles/components'
+import { StyledLink } from './../../styles/components'
+import { spacing, colors } from './../../styles/theme.json'
 import { setMenuState } from './../../state/actions'
-import { bigType } from './../../styles/mixins'
+import { mediumType } from './../../styles/mixins'
 
 const returnLink = (slug, subroute) => {
   if (subroute) {
@@ -16,13 +16,9 @@ const returnLink = (slug, subroute) => {
 
 const Menulink = (props) => {
   return (
-    <ThemeProvider theme={themes[props.theme] || themeA}>
-      <NavItem className={(`/${props.path}` == `${props.route}`) ? `active ${props.classes}` : props.classes}>
-        <NavLink to={returnLink(props.path, props.sub_route)} onClick={() => props.menu_toggle(false)}>
-          <span dangerouslySetInnerHTML={{__html: props.page }}/>
-        </NavLink>
-      </NavItem>
-    </ThemeProvider>
+    <NavLink to={returnLink(props.path, props.sub_route)} onClick={() => props.menu_toggle(false)} color={colors.yellow}>
+      <span dangerouslySetInnerHTML={{__html: props.page }}/>
+    </NavLink>
   )
 }
 
@@ -37,5 +33,6 @@ export default connect(
 
 // STYLES
 const NavLink = styled(StyledLink)`
-  ${bigType};
+  ${mediumType};
+  text-transform: lowercase;
 `

@@ -73,6 +73,11 @@ const sansFont = css`
   font-weight: 400;
 `
 
+const monoFont = css`
+  font-family: ${fonts.mono};
+  font-weight: 400;
+`
+
 const bigType = css`
   ${sansFont};
   font-size: ${fonts.sizes.giant_sm};
@@ -88,7 +93,6 @@ const mediumType = css`
   ${sansFont};  
   font-size: ${fonts.sizes.medium_sm};
   line-height: 1;
-  text-transform: uppercase;
   letter-spacing: 2px;
   ${media.medium`
     font-size: ${fonts.sizes.medium};
@@ -117,8 +121,18 @@ const microType = css`
   ${sansFont};
   font-size: ${fonts.sizes.micro_sm};
   line-height: 1.25;
+  letter-spacing: 1px;
   ${media.medium`
     font-size: ${fonts.sizes.micro};
+  `}
+`
+
+const monoP = css`
+  ${monoFont};
+  font-size: ${fonts.sizes.small_sm};
+  line-height: 1.125;
+  ${media.medium`
+    font-size: ${fonts.sizes.small};
   `}
 `
 
@@ -136,11 +150,8 @@ const defaultLink = css`
     z-index: 10;
     display: block;
   }
-  &.active {
-    text-decoration: underline;
-  }
+  &.active {}
   &:hover {
-    text-decoration: underline;
     color: ${colors.hover_color};
   }
 `
@@ -404,7 +415,7 @@ const grid = css`
       width: calc(100% / 3);
     }
     &.four_col > li {
-      width: calc(100% / 5);
+      width: calc(100% / 4);
     }
     &.two_col > li {
       width: 50%;
@@ -412,7 +423,7 @@ const grid = css`
   `}
   ${media.big`
     &.four_col > li {
-      width: calc(100% / 6);
+      width: calc(100% / 5);
     }
   `}
 `
@@ -521,6 +532,7 @@ export {
   bodyType,
   smallType,
   microType,
+  monoP,
   defaultLink,
   transitionAll,
   buttonInit,

@@ -4,7 +4,7 @@ import { Transition } from 'react-spring'
 import { flexColumn } from '../../styles/mixins'
 import { colors, widths, spacing } from './../../styles/theme.json'
 import { meta_defaults } from './../../config.json'
-import Menu from '../menus/Menu'
+import HeaderMenu from '../menus/HeaderMenu'
 import Logo from './Logo'
 import SidebarNav from './SidbarNav'
 
@@ -13,10 +13,10 @@ export default (props) =>
     {props.header_state && (styles => 
       <Sidebar style={styles}>
         <HeaderTop>
-          <Menu location={0} navLocation={'header'}/>
+          <Logo theme={'a'} title={meta_defaults.title} />
+          <HeaderMenu location={0}/>
         </HeaderTop>
         <SidebarNav/>
-        <Logo theme={'a'} title={meta_defaults.title}/>
       </Sidebar>
     )}
   </Transition>
@@ -37,9 +37,6 @@ const Sidebar = styled.div`
   padding-top: ${spacing.single_pad};
   padding-bottom: ${spacing.single_pad};
   padding-right: ${spacing.single_pad};
-  * {
-    color: ${colors.header_type_color}!important;
-  }
 `
 
 const HeaderTop = styled.header`

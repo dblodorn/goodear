@@ -155,12 +155,13 @@ const StyledMarkup = styled.div`
 // UI
 const StyledLink = styled(Link)`
   ${_.defaultLink};
-  color: ${props => props.theme.display_font_color}!important;
+  color: ${props => props.color}!important;
 `
 
 const ExternalLink = styled.a`
   ${_.defaultLink};
   ${_.mediumType};
+  color: ${props => props.color}!important;
 `
 
 const NavItem = styled.li`
@@ -189,7 +190,6 @@ const NavItem = styled.li`
       }
     `}
   }
-  &.top-horizontal {}
 `
 
 const SocialLink = styled.a`
