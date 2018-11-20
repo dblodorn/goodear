@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import Color from 'color'
 import { flexColumn, rotoHalf } from '../../styles/mixins'
 import { ExternalLink } from '../../styles/components'
-import { widths, fonts, spacing, colors } from './../../styles/theme.json'
-import Footer from './../footer/Footer'
+import { widths, fonts, colors } from './../../styles/theme.json'
 
-export default (props) =>
-  <SidebarNavWrapper>
+export default () =>
+  <SidebarNavWrapper bgColor={Color(colors.header_bg_color).darken(0.15).hex()}>
     <Top>
       <Locations><span>LOS ANGELES</span><span>NEW YORK</span></Locations>
     </Top>
@@ -25,7 +25,7 @@ const SidebarNavWrapper = styled.div`
   left: 0;
   width: ${widths.sidebar_nav};
   height: 100vh;
-  background-color: #23C17C;
+  background-color: ${props => props.bgColor};
   * {
     color: ${colors.white};
     font-size: ${fonts.sizes.small};

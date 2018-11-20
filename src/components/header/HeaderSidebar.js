@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Transition } from 'react-spring'
 import { flexColumn } from '../../styles/mixins'
-import { colors, widths } from './../../styles/theme.json'
+import { colors, widths, spacing } from './../../styles/theme.json'
 import { meta_defaults } from './../../config.json'
 import Menu from '../menus/Menu'
 import Logo from './Logo'
@@ -13,10 +13,10 @@ export default (props) =>
     {props.header_state && (styles => 
       <Sidebar style={styles}>
         <HeaderTop>
-          <Menu location={0} orientation={props.orientation} navLocation={'header'}/>
+          <Menu location={0} navLocation={'header'}/>
         </HeaderTop>
         <SidebarNav/>
-        <Logo theme={'a'} title={meta_defaults.title} orientation={props.orientation}/>
+        <Logo theme={'a'} title={meta_defaults.title}/>
       </Sidebar>
     )}
   </Transition>
@@ -33,7 +33,10 @@ const Sidebar = styled.div`
   left: 0;
   z-index: 9000;
   background-color: ${colors.header_bg_color};
-  padding-left: ${widths.sidebar_nav};
+  padding-left: calc(${widths.sidebar_nav} + ${spacing.single_pad});
+  padding-top: ${spacing.single_pad};
+  padding-bottom: ${spacing.single_pad};
+  padding-right: ${spacing.single_pad};
   * {
     color: ${colors.header_type_color}!important;
   }

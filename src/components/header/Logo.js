@@ -1,8 +1,8 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { themeA, themes } from './../../styles/theme'
-import { bodyType } from './../../styles/mixins'
-import { spacing, shared } from './../../styles/theme.json'
+import { flexCenteredAll } from './../../styles/mixins'
+import { spacing, colors } from './../../styles/theme.json'
 import { StyledLink } from './../../styles/components'
 
 export default (props) =>
@@ -28,22 +28,17 @@ export default (props) =>
   </ThemeProvider>
 
 const Logo = styled(StyledLink)`
-  ${bodyType};
+  ${flexCenteredAll};
   object-fit: contain;
-  display: block;
   padding: ${spacing.single_pad} 0;
-  width: 16rem;
-  height: 100%;
-  &.sidebar {
-    height: auto;
-    width: 100%;
-    padding: 1.5rem;
-  }
+  width: 100%;
+  padding: 1.5rem;
+  border: 1px solid ${colors.white};
   svg {
     width: 100%;
     height: 100%;
     #color {
-      fill: ${props => props.theme.logo_color}!important;
+      fill: ${colors.white};
     }
   }
 `

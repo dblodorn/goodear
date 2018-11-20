@@ -17,27 +17,27 @@ const VideoCaption = (props) =>
 
 const VideoCard = (props) =>
   <VideoThumb className={(!props.playing) && 'video-playing'} className={props.overflow}>
-    <ProportionWrapper
-      Desktop={props.proportion || 100}
-      Mobile={props.proportion || 100}
-      Max={props.proportion || 100}
-    >
-      {(!props.overflow)
-        ? <LazyLoad height='100%'>
-            <VideoWrapper>
-              {props.children}
-            </VideoWrapper>
-          </LazyLoad>
-        : <Fragment>
-            <VideoWrapper>
-              {props.children}
-            </VideoWrapper>
-          </Fragment>
-      }
-    </ProportionWrapper>
-    <ThemeProvider theme={themes[props.item.theme] || themeA}>
+    <ThumbInner>
+      <ProportionWrapper
+        Desktop={props.proportion || 100}
+        Mobile={props.proportion || 100}
+        Max={props.proportion || 100}
+      >
+        {(!props.overflow)
+          ? <LazyLoad height='100%'>
+              <VideoWrapper>
+                {props.children}
+              </VideoWrapper>
+            </LazyLoad>
+          : <Fragment>
+              <VideoWrapper>
+                {props.children}
+              </VideoWrapper>
+            </Fragment>
+        }
+      </ProportionWrapper>
       <VideoCaption item={props.item}/>
-    </ThemeProvider>
+    </ThumbInner>
   </VideoThumb>
 
 export default connect(
@@ -60,12 +60,17 @@ const VideoCaptionWrapper = styled.div`
 `
 
 const VideoThumb = styled.li`
-  padding: ${spacing.single_pad};
+  padding: ${spacing.micro_pad};
   &:hover {
     .hover-reveal {
       opacity: 1;
     }
   }
+`
+
+const ThumbInner = styled.div`
+  padding: ${spacing.single_pad};
+  background-color: ${colors.yellow};
 `
 
 const VideoWrapper = styled.div`

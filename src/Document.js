@@ -43,12 +43,6 @@ const Main = styled.main`
       padding-bottom: 0;
     `}
   }
-  &.top-horizontal {
-    ${media.desktopNav`
-      padding-top: ${heights.header};
-      padding-bottom: ${heights.footer};
-    `}
-  }
 `
 
 // NORMALIZE CSS
@@ -79,7 +73,7 @@ injectGlobal`
     font-weight: 300;
     font-style: normal;
     text-decoration: none;
-    background-color: #FAED8F;
+    background-color: #CFCDC3;
   }
   ::-webkit-input-placeholder,
   ::-moz-placeholder {
