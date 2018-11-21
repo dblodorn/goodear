@@ -5,6 +5,8 @@ const config = require('./../src/config.json');
 
 console.log(getDirname);
 
+const file = '/dist/data.json'
+
 const fetchData = () => {
   return new Promise((resolve, reject) => {
     fetch(config.wp_endpoint, {
@@ -17,13 +19,13 @@ const fetchData = () => {
 
 const dataHandler = (payload) => {
   // console.log(payload)
-  fs.writeFile(`${getDirname}/data.json`, JSON.stringify(payload), (err) => {
-    if (err) {
-        console.error(err);
-        return;
-    };
-    console.log("File has been created");
-  });
+  fs.writeJson('./dist/data.json', payload)
+    .then(() => {
+      console.log('success!')
+    })
+    .catch(err => {
+      console.error(err)
+    })
 }
 
 fetchData()

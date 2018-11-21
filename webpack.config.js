@@ -17,7 +17,6 @@ const cleanOptions = {
 }
 
 module.exports = (env) => {
-  console.log(env);
   return {
     module: {
       rules: [
