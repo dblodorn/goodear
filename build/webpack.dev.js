@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const common = require('./webpack.common.js');
 const config = require('./../src/config.json');
 
@@ -11,6 +12,7 @@ module.exports = merge(common, {
     historyApiFallback: true
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new Dotenv({
       path: './.dev.env'
     }),

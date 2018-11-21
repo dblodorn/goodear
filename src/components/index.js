@@ -24,7 +24,7 @@ import VideoModal from './modals/VideoModal'
 
 // Plugin Compnents - most have external dependencies
 //import MailScrape from './plugins/MailScrape'
-import Carousel from './plugins/Carousel'
+//import Carousel from './plugins/Carousel'
 import Video from './video/Video'
 
 export {
@@ -46,5 +46,5 @@ export {
   Head,
   VideoCaption,
   // MailScrape,
-  Carousel
+  // Carousel
 }

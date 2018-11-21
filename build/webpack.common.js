@@ -18,6 +18,6 @@ module.exports = {
     extensions: ['*', '.js']
   },
   output: {
-    filename: '[name].js'
-  }
+    filename: '[name].[hash].js'
+  },
 }

@@ -3,7 +3,6 @@ import styled, { ThemeProvider } from 'styled-components'
 import { themeA, themes } from './../../../styles/theme'
 import { Section, H2, StyledMarkup, Article } from './../../../styles/components'
 import { PopupGrid } from './../../../components'
-import SlideShow from './Slideshow'
 import VideoEmbed from './VideoEmbed'
 import VideoGrid from './video-grid/VideoGrid'
 import { spacing } from './../../../styles/theme.json'
@@ -14,9 +13,9 @@ export default (props) => {
       {(props.data.content.layout) && props.data.content.layout.map((item, i) =>
         <LayoutSection className={(item.is_hero) && `hero ${props.style}`} key={`${i}-${item.module}`}>
           { (item.module === 'simple_slideshow')
-            ? <SlideShow data={item} style={props.style}/> :
+            ? null :
             (item.module === 'slideshow')
-            ? <SlideShow data={item} style={props.style}/> :
+            ? null :
             (item.module === 'image_grid_popup')
             ? <PopupGridWrapper>
                 <PopupGrid
