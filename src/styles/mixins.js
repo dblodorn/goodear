@@ -137,6 +137,13 @@ const monoP = css`
   `}
 `
 
+const linkInit = css`
+  text-decoration: none;  
+  &:hover {
+    text-decoration: none;
+  }
+`
+
 const defaultLink = css`
   ${sansFont};
   ${bodyType};
@@ -518,6 +525,7 @@ const rotoHalf = css`
   position: absolute;
   display: flex;
   align-items: center;
+  flex-direction: row;
   padding: 0 ${spacing.single_pad};
 `
 
@@ -563,5 +571,6 @@ export {
   halfFixed,
   fixedWindow,
   fancyScroll,
-  rotoHalf
+  rotoHalf,
+  linkInit
 }

@@ -35,7 +35,7 @@ export default (props) => {
             (item.module === 'single_video_photo')
             ? <VideoEmbed data={item} theme={props.data.theme} style={props.style}/> :
             (item.module === 'video_grid')
-            ? <VideoGrid data={item} theme={props.data.theme} style={props.style}/> :
+            ? <VideoGrid videos={item.video_collection} data={item} theme={props.data.theme} style={props.style}/> :
             (item.module === 'details_popup')
             ? <H2>{item.module}</H2>
             : null

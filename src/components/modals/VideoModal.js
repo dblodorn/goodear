@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import propTypes from 'prop-types'
 import { Transition } from 'react-spring'
-import styled, { ThemeProvider } from 'styled-components'
-import { themeA, themes } from './../../styles/theme'
+import styled from 'styled-components'
 import { colors, spacing } from './../../styles/theme.json'
 import { ModalWrapper, ModalContentWrapper, Section } from './../../styles/components'
 import { absoluteTopFull, flexCenteredAll, media } from './../../styles/mixins'
@@ -38,15 +37,13 @@ class VideoModal extends Component {
             <Modal>
               <ModalWrapper style={styles}>
                 <ModalContentWrapper>
-                  <ThemeProvider theme={themes[this.props.theme] || themeA}>
-                    <VideoSection>
-                      <Close clickFunction={() => this._Popup()} color={themes[this.props.theme].popup_close_color || themeA.popup_close_color} />
-                      <VideoWrapper>
-                        <Video coverUrl={this.props.thumbnail} videoUrl={this.props.video_url} autoplay={true} single={true} />
-                        <VideoCaption content={this.props.short_description}/>
-                      </VideoWrapper>
-                    </VideoSection>
-                  </ThemeProvider>
+                  <VideoSection>
+                    <Close clickFunction={() => this._Popup()} color={themes[this.props.theme].popup_close_color || themeA.popup_close_color} />
+                    <VideoWrapper>
+                      <Video coverUrl={this.props.thumbnail} videoUrl={this.props.video_url} autoplay={true} single={true} />
+                      <VideoCaption content={this.props.short_description}/>
+                    </VideoWrapper>
+                  </VideoSection>
                 </ModalContentWrapper>
               </ModalWrapper>
             </Modal>

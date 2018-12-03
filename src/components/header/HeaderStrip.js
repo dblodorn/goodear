@@ -1,18 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import { flexColumn, rotoHalf } from '../../styles/mixins'
+import { flexColumn, rotoHalf, buttonInit, linkInit } from '../../styles/mixins'
 import { ExternalLink } from '../../styles/components'
-import { widths, fonts, colors } from './../../styles/theme.json'
+import { widths, fonts, colors, spacing } from './../../styles/theme.json'
 
-export default () =>
+export default props =>
   <SidebarNavWrapper bgColor={colors.dk_grey}>
     <Top>
-      <Locations></Locations>
+      <RotoTop>
+        {props.children}
+      </RotoTop>
     </Top>
     <Bottom>
-      <BottomInner>
+      <RotoBottom>
         <ExternalLink href={`mailto:contact@goodear.tv`} target='_blank'><span>CONTACT@GOODEAR.TV</span></ExternalLink>
-      </BottomInner>
+      </RotoBottom>
     </Bottom>
   </SidebarNavWrapper>
 
@@ -25,14 +27,26 @@ const SidebarNavWrapper = styled.div`
   width: ${widths.sidebar_nav};
   height: 100vh;
   background-color: ${props => props.bgColor};
-  * {
+  z-index: 10000;
+  a {
+    ${linkInit}
+    margin-right: ${spacing.single_pad};
+    &:last-child {
+      margin-right: 0;
+    }
+    &.active {
+      span {
+        color: ${colors.pink};
+      }
+    }
+  }
+  span {
+    ${buttonInit}
     color: ${colors.white};
     font-size: ${fonts.sizes.small};
     letter-spacing: 2px;
     text-transform: uppercase;
-    ul {
-      flex-direction: row;
-    }
+    text-decoration: none;
   }
 `
 
@@ -42,17 +56,6 @@ const Top = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  span {
-    display: inline-flex;
-    padding-right: 1rem;
-    margin-right: 1rem;
-    border-right: 1px solid ${colors.white};
-    &:last-child {
-      margin: 0;
-      padding: 0;
-      border-right: 0;
-    }
-  }
 `
 
 const Bottom = styled.div`
@@ -63,12 +66,12 @@ const Bottom = styled.div`
   left: 0;
 `
 
-const Locations = styled.div`
+const RotoTop = styled.div`
   ${rotoHalf};
   justify-content: flex-start;
 `
 
-const BottomInner = styled.div`
+const RotoBottom = styled.div`
   ${rotoHalf};
   justify-content: flex-end;
 `

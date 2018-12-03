@@ -6,6 +6,7 @@ import pageData from './HOC/pageData'
 import Header from './header/Header'
 import Footer from './footer/Footer'
 import PostBasics from './PostBasics'
+import Logo from './Logo'
 
 // Utility Components
 import FitImage from './utils/FitImage'
@@ -45,6 +46,7 @@ export {
   BackClose,
   Head,
   VideoCaption,
+  Logo,
   // MailScrape,
   // Carousel
 }

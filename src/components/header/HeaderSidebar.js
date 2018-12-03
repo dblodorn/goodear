@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
@@ -7,33 +7,68 @@ import { flexColumn, monoP, media, defaultLink, sansFont } from '../../styles/mi
 import { colors, widths, spacing, fonts } from './../../styles/theme.json'
 import { meta_defaults } from './../../config.json'
 import HeaderMenu from '../menus/HeaderMenu'
-import Logo from './Logo'
-import SidebarNav from './SidbarNav'
+import Logo from './../Logo'
+import HeaderStrip from './HeaderStrip'
 import Socials from './../social/Socials'
 
+const HEADER_MENU = [
+  {
+    title: 'home',
+    slug: ''
+  },
+  {
+    title: 'reel',
+    slug: 'reel'
+  },
+  {
+    title: 'about',
+    slug: 'about'
+  }
+]
+
 const HeaderSidebar = (props) =>
-  <Transition from={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})` }} enter={{ opacity: 1, transform: `translateY(0})` }} leave={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})`, pointerEvents: 'none' }}>
-    {props.header_state && (styles => 
-      <Sidebar style={styles}>
-        <HeaderTop>
-          <Logo theme={'a'} title={meta_defaults.title} />
-          <HeaderMenu location={0}/>
-        </HeaderTop>
-        <HeaderBottom>
-          <div>
-            {(props.api_data) && <Manifesto dangerouslySetInnerHTML={{ __html: props.api_data.options.manifesto }}/>}
-            <TestimonialsLink to={`/kind-words`} ><span>People Love Us</span></TestimonialsLink>
-          </div>
-          <Socials/>
-        </HeaderBottom>
-        <SidebarNav/>
-      </Sidebar>
-    )}
-  </Transition>
+  <Fragment>
+    <Transition from={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})` }} enter={{ opacity: 1, transform: `translateY(0})` }} leave={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})`, pointerEvents: 'none' }}>
+      {(props.header_state && (props.route === '/') ) && (styles => 
+        <Sidebar style={styles}>
+          <HeaderTop>
+            <LogoWrapper>
+              <Logo/>
+            </LogoWrapper>
+            <HeaderMenu location={0}/>
+          </HeaderTop>
+          <HeaderBottom>
+            <div>
+              {(props.api_data) && <Manifesto dangerouslySetInnerHTML={{ __html: props.api_data.options.manifesto }}/>}
+              <TestimonialsLink to={`/kind-words`} ><span>People Love Us</span></TestimonialsLink>
+            </div>
+            <Socials/>
+          </HeaderBottom>
+          <HeaderStrip>
+            <span>NEWSLETTER</span>
+          </HeaderStrip>
+        </Sidebar>
+      )}
+    </Transition>
+    <Transition from={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})` }} enter={{ opacity: 1, transform: `translateY(0})` }} leave={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})`, pointerEvents: 'none' }}>
+      {(props.route !== '/') && (styles => 
+        <StripWrapper style={styles}>
+          <HeaderStrip>
+            {HEADER_MENU.map((item, i) =>
+              <Link to={`/${item.slug}`} className={(`/${item.slug}` == `${props.route}`) ? `active` : ``} key={`link-${item.slug}${i}`}>
+                <span>{item.title}</span>
+              </Link>
+            )}
+          </HeaderStrip>
+        </StripWrapper>
+      )}
+    </Transition>
+  </Fragment>
 
 export default connect(
   state => ({
-    api_data: state.api_data
+    api_data: state.api_data,
+    route: state.router.location.pathname
   })
 )(HeaderSidebar)
 
@@ -50,6 +85,26 @@ const Sidebar = styled.header`
   z-index: 9000;
   background-color: ${colors.orange};
   padding-left: ${widths.sidebar_nav};
+`
+
+const StripWrapper = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9000;
+`
+
+const LogoWrapper = styled.div`
+  width: 100%;
+  padding: ${spacing.single_pad};
+  position: relative;
+  object-fit: contain;
+  svg {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+  border: 1px solid ${colors.white};
 `
 
 const HeaderTop = styled.div`
