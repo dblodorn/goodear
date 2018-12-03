@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import Color from 'color'
 import { flexColumn, rotoHalf } from '../../styles/mixins'
 import { ExternalLink } from '../../styles/components'
 import { widths, fonts, colors } from './../../styles/theme.json'
 
 export default () =>
-  <SidebarNavWrapper bgColor={Color(colors.header_bg_color).darken(0.15).hex()}>
+  <SidebarNavWrapper bgColor={colors.dk_grey}>
     <Top>
-      <Locations><span>LOS ANGELES</span><span>NEW YORK</span></Locations>
+      <Locations><span>NEWSLETTER</span></Locations>
     </Top>
     <Bottom>
       <BottomInner>

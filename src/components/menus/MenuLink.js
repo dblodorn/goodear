@@ -16,7 +16,7 @@ const returnLink = (slug, subroute) => {
 
 const Menulink = (props) => {
   return (
-    <NavLink to={returnLink(props.path, props.sub_route)} onClick={() => props.menu_toggle(false)} color={colors.yellow}>
+    <NavLink to={returnLink(props.path, props.sub_route)} onClick={() => props.menu_toggle(false)} color={colors.white}>
       <span dangerouslySetInnerHTML={{__html: props.page }}/>
     </NavLink>
   )

@@ -48,7 +48,7 @@ const Sidebar = styled.header`
   top: 0;
   left: 0;
   z-index: 9000;
-  background-color: ${colors.header_bg_color};
+  background-color: ${colors.orange};
   padding-left: ${widths.sidebar_nav};
 `
 
@@ -88,7 +88,7 @@ const TestimonialsLink = styled(Link)`
   line-height: 1;
   width: 100%;
   text-align: center;
-  color: ${colors.pink};
+  color: ${colors.white};
   text-decoration: none;
   text-transform: uppercase;
   font-size: ${fonts.sizes.small};

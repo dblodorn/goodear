@@ -118,7 +118,8 @@ const smallType = css`
 `
 
 const microType = css`
-  ${sansFont};
+  font-family: ${fonts.display_font_a};
+  font-weight: 500;
   font-size: ${fonts.sizes.micro_sm};
   line-height: 1.25;
   letter-spacing: 1px;

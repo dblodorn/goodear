@@ -25,7 +25,6 @@ class VideoModal extends Component {
     this.setState({
       modal: !this.state.modal
     })
-    console.log(this.props)
   }
   render() {
     return (

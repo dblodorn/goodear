@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { spacing } from './../styles/theme.json'
 import { pageData, Head } from './../components'
 import FlexibleImageGallery from './templates/flexible-image-gallery/FlexibleImageGallery'
+import { PatternSeven } from './../patterns'
 
 export default pageData((props) => {
   console.log(props)
@@ -12,6 +13,7 @@ export default pageData((props) => {
       <Videos>
         <FlexibleImageGallery data={props.project} style={props.style}/>
       </Videos>
+      <PatternSeven/>
     </Fragment>
   )
 })

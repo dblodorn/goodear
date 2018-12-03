@@ -2,6 +2,7 @@ import React,  { Fragment } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
+import Color from 'color'
 import { ProportionWrapper } from './../../../../styles/components'
 import { absoluteTopFull, opacityTransition, monoP, microType, flexColumn } from './../../../../styles/mixins'
 import { colors, spacing } from './../../../../styles/theme.json'
@@ -53,7 +54,7 @@ const VideoCaptionWrapper = styled.div`
   padding-top: ${spacing.micro_pad};
   z-index: 1;
   * {
-    color: ${colors.black}!important;
+    color: ${colors.white}!important;
   }
   h4 {
     ${microType};
@@ -78,7 +79,7 @@ const VideoThumb = styled.li`
 
 const ThumbInner = styled.div`
   padding: ${spacing.single_pad};
-  background-color: ${colors.yellow};
+  background-color: ${colors.pink};
 `
 
 const VideoWrapper = styled.div`

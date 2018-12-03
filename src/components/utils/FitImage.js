@@ -41,6 +41,7 @@ const ImgWrapper = styled.div`
   ${absoluteTopFull};
   ${opacityTransition};
   opacity: ${props => props.Opacity};
+  overflow: hidden;
   &.hover {
     cursor: pointer;
     &:hover {
@@ -53,6 +54,8 @@ const ImgWrapper = styled.div`
 
 const ImgFit = styled.img`
   ${absoluteCentered};
+  filter: url(#monotone);
+  overflow: hidden;
   width: 100%;
   height: 100%;
   object-fit: ${props => props.Fit};

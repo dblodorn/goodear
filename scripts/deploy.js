@@ -1,5 +1,5 @@
 require('dotenv').config();
-var fs = require('fs');
+var fs = require('fs-extra');
 var Client = require('ssh2-sftp-client');
 
 var sftp = new Client();

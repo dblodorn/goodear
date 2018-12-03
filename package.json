@@ -17,10 +17,8 @@
     }
   },
   "scripts": {
-    "dev": "webpack-dev-server --mode development --env.NODE_ENV --open",
-    "build": "webpack --mode production --env.NODE_ENV",
-    "api": "node scripts/deploy.js",
-    "json": "node scripts/write-json.js",
+    "dev": "webpack-dev-server --config=build/webpack.dev.js --mode development --env.NODE_ENV --open",
+    "build": "webpack --progress --config=build/webpack.prod.js --mode production --env.NODE_ENV",
     "watch": "npm-watch"
   },
   "babel": {
@@ -30,7 +28,8 @@
       "stage-2"
     ],
     "plugins": [
-      "babel-plugin-styled-components"
+      "babel-plugin-styled-components",
+      "lodash"
     ]
   },
   "dependencies": {
@@ -60,20 +59,32 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
-    "babel-plugin-styled-components": "^1.5.1",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-styled-components": "^1.9.2",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^1.0.1",
+    "fetch-json-webpack-plugin": "^1.0.3",
+    "lodash-webpack-plugin": "^0.11.5",
     "dotenv": "^6.1.0",
     "fs-extra": "^7.0.1",
     "html-webpack-plugin": "^3.2.0",
     "npm-watch": "^0.4.0",
-    "react-hot-loader": "^4.3.4",
     "ssh2-sftp-client": "^2.4.2",
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
+    "react-hot-loader": "^4.3.12",
+    "style-loader": "^0.23.1",
+    "sw-precache-webpack-plugin": "^0.11.5",
     "webpack": "^4.16.3",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.5",
+    "webpack-manifest-plugin": "^2.0.4",
+    "webpack-merge": "^4.1.4",
+    "webpack-shell-plugin": "^0.5.0"
   }
 }

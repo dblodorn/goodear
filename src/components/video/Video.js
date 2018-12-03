@@ -30,10 +30,6 @@ class Video extends Component {
     if (this.props.autoplay) {
       this.onPlay()
     }
-    if ( this.props.single ) {
-      this.props.hide_footer(false)
-      this.props.hide_header(false)
-    }
   }
 
   componentWillUnmount() {
@@ -43,10 +39,6 @@ class Video extends Component {
     })
     this.props.video_playing(null)
     this.props.video_state('stopped')
-    if (this.props.single) {
-      this.props.hide_footer(true)
-      this.props.hide_header(true)
-    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -179,9 +171,7 @@ export default connect(
   }),
   dispatch => ({
     video_playing: (url) => dispatch(setVideoPlaying(url)),
-    video_state: (url) => dispatch(setVideoState(url)),
-    hide_footer: (bool) => dispatch(setFooterState(bool)),
-    hide_header: (bool) => dispatch(setHeaderState(bool))
+    video_state: (url) => dispatch(setVideoState(url))
   })
 )(Video)
 

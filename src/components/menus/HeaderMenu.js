@@ -17,7 +17,7 @@ const HeaderMenu = (props) => {
       } else if (item.external_link) {
         return (
           <li key={`${i}-${item.id}`} className={`${props.orientation} ${props.navLocation}`}>
-            <LinkOut href={item.url} target='_blank' color={colors.yellow}><span>{item.title}</span></LinkOut>
+            <LinkOut href={item.url} target='_blank' color={colors.white}><span>{item.title}</span></LinkOut>
           </li>
         )
       }
@@ -52,15 +52,7 @@ const NavList = styled.ul`
   text-align: left;
   li {
     padding-bottom: ${spacing.single_pad};
-    &:nth-child(1n) {
-      align-self: flex-end;
-    }
-    &:nth-child(2n) {
-      align-self: flex-start;
-    }
-    &:nth-child(3n) {
-      align-self: center;
-    }
+    align-self: flex-end;
   }
 `
 
