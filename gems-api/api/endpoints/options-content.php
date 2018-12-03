@@ -1,8 +1,8 @@
 <?php
   function get_videos() {
-    $posts = get_field();
+    $posts = get_field('homepage_videos', 'option');
     if($posts):
-      $data = array('homepage_videos', 'option');
+      $data = array();
       foreach( $posts as $p ):
         $p_data = get_post($p->ID);
         $data[] = array(
@@ -11,7 +11,13 @@
           'title' => get_the_title($p_data),
           'thumbnail' => get_the_post_thumbnail_url($p->ID),
           'video_url' => get_field('video_url', $p->ID, false, false),
-          'taxonomies' => taxonomy_data($post),
+          'taxonomies' => array (
+            'category' => return_taxonomy_array($p_data, 'category'),
+            'brand' => return_taxonomy_array($p_data, 'brand'),
+            'cover' => return_taxonomy_array($p_data, 'cover'),
+            'campaign' => return_taxonomy_array($p_data, 'campaign'),
+            'agency' => return_taxonomy_array($p_data, 'agency'),
+          )
         );
       endforeach;
     endif;
