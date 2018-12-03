@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import PatternPortal from './PatternPortal'
 import Color from 'color'
+import { PatternWrapper } from './pattern-styles.js'
 import { colors } from './../styles/theme.json'
 
-export default props => (
+export default props =>
   <PatternPortal>
     <PatternWrapper>
       <svg width={1638} height={1024} {...props}>
@@ -27,17 +28,3 @@ export default props => (
       </svg>
     </PatternWrapper>
   </PatternPortal>
-)
-
-const PatternWrapper = styled.aside`
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  display: block;
-  svg {
-    object-fit: cover;
-  }
-`

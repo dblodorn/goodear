@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import FacebookLogo from './FacebookLogo'
 import InstaLogo from './InstaLogo'
-import TwitterLogo from './TwitterLogo'
+import SpotifyLogo from './SpotifyLogo'
 import { flexRow } from './../../styles/mixins'
 
 const Socials = (props) => {
@@ -12,7 +12,7 @@ const Socials = (props) => {
       <SocialWrapper>
         <li><FacebookLogo link={props.api_data.options.facebook}/></li>
         <li><InstaLogo link={props.api_data.options.instagram}/></li>
-        <li><TwitterLogo link={props.api_data.options.twitter}/></li>
+        <li><SpotifyLogo link={props.api_data.options.twitter}/></li>
       </SocialWrapper>
     )
   }
