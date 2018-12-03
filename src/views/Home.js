@@ -6,7 +6,6 @@ import FlexibleImageGallery from './templates/flexible-image-gallery/FlexibleIma
 import { PatternSeven } from './../patterns'
 
 export default pageData((props) => {
-  console.log(props)
   return (
     <Fragment>
       <Head title={props.project.title} description={props.project.short_description}/>

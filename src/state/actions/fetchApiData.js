@@ -17,28 +17,6 @@ export function taxonomyData(payload) {
   }
 }
 
-export function themeData(payload) {
-  return {
-    type: 'THEME_DATA',
-    payload
-  }
-}
-
-const themes = {
-  theme_a: {
-    header_color: colors.white,
-    pad_wrapper: colors.yellow,
-    display_font: fonts.display_font_a,
-    body_copy_font: fonts.body_copy_font_a
-  },
-  theme_b: {
-    header_color: colors.green,
-    pad_wrapper: colors.black,
-    display_font: fonts.display_font_b,
-    body_copy_font: fonts.body_copy_font_b
-  }
-}
-
 export default () => {
   return (dispatch) => {
     const _dataHandler = (payload) => {
@@ -50,7 +28,6 @@ export default () => {
       }
       dispatch(taxonomyData(taxonomies))
       dispatch(apiData(payload))
-      dispatch(themeData(themes))
     }
     fetchWpDataController()
       .then(response => response.json())

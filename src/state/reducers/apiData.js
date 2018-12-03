@@ -16,17 +16,7 @@ const taxonomyData = (state = false, action) => {
   }
 }
 
-const themeData = (state = false, action) => {
-  switch (action.type) {
-    case 'THEME_DATA':
-      return action.payload
-    default:
-      return state
-  }
-}
-
 export {
   apiData,
-  taxonomyData,
-  themeData
+  taxonomyData
 }
