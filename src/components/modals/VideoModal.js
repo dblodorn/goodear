@@ -73,6 +73,8 @@ export default VideoModal
 
 const VideoPopper = styled.div`
   ${absoluteTopFull};
+  filter: grayscale(1);
+  overflow: hidden;
 `
 
 const ModalLogo = styled.div`

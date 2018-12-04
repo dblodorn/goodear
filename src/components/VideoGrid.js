@@ -41,7 +41,7 @@ const VideoGridWrapper = styled.ul`
       width: calc(100% / 8);
     }
     &.home > li {
-      width: calc(100% / 5);
+      width: calc(100% / 4);
     }
   `}
 `
