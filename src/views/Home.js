@@ -1,26 +1,34 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import { spacing } from './../styles/theme.json'
-import { pageData, Head } from './../components'
-import FlexibleImageGallery from './templates/flexible-image-gallery/FlexibleImageGallery'
+import { connect } from 'react-redux'
+import { VideoGrid } from './../components'
 import { PatternSeven } from './../patterns'
+import { media } from './../styles/mixins'
+import { widths } from './../styles/theme.json'
 
-export default pageData((props) => {
-  console.log(props)
+const Home = props => {
+  console.log(props.api_data.options.home_videos)
   return (
     <Fragment>
-      <Head title={props.project.title} description={props.project.short_description}/>
-      <Videos>
-        <FlexibleImageGallery data={props.project} style={props.style}/>
-      </Videos>
+      <HomeSection>
+        <VideoGrid videos={props.api_data.options.home_videos} columns={'home'}/>
+      </HomeSection>
       <PatternSeven/>
     </Fragment>
   )
-})
+}
 
-// STYLES
-const Videos = styled.div`
+export default connect(
+  state => ({
+    api_data: state.api_data
+  })
+)(Home)
+
+const HomeSection = styled.section`
   width: 100%;
   position: relative;
-  padding: ${spacing.single_pad};
+  ${media.desktopNav`
+    padding-left: ${widths.sidebar_desktop};
+    padding-bottom: 0;
+  `}
 `

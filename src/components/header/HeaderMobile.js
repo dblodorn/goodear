@@ -8,6 +8,24 @@ import { setMenuState } from './../../state/actions'
 import { flexColumn, defaultLink, buttonInit, scrollPanel, microType, shadow, borderRadius, flexRowCenteredAll } from './../../styles/mixins'
 import { heights, spacing, colors } from './../../styles/theme.json'
 
+const HEADER_MENU = [
+  {
+    title: 'home',
+    slug: '',
+    is_home: true
+  },
+  {
+    title: 'reel',
+    slug: 'reel',
+    is_home: false
+  },
+  {
+    title: 'about',
+    slug: 'about',
+    is_home: false
+  }
+]
+
 const MenuWrapper = (props) =>
   <InnerHeader style={props.style} className="nav-wrapper__content">
     <Menu location={0}>

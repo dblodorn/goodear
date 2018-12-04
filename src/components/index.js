@@ -27,6 +27,7 @@ import VideoModal from './modals/VideoModal'
 //import MailScrape from './plugins/MailScrape'
 //import Carousel from './plugins/Carousel'
 import Video from './video/Video'
+import VideoGrid from './VideoGrid'
 
 export {
   withStore,
@@ -47,6 +48,7 @@ export {
   Head,
   VideoCaption,
   Logo,
+  VideoGrid,
   // MailScrape,
   // Carousel
 }

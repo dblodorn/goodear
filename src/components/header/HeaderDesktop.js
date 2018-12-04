@@ -3,30 +3,27 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Transition } from 'react-spring'
-import { flexColumn, monoP, media, defaultLink, sansFont } from '../../styles/mixins'
+import { flexColumn, monoP, media, mediumType } from '../../styles/mixins'
+import { StyledLink } from './../../styles/components'
 import { colors, widths, spacing, fonts } from './../../styles/theme.json'
-import { meta_defaults } from './../../config.json'
-import HeaderMenu from '../menus/HeaderMenu'
 import Logo from './../Logo'
 import HeaderStrip from './HeaderStrip'
 import Socials from './../social/Socials'
 
 const HEADER_MENU = [
   {
-    title: 'home',
-    slug: ''
-  },
-  {
     title: 'reel',
-    slug: 'reel'
+    slug: 'reel',
+    is_home: false
   },
   {
     title: 'about',
-    slug: 'about'
+    slug: 'about',
+    is_home: false
   }
 ]
 
-const HeaderSidebar = (props) =>
+const HeaderDesktop = (props) =>
   <Fragment>
     <Transition from={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})` }} enter={{ opacity: 1, transform: `translateY(0})` }} leave={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})`, pointerEvents: 'none' }}>
       {(props.header_state && (props.route === '/') ) && (styles => 
@@ -35,7 +32,17 @@ const HeaderSidebar = (props) =>
             <LogoWrapper>
               <Logo/>
             </LogoWrapper>
-            <HeaderMenu location={0}/>
+            <MenuWrapper>
+              <NavList>
+                {HEADER_MENU.map((item, i) =>
+                  <li key={`h-link-${item.slug}${i}`}>
+                    <NavLink to={`/${item.slug}`} color={colors.white}>
+                      <span dangerouslySetInnerHTML={{__html: item.title }}/>
+                    </NavLink>
+                  </li>
+                )}
+              </NavList>
+            </MenuWrapper>
           </HeaderTop>
           <HeaderBottom>
             <div>
@@ -54,6 +61,9 @@ const HeaderSidebar = (props) =>
       {(props.route !== '/') && (styles => 
         <StripWrapper style={styles}>
           <HeaderStrip>
+            <Link to={`/`}>
+              <span>Home</span>
+            </Link>
             {HEADER_MENU.map((item, i) =>
               <Link to={`/${item.slug}`} className={(`/${item.slug}` == `${props.route}`) ? `active` : ``} key={`link-${item.slug}${i}`}>
                 <span>{item.title}</span>
@@ -70,7 +80,7 @@ export default connect(
     api_data: state.api_data,
     route: state.router.location.pathname
   })
-)(HeaderSidebar)
+)(HeaderDesktop)
 
 /* STYLES */
 const Sidebar = styled.header`
@@ -85,6 +95,26 @@ const Sidebar = styled.header`
   z-index: 9000;
   background-color: ${colors.orange};
   padding-left: ${widths.sidebar_nav};
+`
+
+const MenuWrapper = styled.menu`
+  margin-top: ${spacing.single_pad};
+  padding-bottom: .5rem;
+`
+
+const NavList = styled.ul`
+  ${flexColumn};
+  position: relative;
+  text-align: left;
+  li {
+    padding-bottom: ${spacing.single_pad};
+    align-self: flex-end;
+  }
+`
+
+const NavLink = styled(StyledLink)`
+  ${mediumType};
+  text-transform: lowercase;
 `
 
 const StripWrapper = styled.header`

@@ -38,7 +38,7 @@ class VideoModal extends Component {
               <ModalWrapper style={styles}>
                 <ModalContentWrapper>
                   <VideoSection>
-                    <Close clickFunction={() => this._Popup()} color={themes[this.props.theme].popup_close_color || themeA.popup_close_color} />
+                    <Close clickFunction={() => this._Popup()} color={colors.black} />
                     <VideoWrapper>
                       <Video coverUrl={this.props.thumbnail} videoUrl={this.props.video_url} autoplay={true} single={true} />
                       <VideoCaption content={this.props.short_description}/>

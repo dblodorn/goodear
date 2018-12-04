@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import HeaderSidebar from './HeaderSidebar'
+import HeaderDesktop from './HeaderDesktop'
 import HeaderMobile from './HeaderMobile'
 import { breakpoints } from './../../styles/theme.json'
 
+
+
 const Header = (props) => {
   if (props.resize_state.window_width >= breakpoints.desktop) {
-    return <HeaderSidebar header_state={props.header_state}/>
+    return <HeaderDesktop header_state={props.header_state}/>
   } else {
     return <HeaderMobile/>
   }

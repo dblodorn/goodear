@@ -2,9 +2,9 @@ import React,  { Fragment } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
-import { ProportionWrapper } from './../../../../styles/components'
-import { absoluteTopFull, opacityTransition, monoP, microType, flexColumn } from './../../../../styles/mixins'
-import { colors, spacing } from './../../../../styles/theme.json'
+import { ProportionWrapper } from './../styles/components'
+import { absoluteTopFull, opacityTransition, monoP, microType, flexColumn } from './../styles/mixins'
+import { colors, spacing } from './../styles/theme.json'
 
 const VideoCaption = (props) =>
   <VideoCaptionWrapper>
@@ -15,24 +15,13 @@ const VideoCaption = (props) =>
 const VideoCard = (props) =>
   <VideoThumb className={(!props.playing) && 'video-playing'} className={props.overflow}>
     <ThumbInner>
-      <ProportionWrapper
-        Desktop={props.proportion || 100}
-        Mobile={props.proportion || 100}
-        Max={props.proportion || 100}
-      >
-        {(!props.overflow)
-          ? <LazyLoad height='100%'>
-              <VideoWrapper>
-                {props.children}
-              </VideoWrapper>
-            </LazyLoad>
-          : <Fragment>
-              <VideoWrapper>
-                {props.children}
-              </VideoWrapper>
-            </Fragment>
-        }
-      </ProportionWrapper>
+      <ThumbWrapper>
+        <LazyLoad height='100%'>
+          <VideoWrapper>
+            {props.children}
+          </VideoWrapper>
+        </LazyLoad>
+      </ThumbWrapper>
       <VideoCaption item={props.item}/>
     </ThumbInner>
   </VideoThumb>
@@ -50,6 +39,7 @@ const VideoCaptionWrapper = styled.div`
   ${flexColumn};
   opacity: 1;
   pointer-events: none;
+  flex: 1;
   padding-top: ${spacing.micro_pad};
   z-index: 1;
   * {
@@ -76,9 +66,21 @@ const VideoThumb = styled.li`
   }
 `
 
+const ThumbWrapper = styled.div`
+  height: 0;
+  overflow-y: visible;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+`
+
 const ThumbInner = styled.div`
   padding: ${spacing.single_pad};
   background-color: ${colors.pink};
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 `
 
 const VideoWrapper = styled.div`

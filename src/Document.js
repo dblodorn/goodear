@@ -37,12 +37,6 @@ const Main = styled.main`
   width: 100vw;
   position: relative;
   min-height: calc(100vh - ${heights.footer});
-  &.sidebar {
-    ${media.desktopNav`
-      padding-left: ${widths.sidebar_desktop};
-      padding-bottom: 0;
-    `}
-  }
 `
 
 // NORMALIZE CSS

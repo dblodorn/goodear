@@ -9,7 +9,7 @@
           'post_id' => $p_data->ID,
           'slug' => $p_data->post_name,
           'title' => get_the_title($p_data),
-          'thumbnail' => get_the_post_thumbnail_url($p->ID),
+          'thumbnail' => return_thumb_url($p->ID),
           'video_url' => get_field('video_url', $p->ID, false, false),
           'taxonomies' => array (
             'category' => return_taxonomy_array($p_data, 'category'),

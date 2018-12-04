@@ -2,9 +2,8 @@ import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { spacing, widths } from './../styles/theme.json'
-import { Head } from './../components'
+import { Head, VideoGrid } from './../components'
 import { PatternSeven } from './../patterns'
-import VideoGrid from './templates/flexible-image-gallery/video-grid/VideoGrid'
 
 const Reel = props => {
   console.log(props.api_data.posts.video)
@@ -12,7 +11,7 @@ const Reel = props => {
     <Fragment>
       <Head title={'Reel'} description={'Our Work'}/>
       <ReelWrapper>
-        <VideoGrid />
+        <VideoGrid videos={props.api_data.posts.video} columns={'reel'}/>
       </ReelWrapper>
       <PatternSeven/>
     </Fragment>
@@ -27,8 +26,8 @@ export default connect(
 )(Reel)
 
 // STYLES
-const ReelWrapper = styled.div`
+const ReelWrapper = styled.section`
   width: 100%;
   position: relative;
-  padding-left: calc(${widths.sidebar_nav} + ${spacing.single_pad});
+  padding-left: ${widths.sidebar_nav};
 `

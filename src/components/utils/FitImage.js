@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
-import Spinner from './Spinner'
+import Color from 'color'
 import { absoluteCentered, opacityTransition, absoluteTopFull } from './../../styles/mixins'
 import { colors } from './../../styles/theme.json'
 
@@ -24,9 +24,9 @@ export default class extends Component {
     return (
       <Wrapper>
         <ImgWrapper Opacity={(this.state.loaded) ? 1 : 0} onClick={this.props.clickFunction} className={(this.props.clickFunction) && 'hover'}>
-          <ImgFit src={this.props.src} onLoad={this.handleImageLoaded.bind(this)} Fit={this.props.fit}/>
+          <ImgFit src={this.props.src} onLoad={this.handleImageLoaded.bind(this)} Fit={this.props.fit || 'cover'}/>
         </ImgWrapper>
-        {(!this.state.loaded) && <Spinner size={'4rem'} color={colors.white} stroke={1} /> }
+        {(!this.state.loaded) && <LoadBg/> }
       </Wrapper>
     )
   }
@@ -52,9 +52,15 @@ const ImgWrapper = styled.div`
   }
 `
 
+const LoadBg = styled.div`
+  ${absoluteCentered};  
+  width: 100%;
+  height: 100%;
+  background-color: ${Color(colors.pink).darken(.25).hsl().string()};
+`
+
 const ImgFit = styled.img`
   ${absoluteCentered};
-  filter: url(#monotone);
   overflow: hidden;
   width: 100%;
   height: 100%;
