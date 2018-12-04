@@ -52,12 +52,12 @@ injectGlobal`
   }
   @media screen and (min-width: 1550px) {
     html {
-      font-size: 72.5%;
+      font-size: 66.5%;
     }
   }
   @media screen and (min-width: 1750px) {
     html {
-      font-size: 78.5%;
+      font-size: 68.5%;
     }
   }
   body {

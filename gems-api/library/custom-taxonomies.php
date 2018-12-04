@@ -5,36 +5,6 @@
 //-------------------------------------------------------------------
 
 // brand taxonomy
-add_action( 'init', 'cover_taxonomy', 30 );
-  function cover_taxonomy() {
-  $labels = array(
-    'name'                  => _x( 'Cover', 'taxonomy general name' ),
-    'singular_name'         => _x( 'Cover', 'taxonomy singular name' ),
-    'search_items'          => __( 'Search Cover' ),
-    'all_items'             => __( 'All Cover' ),
-    'parent_item'           => __( 'Parent Cover' ),
-    'parent_item_colon'     => __( 'Parent Capabilitie:' ),
-    'edit_item'             => __( 'Edit Cover' ),
-    'update_item'           => __( 'Update Cover' ),
-    'add_new_item'          => __( 'Add New Cover' ),
-    'new_item_name'         => __( 'New Cover Name' ),
-    'menu_name'             => __( 'Cover' ),
-  );
-  $args = array(
-    'hierarchical'          => true,
-    'labels'                => $labels,
-    'show_ui'               => true,
-    'show_admin_column'     => true,
-    'query_var'             => true,
-    'rewrite'               => array( 'slug' => 'cover' ),
-    'show_in_rest'          => true,
-    'rest_base'             => 'cover-taxonomy-api',
-    'rest_controller_class' => 'WP_REST_Terms_Controller',
-  );
-  register_taxonomy( 'cover', array( 'video' ), $args );
-}
-
-// brand taxonomy
 add_action( 'init', 'brand_taxonomy', 30 );
   function brand_taxonomy() {
   $labels = array(
@@ -153,17 +123,12 @@ function filter_project_agency() {
   tsm_filter_post_type_by_taxonomy('video', 'agency');
 }
 
-function filter_project_cover() {
-  tsm_filter_post_type_by_taxonomy('video', 'cover');
-}
-
 function filter_project_campaing() {
   tsm_filter_post_type_by_taxonomy('video', 'campaign');
 }
 
 add_action('restrict_manage_posts', 'filter_project_brand');
 add_action('restrict_manage_posts', 'filter_project_agency');
-add_action('restrict_manage_posts', 'filter_project_cover');
 add_action('restrict_manage_posts', 'filter_project_campaign');
 
 // NEXT
@@ -189,17 +154,6 @@ function tsm_convert_id_to_term_in_query_agency($query) {
 	}
 }
 
-function tsm_convert_id_to_term_in_query_cover($query) {
-	global $pagenow;
-	$post_type = 'video';
-	$taxonomy  = 'cover';
-	$q_vars    = &$query->query_vars;
-	if ( $pagenow == 'edit.php' && isset($q_vars['post_type']) && $q_vars['post_type'] == $post_type && isset($q_vars[$taxonomy]) && is_numeric($q_vars[$taxonomy]) && $q_vars[$taxonomy] != 0 ) {
-		$term = get_term_by('id', $q_vars[$taxonomy], $taxonomy);
-		$q_vars[$taxonomy] = $term->slug;
-	}
-}
-
 function tsm_convert_id_to_term_in_query_campaign($query) {
 	global $pagenow;
 	$post_type = 'video';
@@ -213,7 +167,6 @@ function tsm_convert_id_to_term_in_query_campaign($query) {
 
 add_filter('parse_query', 'tsm_convert_id_to_term_in_query_brand');
 add_filter('parse_query', 'tsm_convert_id_to_term_in_query_agency');
-add_filter('parse_query', 'tsm_convert_id_to_term_in_query_cover');
 add_filter('parse_query', 'tsm_convert_id_to_term_in_query_campaign');
 
 ?>

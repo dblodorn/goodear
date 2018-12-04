@@ -1,8 +1,7 @@
-import React,  { Fragment } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
-import { ProportionWrapper } from './../styles/components'
 import { absoluteTopFull, opacityTransition, monoP, microType, flexColumn, shadow } from './../styles/mixins'
 import { colors, spacing } from './../styles/theme.json'
 

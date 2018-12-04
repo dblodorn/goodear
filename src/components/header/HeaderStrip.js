@@ -5,7 +5,7 @@ import { ExternalLink } from '../../styles/components'
 import { widths, fonts, colors, spacing } from './../../styles/theme.json'
 
 export default props =>
-  <SidebarNavWrapper bgColor={colors.dk_grey}>
+  <SidebarNavWrapper>
     <Top>
       <RotoTop>
         {props.children}
@@ -13,7 +13,7 @@ export default props =>
     </Top>
     <Bottom>
       <RotoBottom>
-        <ExternalLink href={`mailto:contact@goodear.tv`} target='_blank'><span>CONTACT@GOODEAR.TV</span></ExternalLink>
+        <a href={`mailto:contact@goodear.tv`} target='_blank'><span>CONTACT@GOODEAR.TV</span></a>
       </RotoBottom>
     </Bottom>
   </SidebarNavWrapper>
@@ -26,13 +26,18 @@ const SidebarNavWrapper = styled.div`
   left: 0;
   width: ${widths.sidebar_nav};
   height: 100vh;
-  background-color: ${props => props.bgColor};
+  background-color: ${colors.dk_grey};
   z-index: 10000;
   a {
     ${linkInit}
     margin-right: ${spacing.single_pad};
     &:last-child {
       margin-right: 0;
+    }
+    &.hover {
+      span {
+        color: ${colors.pink};
+      }
     }
     &.active {
       span {
@@ -42,7 +47,7 @@ const SidebarNavWrapper = styled.div`
   }
   span {
     ${buttonInit};
-    font-family: ${fonts.display_font_a};
+    font-family: ${fonts.sans_medium};
     font-weight: 500;
     color: ${colors.white};
     font-size: ${fonts.sizes.small};

@@ -4,7 +4,7 @@ import { Transition } from 'react-spring'
 import styled from 'styled-components'
 import { colors, spacing } from './../../styles/theme.json'
 import { ModalWrapper, ModalContentWrapper, Section, PatternWrapper } from './../../styles/components'
-import { absoluteTopFull, flexCenteredAll, media } from './../../styles/mixins'
+import { absoluteTopFull, flexCenteredAll, media, flexColumn } from './../../styles/mixins'
 import Modal from './Modal'
 import Video from './Video'
 import VideoCaption from './VideoCaption'
@@ -22,7 +22,6 @@ class VideoModal extends Component {
     this._Popup = this._Popup.bind(this)
   }
   _Popup() {
-    console.log(this.props.data)
     this.setState({
       modal: !this.state.modal
     })
@@ -43,7 +42,7 @@ class VideoModal extends Component {
                     <Close clickFunction={() => this._Popup()} color={colors.white} />
                     <VideoWrapper>
                       <Video videoUrl={this.props.video_url} />
-                      <VideoCaption content={this.props.short_description}/>
+                      <VideoCaption content={this.props.data}/>
                     </VideoWrapper>
                   </VideoSection>
                 </ModalContentWrapper>
@@ -100,8 +99,10 @@ const VideoSection = styled(Section)`
 `
 
 const VideoWrapper = styled.div`
+  ${flexColumn};
   width: 100%;
-  padding: ${spacing.double_pad} ${spacing.double_pad} 10rem;
+  padding: ${spacing.double_pad} 0 6rem;
+  margin-bottom: 4rem;
   ${media.desktopNav`
     width: 75vw;
     max-width: 90rem;

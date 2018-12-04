@@ -65,7 +65,9 @@
   },
   "fonts": {
     "sans": "Circular Book, system-ui, sans-serif",
+    "sans_medium": "Circular Medium, system-ui, sans-serif",
     "serif": "Austin Roman, Times New Roman, serif",
+    "serif_italic": "Austin Italic, Times New Roman, serif",
     "mono": "'Nitti Light', Courier, monospace",
     "display_font_a": "Circular Medium, system-ui, sans-serif",
     "body_copy_font_a": "Circular Book, Monaco, monospace",
@@ -76,14 +78,14 @@
     "sizes": {
       "giant": "3.75rem",
       "giant_sm": "3.25rem",
-      "medium": "2.5rem",
-      "medium_sm": "2.5rem",
-      "body": "2.5rem",
-      "body_sm": "2rem",
+      "medium": "3.25rem",
+      "medium_sm": "3rem",
+      "body": "1.75rem",
+      "body_sm": "1.5rem",
       "small": "1.25rem",
       "small_sm": "1.25rem",
-      "micro": "1rem",
-      "micro_sm": "1rem"
+      "micro": "1.125rem",
+      "micro_sm": "1.125rem"
     }
   },
   "global": {

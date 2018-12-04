@@ -85,8 +85,8 @@ export default connect(
 /* STYLES */
 const Sidebar = styled.header`
   ${shadow};
-  width: ${widths.sidebar_desktop};
   ${flexColumn};
+  width: ${widths.sidebar_desktop};
   justify-content: space-between;
   height: 100vh;
   padding: 0;
@@ -129,13 +129,12 @@ const LogoWrapper = styled.div`
   width: 100%;
   padding: ${spacing.single_pad};
   position: relative;
-  object-fit: contain;
+  border: 1px solid ${colors.white};
   svg {
     object-fit: contain;
     width: 100%;
     height: 100%;
   }
-  border: 1px solid ${colors.white};
 `
 
 const HeaderTop = styled.div`
@@ -160,11 +159,7 @@ const Manifesto = styled.div`
   * {
     ${monoP};
     color: ${colors.white};
-    font-size: ${fonts.sizes.small_sm};
     line-height: 1.25;
-    ${media.medium`
-      font-size: ${fonts.sizes.small};
-    `}
   }
 `
 

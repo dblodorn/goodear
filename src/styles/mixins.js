@@ -110,31 +110,22 @@ const bodyType = css`
 
 const smallType = css`
   ${sansFont};
-  font-size: ${fonts.sizes.small_sm};
+  font-size: ${fonts.sizes.small};
   line-height: 1.25;
-  ${media.medium`
-    font-size: ${fonts.sizes.small};
-  `}
 `
 
 const microType = css`
   font-family: ${fonts.display_font_a};
   font-weight: 500;
-  font-size: ${fonts.sizes.micro_sm};
+  font-size: ${fonts.sizes.micro};
   line-height: 1.25;
   letter-spacing: 1px;
-  ${media.medium`
-    font-size: ${fonts.sizes.micro};
-  `}
 `
 
 const monoP = css`
   ${monoFont};
-  font-size: ${fonts.sizes.small_sm};
+  font-size: 1.35rem;
   line-height: 1.125;
-  ${media.medium`
-    font-size: ${fonts.sizes.small};
-  `}
 `
 
 const linkInit = css`

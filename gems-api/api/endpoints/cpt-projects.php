@@ -11,6 +11,10 @@
       'theme' => get_field('theme', $post->ID),
       'short_description' => get_field('short_description', $post->ID),
       'video_url' => get_field('video_url', $p->ID, false, false),
+      'song_title' => get_field('song_title', $p->ID),
+      'cover' => get_field('cover', $p->ID),
+      'additional_information' => get_field('additional_information', $p->ID),
+      'short_description' => get_field('short_description', $p->ID),
       'taxonomies' => taxonomy_data($post),
     );
   }
