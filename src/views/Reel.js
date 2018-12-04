@@ -4,14 +4,15 @@ import styled from 'styled-components'
 import { spacing, widths } from './../styles/theme.json'
 import { Head, VideoGrid } from './../components'
 import { PatternSeven } from './../patterns'
+import { trimExcerpt } from './../scripts'
 
 const Reel = props => {
-  console.log(props.api_data.posts.video)
+  const videos = props.api_data.posts.video
   return (
     <Fragment>
       <Head title={'Reel'} description={'Our Work'}/>
       <ReelWrapper>
-        <VideoGrid videos={props.api_data.posts.video} columns={'reel'}/>
+        <VideoGrid videos={videos} columns={'reel'}/>
       </ReelWrapper>
       <PatternSeven/>
     </Fragment>
@@ -20,8 +21,7 @@ const Reel = props => {
 
 export default connect(
   state => ({
-    api_data: state.api_data,
-    router: state.router
+    api_data: state.api_data
   })
 )(Reel)
 

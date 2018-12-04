@@ -1,15 +1,16 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { VideoGrid } from './../components'
+import { VideoGrid, Head } from './../components'
 import { PatternSeven } from './../patterns'
 import { media } from './../styles/mixins'
 import { widths } from './../styles/theme.json'
+import { trimExcerpt } from './../scripts'
 
 const Home = props => {
-  console.log(props.api_data.options.home_videos)
   return (
     <Fragment>
+      <Head title={`Home`} description={trimExcerpt(props.api_data.options.manifesto)} />
       <HomeSection>
         <VideoGrid videos={props.api_data.options.home_videos} columns={'home'}/>
       </HomeSection>

@@ -5,6 +5,6 @@ import { PatternWrapper } from './pattern-styles.js'
 export default () =>
   <PatternPortal>
     <PatternWrapper>      
-      <img src={'assets/patterns/pattern7.svg'}/>
+      <img src={'assets/patterns/pattern11.svg'}/>
     </PatternWrapper>
   </PatternPortal>

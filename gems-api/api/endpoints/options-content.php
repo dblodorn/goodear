@@ -34,6 +34,11 @@
       'instagram' => get_field('instagram', 'option'),
       'facebook' => get_field('facebook', 'option'),
       'twitter' => get_field('twitter', 'option'),
+      'about_us' => array(
+        'header' => get_field('about_us_header', 'option'),
+        'statement' => get_field('about_us_statement', 'option'),
+        'top_photo' => get_field('about_us_top_photo', 'option'),
+      )
     );
   }
 ?>

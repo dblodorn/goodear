@@ -5,6 +5,7 @@ import pageData from './HOC/pageData'
 // Layout Components
 import Header from './header/Header'
 import Logo from './Logo'
+import BottomLogo from './BottomLogo'
 
 // Utility Components
 import FitImage from './utils/FitImage'
@@ -30,4 +31,5 @@ export {
   Head,
   Logo,
   VideoGrid,
+  BottomLogo
 }

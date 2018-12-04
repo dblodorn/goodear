@@ -10,7 +10,7 @@ import Video from './Video'
 import VideoCaption from './VideoCaption'
 import FitImage from './../utils/FitImage'
 import Close from './../utils/Close'
-import Logo from './../Logo'
+import BottomLogo from './../BottomLogo'
 import PlayButton from './../utils/PlayButton'
 
 class VideoModal extends Component {
@@ -46,9 +46,7 @@ class VideoModal extends Component {
                     </VideoWrapper>
                   </VideoSection>
                 </ModalContentWrapper>
-                <ModalLogo>
-                  <Logo/>
-                </ModalLogo>
+                <BottomLogo/>
                 <PatternWrapper>      
                   <img src={'assets/patterns/greyBg.svg'}/>
                 </PatternWrapper>
@@ -74,19 +72,6 @@ const VideoPopper = styled.div`
   ${absoluteTopFull};
   filter: grayscale(1);
   overflow: hidden;
-`
-
-const ModalLogo = styled.div`
-  width: 14rem;
-  bottom: ${spacing.single_pad};
-  right: ${spacing.single_pad};
-  position: fixed;
-  z-index: 10;
-  svg {
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
-  }
 `
 
 const VideoSection = styled(Section)`
