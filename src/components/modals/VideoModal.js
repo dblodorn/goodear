@@ -3,14 +3,15 @@ import propTypes from 'prop-types'
 import { Transition } from 'react-spring'
 import styled from 'styled-components'
 import { colors, spacing } from './../../styles/theme.json'
-import { ModalWrapper, ModalContentWrapper, Section } from './../../styles/components'
+import { ModalWrapper, ModalContentWrapper, Section, PatternWrapper } from './../../styles/components'
 import { absoluteTopFull, flexCenteredAll, media } from './../../styles/mixins'
 import Modal from './Modal'
-import Video from './../video/Video'
+import Video from './Video'
+import VideoCaption from './VideoCaption'
 import FitImage from './../utils/FitImage'
 import Close from './../utils/Close'
+import Logo from './../Logo'
 import PlayButton from './../utils/PlayButton'
-import VideoCaption from './../video/VideoCaption'
 
 class VideoModal extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class VideoModal extends Component {
     this._Popup = this._Popup.bind(this)
   }
   _Popup() {
+    console.log(this.props.data)
     this.setState({
       modal: !this.state.modal
     })
@@ -38,13 +40,19 @@ class VideoModal extends Component {
               <ModalWrapper style={styles}>
                 <ModalContentWrapper>
                   <VideoSection>
-                    <Close clickFunction={() => this._Popup()} color={colors.black} />
+                    <Close clickFunction={() => this._Popup()} color={colors.white} />
                     <VideoWrapper>
-                      <Video coverUrl={this.props.thumbnail} videoUrl={this.props.video_url} autoplay={true} single={true} />
+                      <Video videoUrl={this.props.video_url} />
                       <VideoCaption content={this.props.short_description}/>
                     </VideoWrapper>
                   </VideoSection>
                 </ModalContentWrapper>
+                <ModalLogo>
+                  <Logo/>
+                </ModalLogo>
+                <PatternWrapper>      
+                  <img src={'assets/patterns/greyBg.svg'}/>
+                </PatternWrapper>
               </ModalWrapper>
             </Modal>
           )}
@@ -67,6 +75,19 @@ const VideoPopper = styled.div`
   ${absoluteTopFull};
 `
 
+const ModalLogo = styled.div`
+  width: 14rem;
+  bottom: ${spacing.single_pad};
+  right: ${spacing.single_pad};
+  position: fixed;
+  z-index: 10;
+  svg {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+`
+
 const VideoSection = styled(Section)`
   ${flexCenteredAll};
   position: fixed;
@@ -74,7 +95,6 @@ const VideoSection = styled(Section)`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: ${colors.white};
 `
 
 const VideoWrapper = styled.div`
@@ -82,6 +102,7 @@ const VideoWrapper = styled.div`
   padding: ${spacing.double_pad} ${spacing.double_pad} 10rem;
   ${media.desktopNav`
     width: 75vw;
+    max-width: 90rem;
     padding: 0;
   `}
 `

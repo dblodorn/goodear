@@ -41,7 +41,9 @@ const SidebarNavWrapper = styled.div`
     }
   }
   span {
-    ${buttonInit}
+    ${buttonInit};
+    font-family: ${fonts.display_font_a};
+    font-weight: 500;
     color: ${colors.white};
     font-size: ${fonts.sizes.small};
     letter-spacing: 2px;

@@ -165,7 +165,7 @@ const defaultLink = css`
 `
 
 const opacityTransition = css`
-  transition: opacity 450ms ease-in-out;
+  transition: opacity 250ms ease-in-out;
   will-change: opacity;
 `
 
@@ -189,7 +189,7 @@ const transitionAll = (time) => {
 }
 
 const shadow = css`
-  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.33);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
 `
 
 // Flex Layout

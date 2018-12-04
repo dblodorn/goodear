@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1638" height="1024" viewBox="0 0 1638 1024">
+  <g fill="none" fill-rule="evenodd" transform="translate(-54 -80)">
+    <rect width="1638" height="1024" x="54" y="80" fill="#CFCDC3"/>
+    <g fill="#DADAD8">
+      <polygon points="568.011 60.19 633.456 60.199 633.494 354.683 568.049 354.675" transform="rotate(-38 600.753 207.437)"/>
+      <polygon points="1553.589 544.4 1619.026 544.406 1619.054 838.927 1553.617 838.921" transform="rotate(-67 1586.321 691.664)"/>
+      <polygon points="134.405 845.42 211.553 979.803 57.277 979.792" transform="rotate(-17 134.415 912.612)"/>
+      <polygon points="1328.813 432.08 1405.96 566.463 1251.685 566.452" transform="rotate(-17 1328.823 499.271)"/>
+      <circle cx="683.5" cy="896.5" r="70.5"/>
+      <circle cx="70.5" cy="70.5" r="70.5"/>
+      <circle cx="1681.5" cy="70.5" r="70.5"/>
+    </g>
+  </g>
+</svg>

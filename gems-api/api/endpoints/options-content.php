@@ -11,6 +11,7 @@
           'title' => get_the_title($p_data),
           'thumbnail' => return_thumb_url($p->ID),
           'video_url' => get_field('video_url', $p->ID, false, false),
+          'short_description' => get_field('short_description', $p->ID),
           'taxonomies' => array (
             'category' => return_taxonomy_array($p_data, 'category'),
             'brand' => return_taxonomy_array($p_data, 'brand'),

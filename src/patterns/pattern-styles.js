@@ -9,7 +9,9 @@ const PatternWrapper = styled.aside`
   left: 0;
   z-index: 0;
   display: block;
-  svg {
+  img,
+  svg,
+  g {
     ${absoluteCentered};
     width: 100%;
     height: 100%;

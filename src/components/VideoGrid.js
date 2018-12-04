@@ -9,7 +9,7 @@ export default props =>
   <VideoGridWrapper className={`${props.columns}`}>
     {props.videos.map((item, i) =>
       <VideoCard item={item} key={item.post_id + 'vg' + i}>
-        <VideoModal thumbnail={item.thumbnail} short_description={item.short_description} video_url={item.video_url} theme={'a'}/>
+        <VideoModal thumbnail={item.thumbnail} short_description={item.short_description} video_url={item.video_url} data={item}/>
       </VideoCard>
     )}
   </VideoGridWrapper>

@@ -62,12 +62,10 @@ injectGlobal`
   }
   body {
     font-family: arial;
-    color: ${colors.black};
-    font-family: ${fonts.sans};
     font-weight: 300;
     font-style: normal;
     text-decoration: none;
-    background-color: #CFCDC3;
+    background-color: ${colors.blue};
   }
   ::-webkit-input-placeholder,
   ::-moz-placeholder {

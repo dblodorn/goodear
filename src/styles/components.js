@@ -152,6 +152,24 @@ const StyledMarkup = styled.div`
   }
 `
 
+const PatternWrapper = styled.aside`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: block;
+  img,
+  svg,
+  g {
+    ${_.absoluteCentered};
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`
+
 // UI
 const StyledLink = styled(Link)`
   ${_.defaultLink};
@@ -242,6 +260,7 @@ const ModalContentWrapper = styled.div`
   height: 100%;
   max-width: 100rem;
   position: relative;
+  z-index: 1;
 `
 
 const CloseButton = styled.button`
@@ -287,5 +306,6 @@ export {
   ModalWrapper,
   ModalContentWrapper,
   CloseButton,
-  ExternalLink
+  ExternalLink,
+  PatternWrapper
 }

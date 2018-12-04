@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
 import { ProportionWrapper } from './../styles/components'
-import { absoluteTopFull, opacityTransition, monoP, microType, flexColumn } from './../styles/mixins'
+import { absoluteTopFull, opacityTransition, monoP, microType, flexColumn, shadow } from './../styles/mixins'
 import { colors, spacing } from './../styles/theme.json'
 
 const VideoCaption = (props) =>
@@ -75,6 +75,7 @@ const ThumbWrapper = styled.div`
 `
 
 const ThumbInner = styled.div`
+  ${shadow};
   padding: ${spacing.single_pad};
   background-color: ${colors.pink};
   display: flex;

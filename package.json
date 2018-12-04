@@ -33,6 +33,7 @@
     ]
   },
   "dependencies": {
+    "@u-wave/react-vimeo": "^0.6.0",
     "color": "^3.1.0",
     "connected-react-router": "^4.4.1",
     "lodash": "^4.17.11",

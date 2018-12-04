@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Transition } from 'react-spring'
-import { flexColumn, monoP, media, mediumType } from '../../styles/mixins'
+import { flexColumn, monoP, media, mediumType, shadow } from '../../styles/mixins'
 import { StyledLink } from './../../styles/components'
 import { colors, widths, spacing, fonts } from './../../styles/theme.json'
 import Logo from './../Logo'
@@ -84,6 +84,7 @@ export default connect(
 
 /* STYLES */
 const Sidebar = styled.header`
+  ${shadow};
   width: ${widths.sidebar_desktop};
   ${flexColumn};
   justify-content: space-between;
@@ -140,14 +141,14 @@ const LogoWrapper = styled.div`
 const HeaderTop = styled.div`
   position: relative;
   padding: ${spacing.single_pad};
-  height: 50%;
+  height: 40%;
 `
 
 const HeaderBottom = styled.div`
   ${flexColumn};
   position: relative;
   padding: ${spacing.single_pad};
-  height: 50%;
+  height: 60%;
   justify-content: space-between;
 `
 
