@@ -1,19 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Color from 'color'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import Logo from './../Logo'
 import { connect } from 'react-redux'
-import Menu from './../menus/Menu'
-import MenuLink from './../menus/MenuLink'
-import { Transition } from 'react-spring'
-import { setMenuState } from './../../state/actions'
 import { flexColumn, defaultLink, buttonInit, scrollPanel, microType, shadow, borderRadius, flexRowCenteredAll } from './../../styles/mixins'
-import { heights, spacing, colors } from './../../styles/theme.json'
+import { fonts, spacing, colors } from './../../styles/theme.json'
 
 const HEADER_MENU = [
-  {
-    title: 'home',
-    slug: '',
-    is_home: true
-  },
   {
     title: 'reel',
     slug: 'reel',
@@ -26,83 +20,85 @@ const HEADER_MENU = [
   }
 ]
 
-const MenuWrapper = (props) =>
-  <InnerHeader style={props.style} className="nav-wrapper__content">
-    <Menu location={0}>
-      <MenuLink page={'Home'} path={''}/>
-    </Menu>
-  </InnerHeader>
-
 const HeaderMobile = (props) => {
   return (
-    <HeaderWrapper>
-      {(props.menu)
-        ? <MobileButton onClick={() => props.menu_toggle(false)}><span>Close</span></MobileButton>
-        : <MobileButton onClick={() => props.menu_toggle(true)}><span>Menu</span></MobileButton>
-      }
-      <Transition from={{ opacity: 0, transform: 'scale(1.025)' }} enter={{ opacity: 1, transform: 'scale(1)' }} leave={{ opacity: 0, transform: 'scale(1.05)', pointerEvents: 'none' }}>
-        {props.menu && (styles => <MenuWrapper style={styles}/>)}
-      </Transition>
-    </HeaderWrapper>
+    <Fragment>
+      <HeaderWrapper>
+        <LogoLink to={`/`}>
+          <div className={'logo-inner'}><Logo /></div>
+        </LogoLink>
+      </HeaderWrapper>
+      <NavBar>
+        {HEADER_MENU.map((item, i) =>
+          <Link to={`/${item.slug}`} className={(`/${item.slug}` == `${props.route}`) ? `active` : ``} key={`link-${item.slug}${i}`}>
+            <span>{item.title}</span>
+          </Link>
+        )}
+      </NavBar>
+    </Fragment>
   )
 }
 
 export default connect(
   state => ({
-    menu: state.menu
-  }),
-  dispatch => ({
-    menu_toggle: (bool) => dispatch(setMenuState(bool))
+    route: state.router.location.pathname
   })
 )(HeaderMobile)
 
 /* STYLES */
 const HeaderWrapper = styled.header`
+  ${shadow};
   width: 100vw;
-  height: ${heights.mobile_header};
-  padding: 0 ${spacing.double_pad} 8rem;
-  position: fixed;
+  position: relative;
+  background-color: ${colors.orange};
   top: 0;
   left: 0;
   z-index: 9000;
   transition: opacity 750ms ease, transform 350ms ease;
-  opacity: ${props => props.Opacity};
-  transform: translateY(${props => props.Yposition});
   * {
     color: ${colors.header_type_color}!important;
   }
 `
 
-const InnerHeader = styled.div`
-  ${flexColumn};
-  ${scrollPanel};
-  background-color: ${colors.white};
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: ${spacing.double_pad};
-  background-color: ${colors.header_bg_color};
-  will-change: opacity, transform;
-  zoom: 0;
+const LogoLink = styled(Link)`
+  width: 100%;
+  padding: ${spacing.single_pad};
+  position: relative;
+  margin: 0 auto;
+  max-width: 20rem;
+  display: flex;
+  .logo-inner {
+    svg {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
 `
 
-const MobileButton = styled.button`
-  ${defaultLink};
-  ${buttonInit};
-  ${microType};
+const NavBar = styled.nav`
   ${flexRowCenteredAll};
-  width: 6rem;
-  height: 4rem;
-  padding-top: .2rem;
-  text-transform: uppercase;
-  position: fixed;
+  width: 100%;
+  padding: ${spacing.single_pad};
+  background-color: ${Color(colors.blue).darken(.25).hsl().string()};
+  position: sticky;
   top: 0;
-  right: 0;
-  z-index: 10000;
-  background-color: ${colors.green};
-  text-decoration: none!important;
+  z-index: 9000;
+  a {
+    text-decoration: none;
+    margin-right: ${spacing.double_pad};
+    &:last-child {
+      margin-right: 0;
+    }
+    span {
+      ${buttonInit};
+      font-family: ${fonts.sans_medium};
+      font-weight: 500;
+      color: ${colors.white};
+      font-size: ${fonts.sizes.body};
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+  }
 `

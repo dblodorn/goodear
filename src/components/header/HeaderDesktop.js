@@ -77,7 +77,6 @@ const HeaderDesktop = (props) =>
 
 export default connect(
   state => ({
-    api_data: state.api_data,
     route: state.router.location.pathname
   })
 )(HeaderDesktop)

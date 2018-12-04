@@ -26,7 +26,7 @@
   "spacing": {
     "micro_pad": ".75rem",
     "single_pad": "1.25rem",
-    "double_pad": "2.5rem",
+    "double_pad": "2rem",
     "big_pad": "6rem"
   },
   "colors": {

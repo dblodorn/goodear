@@ -32,11 +32,11 @@ export default connect(
 
 // MAIN STYLING
 const Main = styled.main`
-  ${animationFadeIn(1000, 150)};
   ${flexColumn};
   width: 100vw;
   position: relative;
   min-height: calc(100vh - ${heights.footer});
+  overflow-x: hidden;
 `
 
 // NORMALIZE CSS

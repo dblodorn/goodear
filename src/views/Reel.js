@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { spacing, widths } from './../styles/theme.json'
+import { widths } from './../styles/theme.json'
+import { media } from './../styles/mixins'
 import { Head, VideoGrid } from './../components'
 import { PatternSeven } from './../patterns'
-import { trimExcerpt } from './../scripts'
 
 const Reel = props => {
   const videos = props.api_data.posts.video
@@ -29,5 +29,7 @@ export default connect(
 const ReelWrapper = styled.section`
   width: 100%;
   position: relative;
-  padding-left: ${widths.sidebar_nav};
+  ${media.desktopNav`
+    padding-left: ${widths.sidebar_nav};
+  `}
 `

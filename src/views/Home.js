@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { VideoGrid, Head } from './../components'
 import { PatternSeven } from './../patterns'
 import { media } from './../styles/mixins'
-import { widths } from './../styles/theme.json'
+import { widths, spacing } from './../styles/theme.json'
 import { trimExcerpt } from './../scripts'
 
 const Home = props => {
@@ -28,6 +28,7 @@ export default connect(
 const HomeSection = styled.section`
   width: 100%;
   position: relative;
+  padding-bottom: calc(8rem - ${spacing.double_pad});
   ${media.desktopNav`
     padding-left: ${widths.sidebar_desktop};
     padding-bottom: 0;
