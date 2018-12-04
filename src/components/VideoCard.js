@@ -75,7 +75,7 @@ const ThumbWrapper = styled.div`
 
 const ThumbInner = styled.div`
   ${shadow};
-  padding: ${spacing.single_pad};
+  padding: ${spacing.micro_pad};
   background-color: ${colors.pink};
   display: flex;
   flex-direction: column;

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Color from 'color'
 import { flexColumn, rotoHalf, buttonInit, linkInit } from '../../styles/mixins'
-import { ExternalLink } from '../../styles/components'
 import { widths, fonts, colors, spacing } from './../../styles/theme.json'
 
 export default props =>
@@ -26,7 +26,7 @@ const SidebarNavWrapper = styled.div`
   left: 0;
   width: ${widths.sidebar_nav};
   height: 100vh;
-  background-color: ${colors.dk_grey};
+  background-color: ${Color(colors.blue).darken(.25).hsl().string()};
   z-index: 10000;
   a {
     ${linkInit}
@@ -36,12 +36,12 @@ const SidebarNavWrapper = styled.div`
     }
     &.hover {
       span {
-        color: ${colors.pink};
+        color: ${colors.orange};
       }
     }
     &.active {
       span {
-        color: ${colors.pink};
+        color: ${colors.orange};
       }
     }
   }
