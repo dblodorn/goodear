@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import { VideoGrid, Head } from './../components'
 import { PatternHome } from './../patterns'
 import { media } from './../styles/mixins'
-import { widths, spacing } from './../styles/theme.json'
+import { Manifesto } from './../styles/components'
+import { widths, spacing, breakpoints } from './../styles/theme.json'
 import { trimExcerpt } from './../scripts'
 
 const Home = props => {
@@ -12,6 +13,9 @@ const Home = props => {
     <Fragment>
       <Head title={`Home`} description={trimExcerpt(props.api_data.options.manifesto)} />
       <HomeSection>
+        {(props.resize_state.window_width < breakpoints.desktop) && 
+          <Manifesto dangerouslySetInnerHTML={{ __html: props.api_data.options.manifesto }} />
+        }
         <VideoGrid videos={props.api_data.options.home_videos} columns={'home'}/>
       </HomeSection>
       <PatternHome/>
@@ -21,7 +25,8 @@ const Home = props => {
 
 export default connect(
   state => ({
-    api_data: state.api_data
+    api_data: state.api_data,
+    resize_state: state.resize_state
   })
 )(Home)
 

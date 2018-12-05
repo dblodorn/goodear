@@ -152,6 +152,27 @@ const StyledMarkup = styled.div`
   }
 `
 
+const Manifesto = styled.div`
+  background-color: ${colors.pink};
+  padding: ${spacing.double_pad};
+  background-image: url('/assets/patterns/menubg.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  * {
+    ${_.monoP};
+    color: ${colors.white};
+    line-height: 1.25;
+  }
+  ${_.media.desktopNav`
+    padding: ${spacing.single_pad} 0;
+    border-top: 1px solid ${colors.white};
+    border-bottom: 1px solid ${colors.white};
+    background: transparent;
+    margin-bottom: ${spacing.single_pad};X
+  `}
+`
+
 const PatternWrapper = styled.aside`
   width: 100vw;
   height: 100vh;
@@ -307,5 +328,6 @@ export {
   ModalContentWrapper,
   CloseButton,
   ExternalLink,
-  PatternWrapper
+  PatternWrapper,
+  Manifesto
 }

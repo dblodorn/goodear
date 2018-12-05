@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Transition } from 'react-spring'
-import { flexColumn, monoP, media, mediumType, shadow } from '../../styles/mixins'
-import { StyledLink } from './../../styles/components'
+import { flexColumn, mediumType, shadow } from '../../styles/mixins'
+import { StyledLink, Manifesto } from './../../styles/components'
 import { colors, widths, spacing, fonts } from './../../styles/theme.json'
 import Logo from './../Logo'
 import HeaderStrip from './HeaderStrip'
@@ -153,18 +153,6 @@ const HeaderBottom = styled.div`
   padding: ${spacing.single_pad};
   height: 60%;
   justify-content: space-between;
-`
-
-const Manifesto = styled.div`
-  padding: ${spacing.single_pad} 0;
-  border-top: 1px solid ${colors.white};
-  border-bottom: 1px solid ${colors.white};
-  margin-bottom: ${spacing.single_pad};
-  * {
-    ${monoP};
-    color: ${colors.white};
-    line-height: 1.25;
-  }
 `
 
 const TestimonialsLink = styled(Link)`

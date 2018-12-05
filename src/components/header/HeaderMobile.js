@@ -51,6 +51,10 @@ const HeaderWrapper = styled.header`
   width: 100vw;
   position: relative;
   background-color: ${colors.orange};
+  background-image: url('/assets/patterns/menubg.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   top: 0;
   left: 0;
   z-index: 9000;
