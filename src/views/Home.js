@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { VideoGrid, Head } from './../components'
-import { PatternSeven } from './../patterns'
+import { PatternHome } from './../patterns'
 import { media } from './../styles/mixins'
 import { widths, spacing } from './../styles/theme.json'
 import { trimExcerpt } from './../scripts'
@@ -14,7 +14,7 @@ const Home = props => {
       <HomeSection>
         <VideoGrid videos={props.api_data.options.home_videos} columns={'home'}/>
       </HomeSection>
-      <PatternSeven/>
+      <PatternHome/>
     </Fragment>
   )
 }

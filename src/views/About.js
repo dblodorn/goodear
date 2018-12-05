@@ -4,13 +4,12 @@ import styled from 'styled-components'
 import { spacing, shared, colors, widths, breakpoints } from './../styles/theme.json'
 import { StyledMarkup, H1 } from './../styles/components'
 import { BottomLogo, Head, FitImage } from './../components'
-import { PatternEleven } from './../patterns'
+import { PatternAbout } from './../patterns'
 import { trimExcerpt } from './../scripts'
 import { flexColumn, media } from './../styles/mixins'
 
 const About = props => {
   const aboutData = props.api_data.options.about_us
-  console.log(aboutData)
   return (
     <Fragment>
       <Head title={aboutData.header} description={trimExcerpt(aboutData.statement)}/>
@@ -24,7 +23,7 @@ const About = props => {
         </IntroWrapper>
       </AboutSection>
       {props.resize_state.window_width >= breakpoints.desktop && <BottomLogo />}
-      <PatternEleven />
+      <PatternAbout/>
     </Fragment>
   )
 }

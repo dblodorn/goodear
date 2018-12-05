@@ -13,17 +13,26 @@ import Close from './../utils/Close'
 import BottomLogo from './../BottomLogo'
 import PlayButton from './../utils/PlayButton'
 
+const randomNum = (min, max) =>
+  Math.floor(Math.random() * (+max - +min)) + +min
+
 class VideoModal extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      modal: false
+      modal: false,
+      pattern: 1
     }
     this._Popup = this._Popup.bind(this)
   }
   _Popup() {
     this.setState({
       modal: !this.state.modal
+    })
+  }
+  componentWillMount() {
+    this.setState({
+      pattern: randomNum(1, 14)
     })
   }
   render() {
@@ -48,7 +57,7 @@ class VideoModal extends Component {
                 </ModalContentWrapper>
                 <BottomLogo/>
                 <PatternWrapper>      
-                  <img src={'assets/patterns/greyBg.svg'}/>
+                  <img src={`assets/patterns/pattern${this.state.pattern}.svg`}/>
                 </PatternWrapper>
               </ModalWrapper>
             </Modal>

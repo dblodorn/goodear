@@ -77,7 +77,8 @@ const HeaderDesktop = (props) =>
 
 export default connect(
   state => ({
-    route: state.router.location.pathname
+    route: state.router.location.pathname,
+    api_data: state.api_data
   })
 )(HeaderDesktop)
 
@@ -95,6 +96,10 @@ const Sidebar = styled.header`
   z-index: 9000;
   background-color: ${colors.orange};
   padding-left: ${widths.sidebar_nav};
+  background-image: url('/assets/patterns/menubg.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `
 
 const MenuWrapper = styled.menu`
