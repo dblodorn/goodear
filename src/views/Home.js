@@ -18,7 +18,6 @@ const Home = props => {
         }
         <VideoGrid videos={props.api_data.options.home_videos} columns={'home'}/>
       </HomeSection>
-      <PatternHome/>
     </Fragment>
   )
 }
