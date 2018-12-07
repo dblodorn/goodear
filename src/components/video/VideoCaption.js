@@ -12,22 +12,19 @@ export default (props) =>
         <span dangerouslySetInnerHTML={{ __html: (props.content.title || ``) }} />
       </h1>
       <h2>{props.content.song_title || ``}</h2>
-      {props.content.taxonomies.agency && <h3>{props.content.taxonomies.agency[0]}</h3>}
+      {/* props.content.taxonomies.agency && <h3>{props.content.taxonomies.agency[0]}</h3> */}
     </CaptionInner>
   </VideoCaptionWrapper>
 
 const VideoCaptionWrapper = styled.div`
   position: relative;
   display: flex;
-  ${media.medium`
-    margin-top: ${spacing.single_pad};
-  `}
+  margin-top: ${spacing.single_pad};
 `
 
 const CaptionInner = styled.div`
   ${shadow};
   ${flexColumn};
-  width: 100%;
   padding: ${spacing.micro_pad};
   background-color: ${colors.pink};
   * {

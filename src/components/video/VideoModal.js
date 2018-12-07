@@ -95,11 +95,20 @@ const VideoSection = styled(Section)`
 const VideoWrapper = styled.div`
   ${flexColumn};
   width: 100%;
-  padding: ${spacing.double_pad} 0 6rem;
+  padding: ${spacing.double_pad} 1rem 8rem;
   margin-bottom: 4rem;
   ${media.desktopNav`
     width: 75vw;
     max-width: 90rem;
     padding: 0;
+    padding: ${spacing.double_pad} 0;
+    margin-bottom: 0;
+  `}
+  ${media.big`
+    width: 75vw;
+    max-width: 90rem;
+    padding: 0;
+    padding: ${spacing.double_pad} 0 6rem;
+    margin-bottom: 0;
   `}
 `
