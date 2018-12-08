@@ -47,7 +47,7 @@ const HeaderDesktop = (props) =>
           <HeaderBottom>
             <div>
               {(props.api_data) && <Manifesto dangerouslySetInnerHTML={{ __html: props.api_data.options.manifesto }}/>}
-              <TestimonialsLink to={`/kind-words`} ><span>People Love Us</span></TestimonialsLink>
+              {/*<TestimonialsLink to={`/kind-words`} ><span>Good News</span></TestimonialsLink>*/}
             </div>
             <Socials/>
           </HeaderBottom>

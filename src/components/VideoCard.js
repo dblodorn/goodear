@@ -1,4 +1,5 @@
 import React from 'react'
+import Color from 'color'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
@@ -42,7 +43,7 @@ const VideoCaptionWrapper = styled.div`
   padding-top: ${spacing.micro_pad};
   z-index: 1;
   * {
-    color: ${colors.white}!important;
+    color: ${colors.dk_grey}!important;
   }
   h4 {
     ${microType};
@@ -76,7 +77,7 @@ const ThumbWrapper = styled.div`
 const ThumbInner = styled.div`
   ${shadow};
   padding: ${spacing.micro_pad};
-  background-color: ${colors.pink};
+  background-color: ${Color(colors.pink).lighten(.35).hsl().string()};
   display: flex;
   flex-direction: column;
   width: 100%;

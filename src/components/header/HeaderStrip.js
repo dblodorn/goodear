@@ -26,7 +26,7 @@ const SidebarNavWrapper = styled.div`
   left: 0;
   width: ${widths.sidebar_nav};
   height: 100vh;
-  background-color: ${Color(colors.blue).darken(.25).hsl().string()};
+  background-color: ${colors.dk_grey};
   z-index: 10000;
   a {
     ${linkInit}
@@ -36,12 +36,12 @@ const SidebarNavWrapper = styled.div`
     }
     &.hover {
       span {
-        color: ${colors.orange};
+        color: ${colors.pink};
       }
     }
     &.active {
       span {
-        color: ${colors.orange};
+        color: ${colors.pink};
       }
     }
   }

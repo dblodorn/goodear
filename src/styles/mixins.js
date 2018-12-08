@@ -151,7 +151,7 @@ const defaultLink = css`
   }
   &.active {}
   &:hover {
-    color: ${colors.hover_color};
+    color: ${colors.pink};
   }
 `
 
