@@ -2,6 +2,10 @@
   // ALL PROJECTS CPT
   function return_videos($post) {
     $description = get_field('description', $post->ID);
+    $superstars = get_field('superstars', $p->ID);
+    $cover = get_field('cover', $p->ID);
+    $films = get_field('films', $p->ID);
+    $hidden_gems = get_field('hidden_gems', $p->ID);
     return array (
       'post_id' => $post->ID,
       'title' => $post->post_title,
@@ -12,9 +16,12 @@
       'short_description' => get_field('short_description', $post->ID),
       'video_url' => get_field('video_url', $p->ID, false, false),
       'song_title' => get_field('song_title', $p->ID),
-      'cover' => get_field('cover', $p->ID),
-      'discoveries' => get_field('discoveries', $p->ID),
-      'superstars' => get_field('superstars', $p->ID),
+      'video_cats' => array(
+        'cover' => return_null_false($cover),
+        'superstars' => return_null_false($superstars),
+        'films' => return_null_false($films),
+        'hidden-gems' => return_null_false($hidden_gems),
+      ),
       'additional_information' => get_field('additional_information', $p->ID),
       'short_description' => get_field('short_description', $p->ID),
       'taxonomies' => taxonomy_data($post),
