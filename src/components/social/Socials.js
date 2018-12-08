@@ -12,7 +12,6 @@ const Socials = (props) => {
       <SocialWrapper>
         <li><FacebookLogo link={props.api_data.options.facebook}/></li>
         <li><InstaLogo link={props.api_data.options.instagram}/></li>
-        <li><SpotifyLogo link={props.api_data.options.twitter}/></li>
       </SocialWrapper>
     )
   }
@@ -26,6 +25,6 @@ export default connect(
 
 const SocialWrapper = styled.ul`
   ${flexRow};
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
 `

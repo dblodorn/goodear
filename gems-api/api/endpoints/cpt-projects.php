@@ -13,6 +13,8 @@
       'video_url' => get_field('video_url', $p->ID, false, false),
       'song_title' => get_field('song_title', $p->ID),
       'cover' => get_field('cover', $p->ID),
+      'discoveries' => get_field('discoveries', $p->ID),
+      'superstars' => get_field('superstars', $p->ID),
       'additional_information' => get_field('additional_information', $p->ID),
       'short_description' => get_field('short_description', $p->ID),
       'taxonomies' => taxonomy_data($post),

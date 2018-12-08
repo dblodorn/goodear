@@ -14,7 +14,6 @@ const Reel = props => {
       <ReelWrapper>
         <VideoGrid videos={videos} columns={'reel'}/>
       </ReelWrapper>
-      <PatternReel/>
     </Fragment>
   )
 }
