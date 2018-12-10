@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { VideoGrid, Head } from './../components'
-import { PatternHome } from './../patterns'
 import { media } from './../styles/mixins'
 import { Manifesto } from './../styles/components'
 import { widths, spacing, breakpoints } from './../styles/theme.json'
@@ -32,7 +31,6 @@ export default connect(
 const HomeSection = styled.section`
   width: 100%;
   position: relative;
-  padding-bottom: calc(8rem - ${spacing.double_pad});
   ${media.desktopNav`
     padding-left: ${widths.sidebar_desktop};
     padding-bottom: 0;

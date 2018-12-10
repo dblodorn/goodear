@@ -57,7 +57,7 @@ const AboutSection = styled.section`
   width: 100%;
   max-width: 150rem;
   margin: 0 auto;
-  padding: ${spacing.double_pad} ${spacing.double_pad} 8rem;
+  padding: ${spacing.double_pad};
   h1 {
     color: ${colors.orange};
   }

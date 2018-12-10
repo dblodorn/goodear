@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 import Socials from './social/Socials'
 import ScrollToTop from './ScrollToTop'
 import NewsLetterModal from './NewsletterModal'
-import { flexColumnCentered } from './../styles/mixins'
-import { spacing, colors } from './../styles/theme.json'
+import { flexColumnCentered, buttonInit, shadow } from './../styles/mixins'
+import { spacing, colors, fonts } from './../styles/theme.json'
 
 const Footer = (props) => {
   return (
@@ -26,9 +27,14 @@ export default connect(
 // STYLES
 const FooterWrapper = styled.footer`
   ${flexColumnCentered};
+  ${shadow};
   width: 100%;
-  padding: ${spacing.double_pad};
+  padding: 4rem ${spacing.double_pad} calc(8rem - ${spacing.double_pad});
   background-color: ${colors.orange};
+  a {
+    text-decoration: none;
+    margin-bottom: ${spacing.double_pad};
+  }
   span {
     ${buttonInit};
     font-family: ${fonts.sans_medium};

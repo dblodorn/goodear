@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import FacebookLogo from './FacebookLogo'
 import InstaLogo from './InstaLogo'
 import SpotifyLogo from './SpotifyLogo'
-import { flexRow } from './../../styles/mixins'
+import { flexRow, media } from './../../styles/mixins'
 
 const Socials = (props) => {
   if (props.api_data) {
@@ -26,6 +26,10 @@ export default connect(
 
 const SocialWrapper = styled.ul`
   ${flexRow};
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
+  padding-top: 2rem;
+  ${media.desktopNav`
+    padding-top: 0;
+  `}
 `

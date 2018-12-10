@@ -1,7 +1,8 @@
 import React from 'react'
+import styled from 'styled-components'
 import * as Scroll from 'react-scroll'
 import { animateScroll as scroll } from 'react-scroll'
-import { DefaultLink, buttonInit } from './../../styles/components'
+import { DefaultLink, buttonInit } from './../styles/components'
 
 const scrollToTop = () => {
   scroll.scrollToTop({

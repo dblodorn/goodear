@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import styled, { injectGlobal } from 'styled-components'
-import { animationFadeIn, flexColumn, media, fancyScroll } from './styles/mixins'
-import { colors, fonts, heights, widths, shared } from './styles/theme.json'
+import { flexColumn, fancyScroll } from './styles/mixins'
+import { colors, fonts, heights, breakpoints } from './styles/theme.json'
 import { routeName } from './scripts'
 import { Footer, Header } from './components'
 import { LoadingPage } from './views'
@@ -15,6 +15,7 @@ const Document = (props) => {
         <Main id={routeName(props.router.location.pathname).routeClass} className={props.header_style}>
           {props.children}
         </Main>
+        {(props.resize_state.window_width < breakpoints.desktop) && <Footer />}
       </Fragment>
     )
   } else {
@@ -26,7 +27,8 @@ export default connect(
   state => ({
     api_data: state.api_data,
     header_style: state.header_style,
-    router: state.router
+    router: state.router,
+    resize_state: state.resize_state
   })
 )(Document)
 

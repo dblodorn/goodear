@@ -124,8 +124,11 @@ const microType = css`
 
 const monoP = css`
   ${monoFont};
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   line-height: 1.125;
+  ${media.medium`
+    font-size: 1.35rem;
+  `}
 `
 
 const linkInit = css`

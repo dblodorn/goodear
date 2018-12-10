@@ -52,14 +52,19 @@ export default () =>
 // STYLES
 const MailingContainer = styled(CaptionInner)`
   max-width: 55rem;
+  width: 100%;
   padding: ${spacing.double_pad};
   transition: background-color 350ms ease;
+  margin-bottom: 8rem;
+  ${media.desktopNav`
+    margin-bottom: 0;
+  `}
   * {
     color: ${colors.white};
-    font-size: ${fonts.sizes.medium_sm};
+    font-size: ${fonts.sizes.body};
     line-height: 1;
     letter-spacing: 2px;
-    ${media.medium`
+    ${media.desktopNav`
       font-size: ${fonts.sizes.medium};
     `}
   }
