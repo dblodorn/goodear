@@ -13,7 +13,7 @@ const BottomLogoWrapper = styled.div`
   bottom: ${spacing.single_pad};
   right: ${spacing.single_pad};
   position: fixed;
-  z-index: 10;
+  z-index: 2000;
   svg {
     object-fit: contain;
     width: 100%;

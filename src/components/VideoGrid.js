@@ -37,6 +37,14 @@ const VideoGridWrapper = styled.ul`
   }
   ${media.desktopNav`
     &.reel > li {
+      width: calc(100% / 5);
+    }
+    &.home > li {
+      width: calc(100% / 3);
+    }
+  `}
+  ${media.medium`
+    &.reel > li {
       width: calc(100% / 7);
     }
     &.home > li {

@@ -5,7 +5,7 @@ import { flexColumn, rotoHalf, buttonInit, linkInit } from '../../styles/mixins'
 import { widths, fonts, colors, spacing } from './../../styles/theme.json'
 
 export default props =>
-  <SidebarNavWrapper>
+  <SidebarNavWrapper className={props.headerClass || ``}>
     <Top>
       <RotoTop>
         {props.children}
@@ -26,7 +26,10 @@ const SidebarNavWrapper = styled.div`
   left: 0;
   width: ${widths.sidebar_nav};
   height: 100vh;
-  background-color: ${colors.dk_grey};
+  background-color: ${Color(colors.bg).darken(.25).hsl().string()};
+  &.home {
+    background-color: ${Color(colors.orange).darken(.125).hsl().string()}!important;
+  }
   z-index: 10000;
   a {
     ${linkInit}

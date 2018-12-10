@@ -28,20 +28,6 @@ const GridWrapper = styled.ul`
   ${_.grid};
 `
 
-const ProportionWrapper = styled.div`
-  height: 0;
-  overflow-y: visible;
-  position: relative;
-  width: 100%;
-  padding-bottom: ${props => `${props.Mobile}%` || `100%`};
-  ${_.media.medium`
-    padding-bottom: ${props => `${props.Desktop}%` || `50%`};
-  `}
-  ${_.media.big`
-    padding-bottom: ${props => `${props.Max}%` || `45%`};
-  `}
-`
-
 // TYPE
 const H1 = styled.h1`
   ${_.bigType};
@@ -107,12 +93,12 @@ const StyledMarkup = styled.div`
   }
   h1 {
     ${_.bigType};
-    color: ${props => props.theme.display_font_color}!important;
+    color: ${colors.orange}!important;
     font-family: ${props => props.theme.display_font}!important;
   }
   h2 {
     ${_.mediumType};
-    color: ${props => props.theme.display_font_color}!important;
+    color: ${colors.orange}!important;
     font-family: ${props => props.theme.display_font}!important;
   }
   h3 {
@@ -344,7 +330,6 @@ export {
   ButtonLink,
   StyledButton,
   GridWrapper,
-  ProportionWrapper,
   ModalWrapper,
   ModalContentWrapper,
   CloseButton,

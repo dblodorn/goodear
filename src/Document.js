@@ -67,7 +67,7 @@ injectGlobal`
     font-weight: 300;
     font-style: normal;
     text-decoration: none;
-    background-color: ${colors.blue};
+    background-color: ${colors.bg};
   }
   ::-webkit-input-placeholder,
   ::-moz-placeholder {

@@ -52,7 +52,7 @@ const HeaderDesktop = (props) =>
             </div>
             <Socials/>
           </HeaderBottom>
-          <HeaderStrip>
+          <HeaderStrip headerClass={`home`}>
             <NewsletterModal/>
           </HeaderStrip>
         </Sidebar>

@@ -10,7 +10,7 @@ const media = {
     }
   `,
   medium: (...args) => css`
-    @media (min-width: ${breakpoints.desktop}px) {
+    @media (min-width: ${breakpoints.medium}px) {
       ${ css(...args) }
     }
   `,
@@ -525,7 +525,7 @@ const rotoHalf = css`
   display: flex;
   align-items: center;
   flex-direction: row;
-  padding: 0 ${spacing.single_pad};
+  padding: 3px ${spacing.single_pad} 0;
 `
 
 export {

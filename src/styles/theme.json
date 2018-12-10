@@ -1,8 +1,8 @@
 {
   "breakpoints": {
     "mobile": 0,
-    "medium": 570,
-    "desktop": 768,
+    "medium": 1200,
+    "desktop": 860,
     "tablet_w": 960,
     "tablet_h": 800,
     "big": 1500
@@ -32,6 +32,7 @@
     "big_pad": "6rem"
   },
   "colors": {
+    "bg": "#CFCDC3",
     "white": "#ffffff",
     "black": "#180c06",
     "grey": "#8f8f8f",
@@ -76,8 +77,8 @@
     "body_copy_font_b": "Circular Book, system-ui, sans-serif",
     "nav_font_b": "Circular Book, system-ui, sans-serif",
     "sizes": {
-      "giant": "3.75rem",
-      "giant_sm": "3.25rem",
+      "giant": "3.5rem",
+      "giant_sm": "3rem",
       "medium": "3.25rem",
       "medium_sm": "3rem",
       "body": "1.75rem",
