@@ -2,16 +2,14 @@ import React, { Component, Fragment } from 'react'
 import propTypes from 'prop-types'
 import { Transition } from 'react-spring'
 import styled from 'styled-components'
-import { colors, spacing } from './../../styles/theme.json'
-import { ModalWrapper, ModalContentWrapper, Section, PatternWrapper } from './../../styles/components'
-import { absoluteTopFull, flexCenteredAll, media, flexColumn } from './../../styles/mixins'
+import { colors } from './../../styles/theme.json'
+import { ModalWrapper } from './../../styles/components'
+import { absoluteTopFull } from './../../styles/mixins'
 import { randomNum } from './../../scripts'
 import Modal from './../Modal'
 import Video from './Video'
-import VideoCaption from './VideoCaption'
 import FitImage from './../utils/FitImage'
 import Close from './../utils/Close'
-import BottomLogo from './../BottomLogo'
 import PlayButton from './../utils/PlayButton'
 
 class VideoModal extends Component {
@@ -44,19 +42,9 @@ class VideoModal extends Component {
           {this.state.modal && (styles => 
             <Modal>
               <ModalWrapper style={styles}>
-                <ModalContentWrapper>
-                  <VideoSection>
-                    <Close clickFunction={() => this._Popup()} color={colors.white} />
-                    <VideoWrapper>
-                      <Video videoUrl={this.props.video_url} />
-                      <VideoCaption content={this.props.data}/>
-                    </VideoWrapper>
-                  </VideoSection>
-                </ModalContentWrapper>
-                <BottomLogo/>
-                <PatternWrapper>      
-                  <img src={`assets/patterns/pattern${this.state.pattern}.svg`}/>
-                </PatternWrapper>
+                <Video data={this.props.data}>
+                  <Close clickFunction={() => this._Popup()}/>
+                </Video>
               </ModalWrapper>
             </Modal>
           )}
@@ -69,7 +57,6 @@ class VideoModal extends Component {
 VideoModal.propTypes = {
   thumbnail: propTypes.string,
   short_description: propTypes.string,
-  theme: propTypes.string,
   video_url: propTypes.string
 }
 
@@ -78,34 +65,4 @@ export default VideoModal
 const VideoPopper = styled.div`
   ${absoluteTopFull};
   overflow: hidden;
-`
-
-const VideoSection = styled(Section)`
-  ${flexCenteredAll};
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-`
-
-const VideoWrapper = styled.div`
-  ${flexColumn};
-  width: 100%;
-  padding: ${spacing.double_pad} 1rem 8rem;
-  margin-bottom: 4rem;
-  ${media.desktopNav`
-    width: 75vw;
-    max-width: 90rem;
-    padding: 0;
-    padding: ${spacing.double_pad} 0;
-    margin-bottom: 0;
-  `}
-  ${media.big`
-    width: 75vw;
-    max-width: 90rem;
-    padding: 0;
-    padding: ${spacing.double_pad} 0 6rem;
-    margin-bottom: 0;
-  `}
 `

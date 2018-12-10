@@ -12,7 +12,6 @@ export default (props) =>
         <span dangerouslySetInnerHTML={{ __html: (props.content.title || ``) }} />
       </h1>
       <h2>{props.content.song_title || ``}</h2>
-      {/* props.content.taxonomies.agency && <h3>{props.content.taxonomies.agency[0]}</h3> */}
     </CaptionInner>
   </VideoCaptionWrapper>
 
