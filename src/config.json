@@ -7,8 +7,7 @@
     "bgcolor": "#0D75FF"
   },
   "mail_scrape": {
-    "cta": "Sign up for our enewsletter!",
-    "mailchimp_url": ""
+    "mailchimp_url": "https://goodear.us6.list-manage.com/subscribe/post?u=74e7ffc9c8eeb8ab31d7eac3a&amp;id=2b8f4bb29b"
   },
   "styling": {
     "header_style": "sidebar"
@@ -16,8 +15,6 @@
   "fonts": [
     "Circular Book",
     "Circular Medium",
-    "Austin Roman",
-    "Austin Italic",
     "Nitti Light"
   ]
 }

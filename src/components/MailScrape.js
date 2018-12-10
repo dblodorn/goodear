@@ -6,9 +6,6 @@ import { CaptionInner } from './../styles/components'
 import { buttonInit, media } from './../styles/mixins'
 import { fonts, colors, spacing } from './../styles/theme.json'
 
-const cta = `${config.mail_scrape.cta}`
-const url = config.mail_scrape.mailchimp_url
-
 const SimpleForm = ({ status, message, className, style, onSubmitted }) => {
   let input;
   const submit = () =>
@@ -37,7 +34,7 @@ const SimpleForm = ({ status, message, className, style, onSubmitted }) => {
 export default () =>
   <MailingContainer>
     <MailchimpSubscribe 
-      url={url}
+      url={config.mail_scrape.mailchimp_url}
       render={({ subscribe, status, message }) => (
         <SimpleForm
           status={status}
