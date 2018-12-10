@@ -78,7 +78,7 @@
     "nav_font_b": "Circular Book, system-ui, sans-serif",
     "sizes": {
       "giant": "3.5rem",
-      "giant_sm": "3rem",
+      "giant_sm": "2.75rem",
       "medium": "3.25rem",
       "medium_sm": "3rem",
       "body": "1.75rem",

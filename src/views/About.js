@@ -38,25 +38,32 @@ class About extends Component {
             <CopySide className={(item.slug === this.state.current_bio) && 'active'} key={`${item.slug}-bio`}>
               <IntroWrapper>
                 <H1>{item.name}</H1>
+                {(this.props.resize_state.window_width < breakpoints.desktop) &&
+                  <PhotoMobile className={'mobile-photo'}>
+                    <Sizer><FitImage src={item.photo} /></Sizer>
+                  </PhotoMobile>
+                }
                 <StyledMarkup dangerouslySetInnerHTML={{ __html: item.bio }} />
               </IntroWrapper>
             </CopySide>
           )}
-          <PhotoSide>
-            <PhotoWrapper>
-              {this.props.api_data.options.about_us.team.photos.map((item) =>
-                <AboutPhoto key={`${item.slug}-photo`}>
-                  <div className={'sizer'}>
-                    <AboutButton onMouseEnter={() => this._changeBio(item.slug)} onMouseOut={() => this._changeBio(false)}>
-                      <FitImage src={item.photo} />
-                    </AboutButton>
-                  </div>
-                </AboutPhoto>
-              )}
-            </PhotoWrapper>
-          </PhotoSide>
+          {(this.props.resize_state.window_width >= breakpoints.desktop) &&
+            <PhotoSide>
+              <PhotoWrapper>
+                {this.props.api_data.options.about_us.team.photos.map((item) =>
+                  <AboutPhoto key={`${item.slug}-photo`}>
+                    <Sizer>
+                      <AboutButton onMouseEnter={() => this._changeBio(item.slug)} onMouseOut={() => this._changeBio(false)}>
+                        <FitImage src={item.photo} />
+                      </AboutButton>
+                    </Sizer>
+                  </AboutPhoto>
+                )}
+              </PhotoWrapper>
+            </PhotoSide>
+          }
         </AboutSection>
-        <BottomLogo/>
+        {(this.props.resize_state.window_width >= breakpoints.desktop) && <BottomLogo />}
         <PatternAbout/>
       </Fragment>
     )
@@ -72,6 +79,27 @@ export default connect(
 
 // STYLES
 const pic_margin = 10
+
+const AboutSection = styled.section`
+  ${flexColumn};
+  width: 100%;
+  max-width: 150rem;
+  margin: 0 auto;
+  padding: ${spacing.double_pad};
+  h1 {
+    color: ${colors.orange};
+    text-align: center;
+    ${media.desktopNav`
+      text-align: left;
+    `}
+  }
+  ${media.desktopNav`
+    height: 100vh;
+    padding-top: ${spacing.double_pad};
+    padding-left: calc( ${widths.sidebar_nav} + ${spacing.double_pad});
+    padding-right: ${spacing.double_pad};
+  `}
+`
 
 const AboutPhoto = styled.div`
   width: calc(50% - ${pic_margin * 2}px);
@@ -120,13 +148,23 @@ const AboutPhoto = styled.div`
       opacity: 1;
     }
   }
-  .sizer {
-    width: 100%;
-    padding-bottom: 100%;
-    overflow-y: visible;
-    height: 0;
-    position: relative;
-  }
+`
+
+const Sizer = styled.div`
+  width: 100%;
+  padding-bottom: 100%;
+  overflow-y: visible;
+  height: 0;
+  position: relative;
+`
+
+const PhotoMobile = styled.div`
+  width: 100%;
+  position: relative;
+  max-width: 28rem;
+  background-color: ${colors.white};
+  padding: ${spacing.single_pad};
+  margin: 0 auto ${spacing.double_pad};
 `
 
 const AboutButton = styled.button`
@@ -140,40 +178,42 @@ const AboutButton = styled.button`
   cursor: help;
 `
 
-const AboutSection = styled.section`
-  ${flexColumn};
-  width: 100%;
-  max-width: 150rem;
-  margin: 0 auto;
-  height: 100vh;
-  h1 {
-    color: ${colors.orange};
-  }
-  ${media.desktopNav`
-    padding-top: ${spacing.double_pad};
-    padding-left: calc( ${widths.sidebar_nav} + ${spacing.double_pad});
-    padding-right: ${spacing.double_pad};
-  `}
-`
-
 const wrapperShared = css`
   display: flex;
-  width: 50%;
-  height: 100vh;
-  top: 0;
-  position: fixed;
+  position: relative;
+  ${media.desktopNav`
+    width: 50%;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+  `}
 `
 
 const CopySide = styled.div`
   ${wrapperShared};
-  align-items: center;
-  z-index: 100;
-  opacity: 0;
-  pointer-events: none;
-  ${opacityTransition};
-  &.active {
-    opacity: 1;
-    pointer-events: default;
+  ${media.desktopNav`
+    ${opacityTransition};
+    width: 50vw;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    &.active {
+      opacity: 1;
+      pointer-events: default;
+    }
+  `}
+  &:nth-child(1n) {
+    .mobile-photo {transform: rotate(-.75deg);}
+  }
+  &:nth-child(2n) {
+    .mobile-photo {transform: rotate(1.25deg);}
+  }
+  &:nth-child(3n) {
+    .mobile-photo {transform: rotate(-1.25deg);}
+  }
+  &:nth-child(4n) {
+    .mobile-photo {transform: rotate(.5deg);}
   }
 `
 
@@ -183,7 +223,11 @@ const IntroWrapper = styled.div`
   max-width: ${shared.article_width};
   padding: ${spacing.double_pad};
   background-color: ${colors.lt_grey};
-  width: 50vw;
+  margin-bottom: ${spacing.double_pad};
+  ${media.desktopNav`
+    width: 50vw;
+    margin-bottom: 0;
+  `}
 `
 
 const PhotoSide = styled.div`
