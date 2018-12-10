@@ -16,12 +16,6 @@
       'short_description' => get_field('short_description', $post->ID),
       'video_url' => get_field('video_url', $p->ID, false, false),
       'song_title' => get_field('song_title', $p->ID),
-      'video_cats' => array(
-        'cover' => return_null_false($cover),
-        'superstars' => return_null_false($superstars),
-        'films' => return_null_false($films),
-        'hidden-gems' => return_null_false($hidden_gems),
-      ),
       'additional_information' => get_field('additional_information', $p->ID),
       'short_description' => get_field('short_description', $p->ID),
       'taxonomies' => taxonomy_data($post),

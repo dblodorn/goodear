@@ -16,12 +16,6 @@
           'thumbnail' => return_thumb_url($p->ID),
           'video_url' => get_field('video_url', $p->ID, false, false),
           'song_title' => get_field('song_title', $p->ID),
-          'video_cats' => array(
-            'cover' => return_null_false($cover),
-            'superstars' => return_null_false($superstars),
-            'films' => return_null_false($films),
-            'hidden-gems' => return_null_false($hidden_gems),
-          ),
           'additional_information' => get_field('additional_information', $p->ID),
           'short_description' => get_field('short_description', $p->ID),
           'taxonomies' => array (
@@ -36,6 +30,41 @@
     return $data;
   }
   
+  function about_us_bios() {
+    $data = array();
+    if ( have_rows( 'profiles', 'option' ) ) :
+      while ( have_rows( 'profiles', 'option' ) ) : the_row();
+        $name = get_sub_field( 'name' );
+        $data[] = array(
+          'name' => $name,
+          'slug' => seoUrl($name),
+          'bio' => get_sub_field( 'bio' ),
+          'photo' => get_sub_field( 'portrait_photo' ),
+        );
+      endwhile;
+    else :
+      $data = false;
+    endif;
+    return $data;
+  }
+
+  function about_us_images() {
+    $data = array();
+    if ( have_rows( 'profiles', 'option' ) ) :
+      while ( have_rows( 'profiles', 'option' ) ) : the_row();
+        $name = get_sub_field( 'name' );
+        $data[] = array(
+          'name' => $name,
+          'slug' => seoUrl($name),
+          'photo' => get_sub_field( 'portrait_photo' ),
+        );
+      endwhile;
+    else :
+      $data = false;
+    endif;
+    return $data;
+  }
+
   function options_data(){
     return array(
       'manifesto' => get_field('manifesto', 'option'),
@@ -47,6 +76,10 @@
         'header' => get_field('about_us_header', 'option'),
         'statement' => get_field('about_us_statement', 'option'),
         'top_photo' => get_field('about_us_top_photo', 'option'),
+        'team' => array(
+          'photos' => about_us_images(),
+          'bios' => about_us_bios(),
+        )
       )
     );
   }
