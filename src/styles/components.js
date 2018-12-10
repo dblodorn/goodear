@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { heights, spacing, shared, colors, widths } from './theme.json'
+import { heights, spacing, shared, colors, widths, fonts } from './theme.json'
 import * as _ from './mixins'
 
 // DOM NODES
@@ -191,6 +191,27 @@ const PatternWrapper = styled.aside`
   }
 `
 
+const CaptionInner = styled.div`
+  ${_.shadow};
+  ${_.flexColumn};
+  padding: ${spacing.micro_pad};
+  background-color: ${colors.pink};
+  * {
+    color: ${colors.white}!important;
+    font-family: ${fonts.sans_medium};
+    line-height: 1.35;
+    font-size: ${fonts.sizes.body_sm};
+    ${_.media.medium`
+      font-size: ${fonts.sizes.body};
+    `}
+  }
+  ${_.media.medium`
+    width: auto;
+    min-width: 40rem;
+    padding: ${spacing.single_pad};
+  `}
+`
+
 // UI
 const StyledLink = styled(Link)`
   ${_.defaultLink};
@@ -329,5 +350,6 @@ export {
   CloseButton,
   ExternalLink,
   PatternWrapper,
-  Manifesto
+  Manifesto,
+  CaptionInner
 }

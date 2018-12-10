@@ -53,7 +53,7 @@ const HeaderDesktop = (props) =>
             <Socials/>
           </HeaderBottom>
           <HeaderStrip>
-            <NewsLetterModal/>
+            <NewsletterModal/>
           </HeaderStrip>
         </Sidebar>
       )}

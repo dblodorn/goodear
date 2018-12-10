@@ -1,16 +1,16 @@
 import React, { Component, Fragment } from 'react'
 import { Transition } from 'react-spring'
 import styled from 'styled-components'
-import { colors, spacing } from './../../styles/theme.json'
-import { ModalWrapper, ModalContentWrapper, PatternWrapper } from './../../styles/components'
-import { absoluteTopFull, flexCenteredAll, media, flexColumn } from './../../styles/mixins'
+import { colors, spacing } from './../styles/theme.json'
+import { ModalWrapper, ModalContentWrapper, PatternWrapper } from './../styles/components'
+import { buttonInit, media, flexColumn } from './../styles/mixins'
 import { randomNum } from './../scripts'
 import Modal from './Modal'
-import Close from './../utils/Close'
+import Close from './utils/Close'
 import MailScrape from './MailScrape'
-import BottomLogo from './../BottomLogo'
+import BottomLogo from './BottomLogo'
 
-export default class extends Component {
+class NewsletterModal extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -32,13 +32,13 @@ export default class extends Component {
   render() {
     return (
       <Fragment>
-        <button onClick={() => this._Popup()}><span>Newsletter</span></button>
+        <NlButton onClick={() => this._Popup()}><span>Newsletter</span></NlButton>
         <Transition from={{ opacity: 0 }} enter={{ opacity: 1 }} leave={{ opacity: 0, pointerEvents: 'none' }}>
           {this.state.modal && (styles => 
             <Modal>
               <ModalWrapper style={styles}>
+                <Close clickFunction={() => this._Popup()} color={colors.white} />
                 <ModalContentWrapper>
-                  <Close clickFunction={() => this._Popup()} color={colors.white} />
                   <MailScrape/>
                 </ModalContentWrapper>
                 <BottomLogo/>
@@ -53,3 +53,13 @@ export default class extends Component {
     )
   }
 }
+
+export default NewsletterModal
+
+//STYLES
+const NlButton = styled.button`
+  ${buttonInit};
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+`

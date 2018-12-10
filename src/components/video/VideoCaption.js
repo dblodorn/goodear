@@ -29,14 +29,6 @@ const CaptionInner = styled.div`
   background-color: ${colors.pink};
   * {
     color: ${colors.white}!important;
-  }
-  ${media.medium`
-    width: auto;
-    min-width: 40rem;
-    padding: ${spacing.single_pad};
-  `}
-  h1,
-  h2 {
     font-family: ${fonts.sans_medium};
     line-height: 1.35;
     font-size: ${fonts.sizes.body_sm};
@@ -44,18 +36,9 @@ const CaptionInner = styled.div`
       font-size: ${fonts.sizes.body};
     `}
   }
-  h3 {
-    font-family: ${fonts.serif_italic};
-    align-self: flex-end;
-    letter-spacing: 2px;
-    padding-top: ${spacing.micro_pad};
-    font-size: ${fonts.sizes.body_sm};
-    ${media.medium`
-      font-size: ${fonts.sizes.body};
-    `}
-    &:before {
-      content: '\\25AA';
-      padding-right: ${spacing.micro_pad};
-    }
-  }
+  ${media.medium`
+    width: auto;
+    min-width: 40rem;
+    padding: ${spacing.single_pad};
+  `}
 `
