@@ -51,4 +51,9 @@ const VideoGridWrapper = styled.ul`
       width: calc(100% / 4);
     }
   `}
+  ${media.tablet`
+    &.home > li {
+      width: calc(100% / 2);
+    }
+  `}
 `

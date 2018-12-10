@@ -14,6 +14,11 @@ const media = {
       ${ css(...args) }
     }
   `,
+  tablet: (...args) => css`
+    @media (max-width: ${breakpoints.tablet_w}px) and (min-height: ${breakpoints.table_h}px) {
+      ${ css(...args)}
+    }
+  `,
   desktopNav: (...args) => css`
     @media (min-width: ${breakpoints.desktop}px) {
       ${ css(...args) }

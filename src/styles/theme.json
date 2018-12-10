@@ -3,6 +3,8 @@
     "mobile": 0,
     "medium": 570,
     "desktop": 768,
+    "tablet_w": 960,
+    "tablet_h": 800,
     "big": 1500
   },
   "transitions": {

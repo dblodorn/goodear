@@ -16,17 +16,17 @@ const SimpleForm = ({ status, message, className, style, onSubmitted }) => {
     });
   return (
     <div className={className} style={style}>
-      {status === "sending" && <div className="message">sending...</div>}
-      {status === "error" && (
-        <div className="message" dangerouslySetInnerHTML={{ __html: message }}/>
-      )}
-      {status === "success" && (
-        <div className="message" dangerouslySetInnerHTML={{ __html: message }}/>
-      )}
       <div className="input-wrapper">
         <input ref={node => (input = node)} type="email" placeholder="Email"/>
         <button onClick={submit}><span></span>Subscribe</button>
       </div>
+      {status === "sending" && <div className="message">sending...</div>}
+      {status === "error" && (
+        <div className="message" dangerouslySetInnerHTML={{ __html: message }} />
+      )}
+      {status === "success" && (
+        <div className="message" dangerouslySetInnerHTML={{ __html: message }} />
+      )}
     </div>
   );
 };
@@ -48,7 +48,7 @@ export default () =>
 
 // STYLES
 const MailingContainer = styled(CaptionInner)`
-  max-width: 55rem;
+  max-width: 65rem;
   width: 100%;
   padding: ${spacing.double_pad};
   transition: background-color 350ms ease;
@@ -65,13 +65,19 @@ const MailingContainer = styled(CaptionInner)`
       font-size: ${fonts.sizes.medium};
     `}
   }
+  a,
+  button {
+    &:hover {
+      color: ${colors.orange}!important;
+    }
+  }
   .form-wrapper {
     width: 100%;
     position: relative;
   }
   .message {
     width: 100%;
-    padding-bottom: ${spacing.double_pad};
+    padding-top: ${spacing.double_pad};
   }
   .input-wrapper {
     width: 100%;

@@ -37,7 +37,7 @@ const Main = styled.main`
   ${flexColumn};
   width: 100vw;
   position: relative;
-  min-height: calc(100vh - ${heights.footer});
+  min-height: 100vh;
   overflow-x: hidden;
 `
 
