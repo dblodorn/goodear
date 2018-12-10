@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { spacing, shared, colors, widths, breakpoints } from './../styles/theme.json'
@@ -8,24 +8,40 @@ import { PatternAbout } from './../patterns'
 import { trimExcerpt } from './../scripts'
 import { flexColumn, media } from './../styles/mixins'
 
-const About = props => {
-  const aboutData = props.api_data.options.about_us
-  return (
-    <Fragment>
-      <Head title={aboutData.header} description={trimExcerpt(aboutData.statement)}/>
-      <AboutSection>
-        <PhotoWrapper>
-          <div className='inner'><FitImage src={aboutData.top_photo} /></div>
-        </PhotoWrapper>
-        <IntroWrapper>
-          <H1>{aboutData.header}</H1>
-          <StyledMarkup dangerouslySetInnerHTML={{ __html: aboutData.statement }}/>
-        </IntroWrapper>
-      </AboutSection>
-      {props.resize_state.window_width >= breakpoints.desktop && <BottomLogo />}
-      <PatternAbout/>
-    </Fragment>
-  )
+class About extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      about_data: this.props.api_data.options.about_us,
+      current_bio: false,
+    }
+    this._changeBio = this._changeBio.bind(this)
+  }
+
+  _changeBio(slug) {
+    this.setState({
+      current_bio: slug
+    })
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <Head title={this.state.about_data.header} description={trimExcerpt(this.state.about_data.statement)}/>
+        <AboutSection>
+          <PhotoWrapper>
+            <div className='inner'><FitImage src={this.state.about_data.top_photo} /></div>
+          </PhotoWrapper>
+          <IntroWrapper>
+            <H1>{this.state.about_data.header}</H1>
+            <StyledMarkup dangerouslySetInnerHTML={{ __html: this.state.about_data.statement }}/>
+          </IntroWrapper>
+        </AboutSection>
+        {this.props.resize_state.window_width >= breakpoints.desktop && <BottomLogo />}
+        <PatternAbout/>
+      </Fragment>
+    )
+  }
 }
 
 export default connect(

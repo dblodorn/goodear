@@ -68,13 +68,13 @@ const MailingContainer = styled.div`
       padding-bottom: 1.25rem;
     `}
     a {
-      color: ${colors.lt_blue};
+      color: ${colors.white};
     }
     .message {
       width: 100%;
       padding-bottom: 1.5rem;
       line-height: 1.2;
-      color: ${colors.lt_blue};
+      color: ${colors.white};
     }
     .input-wrapper {
       width: 100%;
@@ -84,12 +84,12 @@ const MailingContainer = styled.div`
   }
   input[type=email] {
     ${buttonInit};
-    font-family: ${fonts.sans};
+    font-family: ${fonts.sans_medium};
     font-weight: bold;
     width: 100%;
     border: 0;
     border-radius: 0;
-    background-color: ${colors.lt_blue};
+    background-color: ${colors.white};
     font-size: 3rem;
     min-height: 5rem;
     padding: .5rem 1.5rem;
@@ -103,7 +103,7 @@ const MailingContainer = styled.div`
     }
     &::-webkit-input-placeholder {
       color: ${colors.white};
-      font-family: ${fonts.sans};
+      font-family: ${fonts.sans_medium};
     }
     ${media.medium`
       height: 5rem;
@@ -121,24 +121,18 @@ const MailingContainer = styled.div`
     height: 5rem;
     width: 5rem;
     font-size: 2rem;
-    background-color: ${colors.lt_blue};
-    background-image: url('assets/kiss-emoji.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 60%;
-    border-left: 1px solid ${colors.blue};
     color: ${colors.white}!important;
     -webkit-text-fill-color: ${colors.white}!important;
     flex-shrink: 0;
     &:hover {
-      background-color: ${colors.lt_blue};
+      background-color: ${colors.white};
     }
     ${media.medium`
       height: 5rem;
       width: 5rem;
       &:hover {
         background-color: ${colors.pink};
-        color: ${colors.lt_blue};
+        color: ${colors.white};
       }
     `}
   }

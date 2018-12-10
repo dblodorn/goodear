@@ -1,21 +1,35 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { widths } from './../styles/theme.json'
 import { media } from './../styles/mixins'
 import { Head, VideoGrid } from './../components'
-import { PatternReel } from './../patterns'
 
-const Reel = props => {
-  const videos = props.api_data.posts.video
-  return (
-    <Fragment>
-      <Head title={'Reel'} description={'Our Work'}/>
-      <ReelWrapper>
-        <VideoGrid videos={videos} columns={'reel'}/>
-      </ReelWrapper>
-    </Fragment>
-  )
+class Reel extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      videos: this.props.api_data.posts.video
+    }
+    this._selectCategory = this._selectCategory.bind(this)
+  }
+
+  _selectCategory(slug) {
+    this.setState({
+      videos: this.props.api_data.posts.video
+    })
+  }
+  
+  render() {
+    return (
+      <Fragment>
+        <Head title={'Reel'} description={'Our Work'}/>
+        <ReelWrapper>
+          <VideoGrid videos={this.state.videos} columns={'reel'}/>
+        </ReelWrapper>
+      </Fragment>
+    )
+  }
 }
 
 export default connect(

@@ -4,6 +4,13 @@ import { flexRowWrap, media } from './../styles/mixins'
 import { VideoModal } from './../components'
 import VideoCard from './VideoCard'
 import { spacing } from './../styles/theme.json'
+import includes from 'lodash/includes';
+import mixin from 'lodash/mixin';
+import _ from 'lodash/wrapperLodash';
+
+mixin(_, {
+  includes: includes,
+});
 
 export default props =>
   <VideoGridWrapper className={`${props.columns}`}>

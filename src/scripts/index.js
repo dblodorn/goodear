@@ -6,8 +6,12 @@ const trimExcerpt = text => {
   return str.replace(/(<p[^>]+?>|<p>|<\/p>)/img, '')
 }
 
+const randomNum = (min, max) =>
+  Math.floor(Math.random() * (+max - +min)) + +min
+
 export {
   routeName,
   parseTaxonomies,
-  trimExcerpt
+  trimExcerpt,
+  randomNum
 }

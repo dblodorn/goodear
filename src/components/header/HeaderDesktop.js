@@ -9,6 +9,7 @@ import { colors, widths, spacing, fonts } from './../../styles/theme.json'
 import Logo from './../Logo'
 import HeaderStrip from './HeaderStrip'
 import Socials from './../social/Socials'
+import NewsletterModal from './../NewsletterModal'
 
 const HEADER_MENU = [
   {
@@ -52,7 +53,7 @@ const HeaderDesktop = (props) =>
             <Socials/>
           </HeaderBottom>
           <HeaderStrip>
-            <span>NEWSLETTER</span>
+            <NewsLetterModal/>
           </HeaderStrip>
         </Sidebar>
       )}

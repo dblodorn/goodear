@@ -5,16 +5,14 @@ import styled from 'styled-components'
 import { colors, spacing } from './../../styles/theme.json'
 import { ModalWrapper, ModalContentWrapper, Section, PatternWrapper } from './../../styles/components'
 import { absoluteTopFull, flexCenteredAll, media, flexColumn } from './../../styles/mixins'
-import Modal from './Modal'
+import { randomNum } from './../../scripts'
+import Modal from './../Modal'
 import Video from './Video'
 import VideoCaption from './VideoCaption'
 import FitImage from './../utils/FitImage'
 import Close from './../utils/Close'
 import BottomLogo from './../BottomLogo'
 import PlayButton from './../utils/PlayButton'
-
-const randomNum = (min, max) =>
-  Math.floor(Math.random() * (+max - +min)) + +min
 
 class VideoModal extends Component {
   constructor(props) {
