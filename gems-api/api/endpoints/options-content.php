@@ -80,7 +80,19 @@
           'photos' => about_us_images(),
           'bios' => about_us_bios(),
         )
-      )
+      ),
+      'api_colors' => array(
+        'home_bg_color' => get_field('home_bg_color', 'option'),
+        'reel_bg_color' => get_field('reel_bg_color', 'option'),
+        'home_sidebar_bg_color' => get_field('home_sidebar_bg_color', 'option'),
+        'home_sidebar_type_color' => get_field('home_sidebar_type_color', 'option'),
+        'home_sidebar_hover_color' => get_field('home_sidebar_hover_color', 'option'),
+        'small_nav_bg_color' => get_field('small_nav_bg_color', 'option'),
+        'small_nav_type_color' => get_field('small_nav_type_color', 'option'),
+        'small_nav_type_selected_hover_color' => get_field('small_nav_type_selected_hover_color', 'option'),
+        'video_card_bg_color' => get_field('video_card_bg_color', 'option'),
+        'video_card_type_color' => get_field('video_card_type_color', 'option'),
+      ),
     );
   }
 ?>

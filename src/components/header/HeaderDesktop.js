@@ -5,11 +5,12 @@ import { connect } from 'react-redux'
 import { Transition } from 'react-spring'
 import { flexColumn, mediumType, shadow } from '../../styles/mixins'
 import { StyledLink, Manifesto } from './../../styles/components'
-import { colors, widths, spacing, fonts } from './../../styles/theme.json'
+import { colors, api_colors, widths, spacing, fonts } from './../../styles/theme.json'
 import Logo from './../Logo'
 import HeaderStrip from './HeaderStrip'
 import Socials from './../social/Socials'
 import NewsletterModal from './../NewsletterModal'
+import SidebarBg from './SidebarBg'
 
 const HEADER_MENU = [
   {
@@ -28,7 +29,7 @@ const HeaderDesktop = (props) =>
   <Fragment>
     <Transition from={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})` }} enter={{ opacity: 1, transform: `translateY(0})` }} leave={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})`, pointerEvents: 'none' }}>
       {(props.header_state && (props.route === '/') ) && (styles => 
-        <Sidebar style={styles}>
+        <Sidebar style={styles} bgColor={props.api_data.options.api_colors.home_sidebar_bg_color}>
           <HeaderTop>
             <LogoWrapper>
               <Logo/>
@@ -37,7 +38,11 @@ const HeaderDesktop = (props) =>
               <NavList>
                 {HEADER_MENU.map((item, i) =>
                   <li key={`h-link-${item.slug}${i}`}>
-                    <NavLink to={`/${item.slug}`} color={colors.white}>
+                    <NavLink 
+                      to={`/${item.slug}`} 
+                      typeColor={props.api_data.options.api_colors.home_sidebar_type_color}
+                      hoverColor={props.api_data.options.api_colors.home_sidebar_hover_color}
+                    >
                       <span dangerouslySetInnerHTML={{__html: item.title }}/>
                     </NavLink>
                   </li>
@@ -55,18 +60,29 @@ const HeaderDesktop = (props) =>
           <HeaderStrip headerClass={`home`}>
             <NewsletterModal/>
           </HeaderStrip>
+          <SidebarBg bgColor={props.api_data.options.api_colors.home_sidebar_bg_color || api_colors.home_sidebar_bg_color}/>
         </Sidebar>
       )}
     </Transition>
     <Transition from={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})` }} enter={{ opacity: 1, transform: `translateY(0})` }} leave={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})`, pointerEvents: 'none' }}>
       {(props.route !== '/') && (styles => 
         <StripWrapper style={styles}>
-          <HeaderStrip>
-            <Link to={`/`}>
+          <HeaderStrip
+            typeColor={props.api_data.options.api_colors.home_sidebar_type_color}
+            hoverColor={props.api_data.options.api_colors.home_sidebar_hover_color}
+          >
+            <Link 
+              to={`/`}
+              typeColor={props.api_data.options.api_colors.home_sidebar_type_color}
+              hoverColor={props.api_data.options.api_colors.home_sidebar_hover_color}
+            >
               <span>Home</span>
             </Link>
             {HEADER_MENU.map((item, i) =>
-              <Link to={`/${item.slug}`} className={(`/${item.slug}` == `${props.route}`) ? `active` : ``} key={`link-${item.slug}${i}`}>
+              <Link to={`/${item.slug}`} className={(`/${item.slug}` == `${props.route}`) ? `active` : ``} key={`link-${item.slug}${i}`}
+                typeColor={props.api_data.options.api_colors.home_sidebar_type_color}
+                hoverColor={props.api_data.options.api_colors.home_sidebar_hover_color}
+              >
                 <span>{item.title}</span>
               </Link>
             )}
@@ -95,23 +111,21 @@ const Sidebar = styled.header`
   top: 0;
   left: 0;
   z-index: 9000;
-  background-color: ${colors.orange};
+  background-color: ${props => props.bgColor || api_colors.home_sidebar_bg_color};
   padding-left: ${widths.sidebar_nav};
-  background-image: url('/assets/patterns/menubg.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 `
 
 const MenuWrapper = styled.menu`
   margin-top: ${spacing.single_pad};
   padding-bottom: .5rem;
+  z-index: 9000;
 `
 
 const NavList = styled.ul`
   ${flexColumn};
   position: relative;
   text-align: left;
+  z-index: 9000;
   li {
     padding-bottom: ${spacing.single_pad};
     align-self: flex-end;
@@ -121,6 +135,10 @@ const NavList = styled.ul`
 const NavLink = styled(StyledLink)`
   ${mediumType};
   text-transform: lowercase;
+  color: ${props => props.typeColor || api_colors.home_sidebar_type_color};
+  &:hover {
+    color: ${props => props.hoverColor || api_colors.home_sidebar_hover_color}!important;
+  }
 `
 
 const StripWrapper = styled.header`
@@ -135,6 +153,7 @@ const LogoWrapper = styled.div`
   padding: ${spacing.single_pad};
   position: relative;
   border: 1px solid ${colors.white};
+  z-index: 9000;
   svg {
     object-fit: contain;
     width: 100%;
@@ -146,6 +165,7 @@ const HeaderTop = styled.div`
   position: relative;
   padding: ${spacing.single_pad};
   height: 40%;
+  z-index: 9000;
 `
 
 const HeaderBottom = styled.div`
@@ -154,6 +174,7 @@ const HeaderBottom = styled.div`
   padding: ${spacing.single_pad};
   height: 60%;
   justify-content: space-between;
+  z-index: 9000;
 `
 
 const TestimonialsLink = styled(Link)`

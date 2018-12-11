@@ -8,7 +8,7 @@ export default (props) =>
     <CaptionInner>
       <h1>
         <span dangerouslySetInnerHTML={{ __html: (props.content.taxonomies.brand[0] || ``) }}/>
-        <span> | </span>
+        {props.content.taxonomies.brand[0] && <span> | </span>}
         <span dangerouslySetInnerHTML={{ __html: (props.content.title || ``) }} />
       </h1>
       <h2>{props.content.song_title || ``}</h2>

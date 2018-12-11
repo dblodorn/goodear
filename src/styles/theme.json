@@ -31,6 +31,18 @@
     "double_pad": "2rem",
     "big_pad": "6rem"
   },
+  "api_colors": {
+    "home_bg_color": "#cfcdc3",
+    "reel_bg_color": "#cfcdc3",
+    "home_sidebar_bg_color": "#ff6738",
+    "home_sidebar_type_color": "#ffffff",
+    "home_sidebar_hover_color": "#eded00",
+    "small_nav_bg_color": "#898989",
+    "small_nav_type_color": "#ffffff",
+    "small_nav_type_selected_hover_color": "#81d742",
+    "video_card_bg_color": "#ffd7da",
+    "video_card_type_color": "#303030"
+  },
   "colors": {
     "bg": "#CFCDC3",
     "white": "#ffffff",
