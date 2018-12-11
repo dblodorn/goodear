@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Vimeo from '@u-wave/react-vimeo'
 import styled from 'styled-components'
 import { Section, PatternWrapper, ModalContentWrapper } from './../../styles/components'
-import { absoluteTopFull, shadow, flexCenteredAll, media, flexColumn } from './../../styles/mixins'
+import { absoluteTopFull, shadow, flexCenteredAll, media, flexColumn, animationFadeIn } from './../../styles/mixins'
 import { colors, spacing } from './../../styles/theme.json'
 import { randomNum } from './../../scripts'
 import BottomLogo from './../BottomLogo'
@@ -28,7 +28,6 @@ class Video extends Component {
     }
   }
   componentWillMount() {
-    console.log(this.props.data)
     this.setState({
       pattern: randomNum(1, 14)
     })
@@ -38,10 +37,13 @@ class Video extends Component {
       <Fragment>
         <ModalContentWrapper>
           <VideoSection>
-            {this.props.children}
             <VideoWrapper>
-              <VideoInner videoUrl={this.props.data.video_url} />
-              <VideoCaption content={this.props.data} />
+              {(this.props.data !== null) &&
+                <VidBox>
+                  <VideoInner videoUrl={this.props.data.video_url} />
+                  <VideoCaption content={this.props.data} />
+                </VidBox>
+              }
             </VideoWrapper>
           </VideoSection>
         </ModalContentWrapper>
@@ -63,6 +65,10 @@ const VideoContainer = styled.div`
   padding-bottom: 56.25%;
   overflow-y: visible;
   position: relative;
+`
+
+const VidBox = styled.div`
+  ${animationFadeIn(250, 10)};
 `
 
 const InnerVideoWrapper = styled.div`
@@ -101,7 +107,6 @@ const VideoWrapper = styled.div`
     width: 75vw;
     max-width: 90rem;
     padding: 0;
-    padding: ${spacing.double_pad} 0 6rem;
     margin-bottom: 0;
   `}
 `
