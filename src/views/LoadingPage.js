@@ -15,7 +15,7 @@ export default props =>
 const LoadingWrapper = styled.div`
   ${fullWindow};
   ${flexCenteredAll};
-  background-color: ${colors.blue};
+  background-color: ${colors.orange};
 `
 
 const LogoWrapper = styled.div`
