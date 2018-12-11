@@ -32,51 +32,43 @@ const GridWrapper = styled.ul`
 const H1 = styled.h1`
   ${_.bigType};
   padding-bottom: ${spacing.single_pad};
-  color: ${props => props.theme.display_font_color}!important;
-  font-family: ${props => props.theme.display_font};
-  text-transform: ${props => props.theme.display_case};
+  color: ${colors.black};
 `
 
 const H2 = styled.h2`
   ${_.mediumType};
-  color: ${props => props.theme.display_font_color}!important;
-  font-family: ${props => props.theme.display_font};
+  color: ${colors.black};
 `
 
 const H3 = styled.h3`
   ${_.bodyType};
   padding-bottom: ${spacing.small_pad};
-  color: ${props => props.theme.display_font_color}!important;
-  font-family: ${props => props.theme.display_font};
+  color: ${colors.black};
 `
 
 const H4 = styled.h4`
   ${_.bodyType};
   padding-bottom: ${spacing.small_pad};
-  color: ${props => props.theme.display_font_color}!important;
-  font-family: ${props => props.theme.display_font};
+  color: ${colors.black};
 `
 
 const H5 = styled.h5`
   ${_.bodyType};
   padding-bottom: ${spacing.small_pad};
-  font-family: ${props => props.theme.display_font};
+  color: ${colors.black};
 `
 
 const H6 = styled.h6`
   ${_.bodyType};
   padding-bottom: ${spacing.small_pad};
-  font-family: ${props => props.theme.display_font};
 `
 
 const P = styled.p`
   ${_.bodyType};
-  font-family: ${props => props.theme.body_copy_font};
 `
 
 const SmallP = styled.p`
   ${_.smallType};
-  font-family: ${props => props.theme.body_copy_font};
 `
 
 const StyledMarkup = styled.div`
@@ -86,37 +78,26 @@ const StyledMarkup = styled.div`
   h1 {
     ${_.bigType};
     color: ${colors.orange}!important;
-    font-family: ${props => props.theme.display_font}!important;
   }
   h2 {
     ${_.mediumType};
     color: ${colors.orange}!important;
-    font-family: ${props => props.theme.display_font}!important;
   }
   h3 {
     ${_.bodyType};
     color: ${props => props.theme.body_copy_color}!important;
-    font-family: ${props => props.theme.display_font}!important;
   }
   h4 {
     ${_.bodyType};
-    color: ${props => props.theme.body_copy_color}!important;
-    font-family: ${props => props.theme.body_copy_font}!important;
   }
   h5 {
     ${_.bodyType};
-    color: ${props => props.theme.body_copy_color}!important;
-    font-family: ${props => props.theme.body_copy_font}!important;
   }
   h6 {
     ${_.bodyType};
-    color: ${props => props.theme.body_copy_color}!important;
-    font-family: ${props => props.theme.body_copy_font}!important;
   }
   p {
     ${_.bodyType};
-    color: ${props => props.theme.body_copy_color}!important;
-    font-family: ${props => props.theme.body_copy_font}!important;
     margin-bottom: ${spacing.single_pad};
     max-width: ${widths.max_large};
     &:last-child {
@@ -125,8 +106,6 @@ const StyledMarkup = styled.div`
   }
   a {
     ${_.defaultLink};
-    color: ${props => props.theme.display_font_color}!important;
-    font-family: ${props => props.theme.body_copy_font}!important;
   }
 `
 
@@ -193,7 +172,7 @@ const CaptionInner = styled.div`
 // UI
 const StyledLink = styled(Link)`
   ${_.defaultLink};
-  color: ${props => props.color}!important;
+  
 `
 
 const ExternalLink = styled.a`

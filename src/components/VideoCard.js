@@ -4,17 +4,11 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
 import { absoluteTopFull, opacityTransition, monoP, microType, flexColumn, shadow } from './../styles/mixins'
-import { colors, spacing } from './../styles/theme.json'
+import { colors, spacing, api_colors } from './../styles/theme.json'
 
-const VideoCaption = (props) =>
-  <VideoCaptionWrapper>
-    <h4 className={'title'} dangerouslySetInnerHTML={{ __html: props.item.title }}/>
-    <h5 className={'brand'} dangerouslySetInnerHTML={{ __html: (props.item.taxonomies.brand) && props.item.taxonomies.brand[0] }}/>
-  </VideoCaptionWrapper>
-
-const VideoCard = (props) =>
-  <VideoThumb className={(!props.playing) && 'video-playing'} className={props.overflow}>
-    <ThumbInner>
+const VideoCard = props =>
+  <VideoThumb>
+    <ThumbInner bgColor={props.api_data.options.api_colors.video_card_bg_color}>
       <ThumbWrapper>
         <LazyLoad height='100%'>
           <VideoWrapper>
@@ -22,14 +16,16 @@ const VideoCard = (props) =>
           </VideoWrapper>
         </LazyLoad>
       </ThumbWrapper>
-      <VideoCaption item={props.item}/>
+      <VideoCaptionWrapper typeColor={props.api_data.options.api_colors.video_card_type_color}>
+        <h4 className={'title'} dangerouslySetInnerHTML={{ __html: props.item.title }}/>
+        <h5 className={'brand'} dangerouslySetInnerHTML={{ __html: (props.item.taxonomies.brand) && props.item.taxonomies.brand[0] }}/>
+      </VideoCaptionWrapper>
     </ThumbInner>
   </VideoThumb>
 
 export default connect(
   state => ({
-    video_playing: state.video_playing,
-    video_state: state.video_state
+    api_data: state.api_data
   })
 )(VideoCard)
 
@@ -37,23 +33,22 @@ export default connect(
 const VideoCaptionWrapper = styled.div`
   ${opacityTransition};
   ${flexColumn};
+  padding: ${spacing.micro_pad};
   opacity: 1;
   pointer-events: none;
   flex: 1;
   padding-top: ${spacing.micro_pad};
   z-index: 1;
   * {
-    color: ${colors.dk_grey}!important;
+    color: ${props => props.typeColor || api_colors.video_card_type_color}!important;
   }
   h4 {
     ${microType};
     text-transform: uppercase;
-    padding-bottom: ${spacing.micro_pad};
   }
   h5 {
     ${monoP};
-    align-self: flex-end;
-    line-height: .9;
+    line-height: 1.25;
   }
 `
 
@@ -76,8 +71,7 @@ const ThumbWrapper = styled.div`
 
 const ThumbInner = styled.div`
   ${shadow};
-  padding: ${spacing.micro_pad};
-  background-color: ${Color(colors.pink).lighten(.35).hsl().string()};
+  background-color: ${props => props.bgColor || api_colors.video_card_bg_color};
   display: flex;
   flex-direction: column;
   width: 100%;
