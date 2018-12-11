@@ -171,6 +171,7 @@ const opacityTransition = css`
 // STYLE UTILS
 const buttonInit = css`
   -webkit-tap-highlight-color: rgba(255,255,255,0);
+  -webkit-appearance: none;
   border: 0;
   background-color: rgba(255,255,255,0);
   border-radius: 0;
@@ -230,48 +231,6 @@ const flexCenteredAll = css`
 const flexRowSpaceBetween = css`
   ${flexRow};
   justify-content: space-between;
-`
-
-//
-
-const buttonStyle = css`
-  ${buttonInit};
-  ${microType};
-  ${flexCenteredAll};
-  text-transform: uppercase;
-  height: 3rem;
-  background-color: ${Color(colors.button_color).hsl().string()};
-  color: ${colors.button_typs_color};
-  border-radius: 1.5rem;
-  will-change: background-color;
-  transition: background-color 250ms ease;
-  text-decoration: none;
-  padding: 0 calc(${spacing.single_pad} * 1.5)!important;
-  letter-spacing: 1px;
-  font-weight: 600;
-  flex-grow: 0;
-  flex-shrink: 0;
-  span {
-    padding-top: .25rem;
-  }
-  &:hover {
-    background-color: ${Color(colors.button_color).darken(.25).hsl().string()};
-  }
-  &.active {
-    background-color: ${Color(colors.button_color).darken(.5).hsl().string()};
-  }
-  ${media.small`
-    background-color: ${Color(colors.button_color).darken(.125).hsl().string()}; 
-    width: auto;
-    min-width: 10rem;
-    padding: 0 1.5rem;
-    span {
-      padding-top: 2px;
-    }
-    &.active {
-      background-color: ${Color(colors.button_color).darken(1.5)};
-    }
-  `}
 `
 
 // Animation
@@ -564,7 +523,6 @@ export {
   absoluteTopFull,
   opacityTransition,
   wrapperWidths,
-  buttonStyle,
   textShadow,
   fixedHero,
   halfFixed,

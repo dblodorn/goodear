@@ -79,14 +79,6 @@ const SmallP = styled.p`
   font-family: ${props => props.theme.body_copy_font};
 `
 
-const StyledButton = styled.button`
-  ${_.buttonStyle};
-`
-
-const ButtonLink = styled(Link)`
-  ${_.buttonStyle};
-`
-
 const StyledMarkup = styled.div`
   &.pad-top {
     padding-top: ${spacing.double_pad};
@@ -327,8 +319,6 @@ export {
   LogoWrapperFixedTopRight,
   FullPageBgWrapper,
   NavItem,
-  ButtonLink,
-  StyledButton,
   GridWrapper,
   ModalWrapper,
   ModalContentWrapper,
