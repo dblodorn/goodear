@@ -6,7 +6,6 @@ import Logo from './../Logo'
 import { connect } from 'react-redux'
 import { buttonInit, shadow, flexRowCenteredAll } from './../../styles/mixins'
 import { fonts, spacing, colors, api_colors } from './../../styles/theme.json'
-import SidebarBg from './SidebarBg'
 
 const HEADER_MENU = [
   {
@@ -28,7 +27,6 @@ const HeaderMobile = (props) => {
         <LogoLink to={`/`}>
           <div className={'logo-inner'}><Logo /></div>
         </LogoLink>
-        <SidebarBg location={'mobile'} bgColor={props.api_data.options.api_colors.home_sidebar_bg_color || api_colors.home_sidebar_bg_color}/>
       </HeaderWrapper>
       <NavBar bgColor={props.api_data.options.api_colors.home_sidebar_bg_color || api_colors.home_sidebar_bg_color}>
         {HEADER_MENU.map((item, i) =>
@@ -60,6 +58,10 @@ const HeaderWrapper = styled.header`
   width: 100vw;
   position: relative;
   background-color: ${props => props.bgColor || api_colors.home_sidebar_bg_color};
+  background-image: url('/assets/patterns/bg-pattern-mobile.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   top: 0;
   left: 0;
   z-index: 9000;

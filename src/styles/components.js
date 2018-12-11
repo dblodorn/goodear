@@ -112,7 +112,7 @@ const StyledMarkup = styled.div`
 const Manifesto = styled.div`
   background-color: ${colors.orange};
   padding: ${spacing.double_pad};
-  background-image: url('/assets/patterns/menubg.svg');
+  background-image: url('/assets/patterns/bg-pattern-mobile.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
