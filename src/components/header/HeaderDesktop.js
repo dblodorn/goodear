@@ -29,7 +29,12 @@ const HeaderDesktop = (props) =>
   <Fragment>
     <Transition from={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})` }} enter={{ opacity: 1, transform: `translateY(0})` }} leave={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})`, pointerEvents: 'none' }}>
       {(props.header_state && (props.route === '/') ) && (styles => 
-        <Sidebar style={styles} bgColor={props.api_data.options.api_colors.home_sidebar_bg_color}>
+        <Sidebar
+          style={styles}
+          bgColor={props.api_data.options.api_colors.home_sidebar_bg_color}
+          typeColor={props.api_data.options.api_colors.home_sidebar_type_color}
+          hoverColor={props.api_data.options.api_colors.home_sidebar_hover_color}
+        >
           <HeaderTop>
             <LogoWrapper>
               <Logo/>
@@ -113,6 +118,15 @@ const Sidebar = styled.header`
   z-index: 9000;
   background-color: ${props => props.bgColor || api_colors.home_sidebar_bg_color};
   padding-left: ${widths.sidebar_nav};
+  a {
+    color: ${props => props.typeColor || api_colors.home_sidebar_type_color};
+    &:hover {
+      color: ${props => props.hoverColor || api_colors.home_sidebar_hover_color}!important;
+    }
+    &.active {
+      color: ${props => props.hoverColor || api_colors.home_sidebar_hover_color}!important;
+    }
+  }
 `
 
 const MenuWrapper = styled.menu`

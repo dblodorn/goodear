@@ -4,8 +4,9 @@ import { connect } from 'react-redux'
 import { VideoGrid, Head } from './../components'
 import { media } from './../styles/mixins'
 import { Manifesto } from './../styles/components'
-import { widths, spacing, breakpoints } from './../styles/theme.json'
+import { widths, breakpoints } from './../styles/theme.json'
 import { trimExcerpt } from './../scripts'
+import { PatternHome } from './../patterns'
 
 const Home = props => {
   return (
@@ -17,6 +18,7 @@ const Home = props => {
         }
         <VideoGrid videos={props.api_data.options.home_videos} columns={'home'}/>
       </HomeSection>
+      <PatternHome/>
     </Fragment>
   )
 }

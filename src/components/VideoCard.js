@@ -33,7 +33,6 @@ export default connect(
 const VideoCaptionWrapper = styled.div`
   ${opacityTransition};
   ${flexColumn};
-  padding: ${spacing.micro_pad};
   opacity: 1;
   pointer-events: none;
   flex: 1;
@@ -45,10 +44,12 @@ const VideoCaptionWrapper = styled.div`
   h4 {
     ${microType};
     text-transform: uppercase;
+    padding-bottom: 5px;
   }
   h5 {
     ${monoP};
-    line-height: 1.25;
+    align-self: flex-end;
+    line-height: .9;
   }
 `
 
@@ -76,6 +77,7 @@ const ThumbInner = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+  padding: ${spacing.micro_pad};
 `
 
 const VideoWrapper = styled.div`
