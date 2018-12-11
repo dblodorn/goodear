@@ -5,18 +5,15 @@ import Socials from './social/Socials'
 import ScrollToTop from './ScrollToTop'
 import NewsLetterModal from './NewsletterModal'
 import { flexColumnCentered, buttonInit, shadow } from './../styles/mixins'
-import { spacing, colors, fonts } from './../styles/theme.json'
+import { spacing, colors, fonts, api_colors } from './../styles/theme.json'
 
-const Footer = (props) => {
-  return (
-    <FooterWrapper>
-      <a href={`mailto:contact@goodear.tv`} target='_blank'><span>CONTACT@GOODEAR.TV</span></a>
-      <NewsLetterModal/>
-      <Socials/>
-      <ScrollToTop/>
-    </FooterWrapper>
-  )
-}
+const Footer = props =>
+  <FooterWrapper bgColor={props.api_data.options.api_colors.home_sidebar_bg_color}>
+    <a href={`mailto:contact@goodear.tv`} target='_blank'><span>CONTACT@GOODEAR.TV</span></a>
+    <NewsLetterModal/>
+    <Socials/>
+    <ScrollToTop/>
+  </FooterWrapper>
 
 export default connect(
   state => ({
@@ -30,7 +27,7 @@ const FooterWrapper = styled.footer`
   ${shadow};
   width: 100%;
   padding: 4rem ${spacing.double_pad} calc(8rem - ${spacing.double_pad});
-  background-color: ${colors.orange};
+  background-color: ${props => props.bgColor || api_colors.home_sidebar_bg_color};
   a {
     text-decoration: none;
     margin-bottom: ${spacing.double_pad};
