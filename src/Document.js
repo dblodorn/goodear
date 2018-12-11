@@ -15,7 +15,6 @@ const Document = (props) => {
         <Main 
           id={routeName(props.router).routeClass}
           className={props.header_style}
-          bgColor={(props.router === '/' || props.router === '/reel') ? props.api_data.options.api_colors.home_bg_color : 'transparent' }
         >
           {props.children}
         </Main>
@@ -43,7 +42,6 @@ const Main = styled.main`
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
-  background-color: ${props => props.bgColor || api_colors.home_bg_color};
 `
 
 // NORMALIZE CSS
@@ -72,7 +70,7 @@ injectGlobal`
     font-weight: 300;
     font-style: normal;
     text-decoration: none;
-    background-color: ${colors.bg};
+    
   }
   ::-webkit-input-placeholder,
   ::-moz-placeholder {

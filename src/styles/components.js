@@ -110,7 +110,7 @@ const StyledMarkup = styled.div`
 `
 
 const Manifesto = styled.div`
-  background-color: ${colors.pink};
+  background-color: ${colors.orange};
   padding: ${spacing.double_pad};
   background-image: url('/assets/patterns/menubg.svg');
   background-size: cover;

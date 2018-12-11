@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { widths } from './../styles/theme.json'
 import { media } from './../styles/mixins'
 import { Head, VideoGrid } from './../components'
+import { PatternHome } from './../patterns'
 
 class Reel extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class Reel extends Component {
         <ReelWrapper>
           <VideoGrid videos={this.props.videos} columns={'reel'}/>
         </ReelWrapper>
+        <PatternHome/>
       </Fragment>
     )
   }
