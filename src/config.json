@@ -1,8 +1,8 @@
 {
   "wp_endpoint": "https://gems.dmbk.io/wp-json/api/v1/data/",
   "meta_defaults": {
-    "title": "GEMS",
-    "description": "Good Ear Music Supervision",
+    "title": "Good Ear Music Supervision",
+    "description": "Good Ear Music Supervision is a team of music curators dedicated to seeking out and shining light on the best songs the world has to offer.",
     "site_url": "https://website.com",
     "bgcolor": "#CFCDC3"
   },
