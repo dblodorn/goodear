@@ -40,8 +40,12 @@ class Video extends Component {
           <VideoSection>
             {this.props.children}
             <VideoWrapper>
-              <VideoInner videoUrl={this.props.data.video_url} />
-              <VideoCaption content={this.props.data} />
+              {(this.props.data !== null) &&
+                <Fragment>
+                  <VideoInner videoUrl={this.props.data.video_url} />
+                  <VideoCaption content={this.props.data} />
+                </Fragment>
+              }
             </VideoWrapper>
           </VideoSection>
         </ModalContentWrapper>

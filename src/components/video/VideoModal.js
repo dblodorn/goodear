@@ -51,7 +51,7 @@ class VideoModal extends Component {
           {this.state.modal && (styles => 
             <Modal>
               <ModalWrapper style={styles}>
-                <Video data={this.props.data}>
+                <Video data={this.props.video.video_data}>
                   <Close clickFunction={() => this._closePopup()}/>
                 </Video>
               </ModalWrapper>
@@ -67,7 +67,7 @@ export default connect(
   state => ({
     api_data: state.api_data,
     resize_state: state.resize_state,
-    video_data: state.current_video
+    video: state.current_video
   }),
   dispatch => ({
     set_video: (bool) => dispatch(setVideoPlaying(bool))
