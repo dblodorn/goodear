@@ -18,7 +18,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --config=build/webpack.dev.js --mode development --env.NODE_ENV --open",
-    "build_stage": "webpack --progress --config=build/webpack.stage.js --mode development --env.NODE_ENV",
+    "stage": "webpack --progress --config=build/webpack.stage.js --mode development --env.NODE_ENV",
     "build": "webpack --progress --config=build/webpack.prod.js --mode production --env.NODE_ENV",
     "watch": "npm-watch"
   },
