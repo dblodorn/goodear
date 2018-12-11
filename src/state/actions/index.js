@@ -12,17 +12,8 @@ import {
 
 import { 
   setPage,
-  setVideoPlaying,
-  setVideoState
+  setVideoPlaying
 } from './a_content-state'
-
-import {
-  updateQuantityInCart,
-  removeLineItemInCart,
-  handleCartClose,
-  handleCartOpen,
-  addVariantToCart
-} from './a_cart'
 
 export {
   fetchApiData,
@@ -34,12 +25,6 @@ export {
   hasTouch,
   fontsLoaded,
   setModalState,
-  setVideoState,
   setFooterState,
-  setHeaderStyle,
-  updateQuantityInCart,
-  removeLineItemInCart,
-  handleCartClose,
-  handleCartOpen,
-  addVariantToCart
+  setHeaderStyle
 }

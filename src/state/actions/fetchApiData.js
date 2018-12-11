@@ -1,7 +1,5 @@
 import fetchWpDataController from './../../controllers/fetchWpDataController'
 import { parseTaxonomies } from './../../scripts'
-import { heights, spacing, fonts, colors, shared, breakpoints } from './../../styles/theme.json'
-import { setHeaderState, setFooterState } from './a_window_data'
 
 export function apiData(payload) {
   return {
@@ -17,16 +15,18 @@ export function taxonomyData(payload) {
   }
 }
 
+export function videoList(payload) {
+  return {
+    type: 'VIDEO_LIST',
+    payload
+  }
+}
+
 export default () => {
   return (dispatch) => {
     const _dataHandler = (payload) => {
-      const taxonomies = {
-        categories: parseTaxonomies(payload.posts.project, 'taxonomies', 'category'),
-        capabilities: parseTaxonomies(payload.posts.project, 'taxonomies', 'capabilities'),
-        clients: parseTaxonomies(payload.posts.project, 'taxonomies', 'client'),
-        industries: parseTaxonomies(payload.posts.project, 'taxonomies', 'industry')
-      }
-      dispatch(taxonomyData(taxonomies))
+      dispatch(taxonomyData(parseTaxonomies(payload.posts.video, 'taxonomies', 'category')))
+      dispatch(videoList(payload.posts.video))
       dispatch(apiData(payload))
     }
     fetchWpDataController()

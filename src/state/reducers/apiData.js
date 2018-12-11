@@ -16,7 +16,17 @@ const taxonomyData = (state = false, action) => {
   }
 }
 
+const videoListData = (state = false, action) => {
+  switch (action.type) {
+    case 'VIDEO_LIST':
+      return action.payload
+    default:
+      return state
+  }
+}
+
 export {
   apiData,
-  taxonomyData
+  taxonomyData,
+  videoListData
 }

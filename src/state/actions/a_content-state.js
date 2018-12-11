@@ -5,22 +5,14 @@ const setPage = (slug) => {
   }
 }
 
-const setVideoPlaying = (url) => {
+const setVideoPlaying = (data) => {
   return {
     type: 'VIDEO_PLAYING',
-    url
-  }
-}
-
-const setVideoState = (string) => {
-  return {
-    type: 'VIDEO_STATE',
-    string
+    data
   }
 }
 
 export {
   setPage,
-  setVideoPlaying,
-  setVideoState
+  setVideoPlaying
 }

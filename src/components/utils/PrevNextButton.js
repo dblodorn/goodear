@@ -22,14 +22,14 @@ const Button = styled.div`
   }
 `
 
-const NextButton = (props) =>
+const NextButton = () =>
   <Button>
-    <svg version="1.1" viewBox="0 0 64 64" width="64" height="64"><title>minimal right</title><g strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1" transform="translate(0.5 0.5)" fill="#180c06" stroke="#180c06"><polyline fill="none" stroke="#180c06" strokeMiterlimit="10" points="18,4 46,32 18,60 "></polyline></g></svg>
+    <svg version="1.1" viewBox="0 0 64 64" width="64" height="64"><g strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1" transform="translate(0.5 0.5)" fill="#180c06" stroke="#180c06"><polyline fill="none" stroke="#180c06" strokeMiterlimit="10" points="18,4 46,32 18,60 "></polyline></g></svg>
   </Button>
 
-const PrevButton = (props) =>
+const PrevButton = () =>
   <Button>
-  <svg version="1.1" viewBox="0 0 64 64" width="64" height="64"><title>minimal left</title><g strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1" transform="translate(0.5 0.5)" fill="#180c06" stroke="#180c06"><polyline fill="none" stroke="#180c06" strokeMiterlimit="10" points="46,60 18,32 46,4 "></polyline></g></svg>
+    <svg version="1.1" viewBox="0 0 64 64" width="64" height="64"><g strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1" transform="translate(0.5 0.5)" fill="#180c06" stroke="#180c06"><polyline fill="none" stroke="#180c06" strokeMiterlimit="10" points="46,60 18,32 46,4 "></polyline></g></svg>
   </Button>
 
 export {

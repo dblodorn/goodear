@@ -8,24 +8,17 @@ import { Head, VideoGrid } from './../components'
 class Reel extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      videos: this.props.api_data.posts.video
-    }
     this._selectCategory = this._selectCategory.bind(this)
   }
 
-  _selectCategory(slug) {
-    this.setState({
-      videos: this.props.api_data.posts.video
-    })
-  }
+  _selectCategory(cat) {}
   
   render() {
     return (
       <Fragment>
         <Head title={'Reel'} description={'Our Work'}/>
         <ReelWrapper>
-          <VideoGrid videos={this.state.videos} columns={'reel'}/>
+          <VideoGrid videos={this.props.videos} columns={'reel'}/>
         </ReelWrapper>
       </Fragment>
     )
@@ -34,7 +27,7 @@ class Reel extends Component {
 
 export default connect(
   state => ({
-    api_data: state.api_data
+    videos: state.videos
   })
 )(Reel)
 
