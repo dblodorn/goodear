@@ -33,6 +33,7 @@ export default connect(
 const VideoCaptionWrapper = styled.div`
   ${opacityTransition};
   ${flexColumn};
+  padding: ${spacing.micro_pad};
   opacity: 1;
   pointer-events: none;
   flex: 1;
@@ -44,12 +45,10 @@ const VideoCaptionWrapper = styled.div`
   h4 {
     ${microType};
     text-transform: uppercase;
-    padding-bottom: ${spacing.micro_pad};
   }
   h5 {
     ${monoP};
-    align-self: flex-end;
-    line-height: .9;
+    line-height: 1.25;
   }
 `
 
@@ -72,7 +71,6 @@ const ThumbWrapper = styled.div`
 
 const ThumbInner = styled.div`
   ${shadow};
-  padding: ${spacing.micro_pad};
   background-color: ${props => props.bgColor || api_colors.video_card_bg_color};
   display: flex;
   flex-direction: column;

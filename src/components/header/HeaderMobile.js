@@ -28,7 +28,7 @@ const HeaderMobile = (props) => {
         <LogoLink to={`/`}>
           <div className={'logo-inner'}><Logo /></div>
         </LogoLink>
-        <SidebarBg bgColor={props.api_data.options.api_colors.home_sidebar_bg_color || api_colors.home_sidebar_bg_color}/>
+        <SidebarBg location={'mobile'} bgColor={props.api_data.options.api_colors.home_sidebar_bg_color || api_colors.home_sidebar_bg_color}/>
       </HeaderWrapper>
       <NavBar bgColor={props.api_data.options.api_colors.home_sidebar_bg_color || api_colors.home_sidebar_bg_color}>
         {HEADER_MENU.map((item, i) =>
