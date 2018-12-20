@@ -1,5 +1,3 @@
-import { styling } from './../../config.json'
-
 const resizeState = (state = {}, action) => {
   switch (action.type) {
     case 'RESIZE_STATE':
@@ -22,15 +20,6 @@ const headerState = (state = true, action) => {
   switch (action.type) {
     case 'HEADER_STATE':
       return action.bool
-    default:
-      return state
-  }
-}
-
-const headerStyle = (state = styling.header_style, action) => {
-  switch (action.type) {
-    case 'HEADER_STYLE':
-      return action.string
     default:
       return state
   }
@@ -78,7 +67,6 @@ export {
   fontState,
   touchState,
   modalState,
-  headerStyle,
   headerState,
   footerState
 }

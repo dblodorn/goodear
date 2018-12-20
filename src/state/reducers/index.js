@@ -5,8 +5,7 @@ import {
   menuState, 
   fontState, 
   touchState, 
-  modalState, 
-  headerStyle,
+  modalState,
   headerState,
   footerState
 } from './r_window_data'
@@ -26,7 +25,6 @@ const rootReducer = combineReducers({
   modal: modalState,
   menu: menuState,
   header_state: headerState,
-  header_style: headerStyle,
   footer_state: footerState,
   page: pageState,
   current_video: setVideoState

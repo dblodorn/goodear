@@ -3,6 +3,11 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const path = require('path')
 
 module.exports = {
+  entry: [
+    "core-js/modules/es6.promise",
+    "core-js/modules/es6.array.iterator",
+    path.join(__dirname, '../src', 'index.js'),
+  ],
   module: {
     rules: [
       {

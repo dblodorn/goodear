@@ -3,17 +3,10 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import Color from 'color'
 import { flexColumn, rotoHalf, buttonInit, linkInit } from '../../styles/mixins'
-import { widths, fonts, colors, spacing, api_colors } from './../../styles/theme.json'
+import { widths, fonts, colors, spacing } from './../../styles/theme.json'
 
 const HeaderStrip = props =>
-  <SidebarNavWrapper 
-    typeColor={props.typeColor}
-    hoverColor={props.hoverColor}
-    bgColor={props.router === '/' 
-      ? props.api_data.options.api_colors.home_sidebar_bg_color || api_colors.home_sidebar_bg_color
-      : props.api_data.options.api_colors.home_bg_color || api_colors.home_bg_color
-    }
-  >
+  <SidebarNavWrapper>
     <Top>
       <RotoTop>
         {props.children}
@@ -41,20 +34,22 @@ const SidebarNavWrapper = styled.div`
   left: 0;
   width: ${widths.sidebar_nav};
   height: 100vh;
-  background-color: ${props => Color(props.bgColor).darken(.2).hsl().string()};
+  background-color: ${Color(colors.orange).darken(.2).hsl().string()};
   z-index: 10000;
-  * {
+  a,
+  button {
     ${linkInit}
     margin-right: ${spacing.single_pad};
     &:last-child {
       margin-right: 0;
     }
-    color: ${props => props.typeColor || api_colors.home_sidebar_type_color};
+    color: ${colors.white};
     &:hover {
-      color: ${props => props.hoverColor || api_colors.home_sidebar_hover_color}!important;
+      color: ${colors.yellow}!important;
     }
     &.active {
-      color: ${props => props.hoverColor || api_colors.home_sidebar_hover_color}!important;
+      pointer-events: none;
+      color: ${colors.yellow}!important;
     }
   }
   span {

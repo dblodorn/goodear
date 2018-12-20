@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import * as Scroll from 'react-scroll'
 import { animateScroll as scroll } from 'react-scroll'
-import { DefaultLink, buttonInit } from './../styles/components'
+import { defaultLink, buttonInit } from './../styles/mixins'
 
 const scrollToTop = () => {
   scroll.scrollToTop({
@@ -15,6 +14,6 @@ export default () =>
 
 // STYLES
 const ScrollButton = styled.button`
-  ${DefaultLink};
+  ${defaultLink};
   ${buttonInit};
 `

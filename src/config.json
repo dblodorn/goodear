@@ -9,12 +9,21 @@
   "mail_scrape": {
     "mailchimp_url": "https://goodear.us6.list-manage.com/subscribe/post?u=74e7ffc9c8eeb8ab31d7eac3a&amp;id=2b8f4bb29b"
   },
-  "styling": {
-    "header_style": "sidebar"
-  },
   "fonts": [
     "Circular Book",
     "Circular Medium",
     "Nitti Light"
+  ],
+  "HEADER_MENU": [
+    {
+      "title": "reel",
+      "slug": "reel",
+      "is_home": false
+    },
+    {
+      "title": "about",
+      "slug": "about",
+      "is_home": false
+    }
   ]
 }

@@ -1,14 +1,13 @@
 import React from 'react'
-import Color from 'color'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
 import { absoluteTopFull, opacityTransition, monoP, microType, flexColumn, shadow } from './../styles/mixins'
-import { colors, spacing, api_colors } from './../styles/theme.json'
+import { spacing } from './../styles/theme.json'
 
 const VideoCard = props =>
   <VideoThumb>
-    <ThumbInner bgColor={props.api_data.options.api_colors.video_card_bg_color}>
+    <ThumbInner>
       <ThumbWrapper>
         <LazyLoad height='100%'>
           <VideoWrapper>
@@ -16,7 +15,7 @@ const VideoCard = props =>
           </VideoWrapper>
         </LazyLoad>
       </ThumbWrapper>
-      <VideoCaptionWrapper typeColor={props.api_data.options.api_colors.video_card_type_color}>
+      <VideoCaptionWrapper typecolor={props.api_data.options.api_colors.video_card_type_color}>
         <h4 className={'title'} dangerouslySetInnerHTML={{ __html: props.item.title }}/>
         <h5 className={'brand'} dangerouslySetInnerHTML={{ __html: (props.item.taxonomies.brand) && props.item.taxonomies.brand[0] }}/>
       </VideoCaptionWrapper>
@@ -39,7 +38,7 @@ const VideoCaptionWrapper = styled.div`
   padding-top: ${spacing.micro_pad};
   z-index: 1;
   * {
-    color: ${props => props.typeColor || api_colors.video_card_type_color}!important;
+    color: #ffffff;
   }
   h4 {
     ${microType};
@@ -72,7 +71,7 @@ const ThumbWrapper = styled.div`
 
 const ThumbInner = styled.div`
   ${shadow};
-  background-color: ${props => props.bgColor || api_colors.video_card_bg_color};
+  background-color: #54ce8b;
   display: flex;
   flex-direction: column;
   width: 100%;
