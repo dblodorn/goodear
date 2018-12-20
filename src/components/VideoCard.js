@@ -15,7 +15,7 @@ const VideoCard = props =>
           </VideoWrapper>
         </LazyLoad>
       </ThumbWrapper>
-      <VideoCaptionWrapper typecolor={props.api_data.options.api_colors.video_card_type_color}>
+      <VideoCaptionWrapper>
         <h4 className={'title'} dangerouslySetInnerHTML={{ __html: props.item.title }}/>
         <h5 className={'brand'} dangerouslySetInnerHTML={{ __html: (props.item.taxonomies.brand) && props.item.taxonomies.brand[0] }}/>
       </VideoCaptionWrapper>

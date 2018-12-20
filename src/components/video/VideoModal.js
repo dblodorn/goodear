@@ -68,7 +68,7 @@ class VideoModal extends Component {
       <Fragment>
         <VideoPopper>
           <PlayButton color={colors.white} clickFunction={() => this._openPopup(this.props.data.slug)}/>
-          <FitImage src={this.props.thumbnail} fit={'cover'}/>
+          <FitImage src={this.props.thumbnail} srcset={true}/>
         </VideoPopper>
         <Transition from={{ opacity: 0 }} enter={{ opacity: 1 }} leave={{ opacity: 0, pointerEvents: 'none' }}>
           {this.state.modal && (styles => 

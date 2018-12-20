@@ -16,7 +16,7 @@ export default props =>
   <VideoGridWrapper className={`${props.columns}`}>
     {props.videos.map((item, i) =>
       <VideoCard item={item} key={item.post_id + 'vg' + i}>
-        <VideoModal thumbnail={item.thumbnail} data={item}/>
+        <VideoModal thumbnail={item.thumbnail_arr} data={item}/>
       </VideoCard>
     )}
   </VideoGridWrapper>
