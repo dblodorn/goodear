@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { widths, colors } from './../styles/theme.json'
-import { media, absoluteTopFull } from './../styles/mixins'
+import { media, absoluteTopFull, flexRow } from './../styles/mixins'
 import { VideoGridWrapper } from './../styles/components'
 import { Head, VideoCard, FitImage, PlayButton } from './../components'
 import { PatternHome } from './../patterns'
@@ -25,7 +25,11 @@ class Reel extends Component {
     this._includesTerm = this._includesTerm.bind(this)
   }
 
-  _selectTerm(term) {}
+  _selectTerm(term) {
+    this.setState({
+      current_term: term
+    })
+  }
   
   _includesTerm(term) {
     return _.includes(term, this.state.current_term);
@@ -49,6 +53,11 @@ class Reel extends Component {
       <Fragment>
         <Head title={'Reel'} description={'Our Work'}/>
         <ReelWrapper>
+          <VideoCats>
+            {this.props.categories.map((item, i) =>
+              <button onClick={() => this._selectTerm(item)} key={'cat' + i}><span>{item}</span></button>
+            )}
+          </VideoCats>
           <VideoGridWrapper className={`reel`}>
             {this.props.videos.map((item, i) =>
               <ThumbLink item={item} key={item.post_id + 'vg' + i} />
@@ -81,4 +90,12 @@ const ReelWrapper = styled.section`
   ${media.desktopNav`
     padding-left: ${widths.sidebar_nav};
   `}
+`
+
+const VideoCats = styled.menu`
+  ${flexRow};
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9000;
 `
