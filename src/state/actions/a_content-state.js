@@ -51,9 +51,17 @@ const setVideoState = (data) => {
   }
 }
 
+const setPageCount = (count) => {
+  return {
+    type: 'PAGE_COUNT',
+    count
+  }
+}
+
 const setVideoPlaying = (data) => {
   return (dispatch) => {
     let currentVideo = null
+    console.log(data)
     const videos = store.getState().videos
     if (data !== null) {
       currentVideo = _.find(videos, { slug: data })
@@ -69,5 +77,6 @@ const setVideoPlaying = (data) => {
 
 export {
   setPage,
-  setVideoPlaying
+  setVideoPlaying,
+  setPageCount
 }

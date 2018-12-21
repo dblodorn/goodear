@@ -280,6 +280,51 @@ const CloseButton = styled.button`
   }
 `
 
+const VideoGridWrapper = styled.ul`
+  ${_.flexRowWrap};
+  width: 100%;
+  position: relative;
+  padding: ${spacing.single_pad};
+  flex-grow: 0;
+  flex-shrink: 0;
+  &.home > li {
+    width: 50%;
+    position: relative;
+  }
+  &.reel > li {
+    width: calc(100% / 2);
+  }
+  ${_.media.desktopNav`
+    &.reel > li {
+      width: calc(100% / 5);
+    }
+    &.home > li {
+      width: calc(100% / 3);
+    }
+  `}
+  ${_.media.medium`
+    &.reel > li {
+      width: calc(100% / 7);
+    }
+    &.home > li {
+      width: calc(100% / 4);
+    }
+  `}
+  ${_.media.big`
+    &.reel > li {
+      width: calc(100% / 8);
+    }
+    &.home > li {
+      width: calc(100% / 4);
+    }
+  `}
+  ${_.media.tablet`
+    &.home > li {
+      width: calc(100% / 2);
+    }
+  `}
+`
+
 export {
   Section,
   Article,
@@ -305,5 +350,6 @@ export {
   ExternalLink,
   PatternWrapper,
   Manifesto,
-  CaptionInner
+  CaptionInner,
+  VideoGridWrapper
 }

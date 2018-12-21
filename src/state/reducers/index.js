@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux'
-import { apiData, taxonomyData, videoListData } from './apiData'
+import { 
+  apiData, 
+  taxonomyData,
+  videoListData
+} from './apiData'
 import { 
   resizeState, 
   menuState, 
@@ -12,13 +16,15 @@ import {
 
 import { 
   pageState,
-  setVideoState
+  setVideoState,
+  pageCount
 } from './r_content-state'
 
 const rootReducer = combineReducers({
   api_data: apiData,
   videos: videoListData,
   categories: taxonomyData,
+  page_count: pageCount,
   resize_state: resizeState,
   fonts_loaded: fontState,
   touch_state: touchState,

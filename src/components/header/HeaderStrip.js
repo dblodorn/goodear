@@ -22,7 +22,8 @@ const HeaderStrip = props =>
 export default connect(
   state => ({
     router: state.router.location.pathname,
-    api_data: state.api_data
+    api_data: state.api_data,
+    header_state: state.header_state
   })
 )(HeaderStrip)
 

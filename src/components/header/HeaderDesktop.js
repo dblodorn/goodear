@@ -45,7 +45,7 @@ const HeaderDesktop = props =>
       )}
     </Transition>
     <Transition from={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})` }} enter={{ opacity: 1, transform: `translateY(0})` }} leave={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})`, pointerEvents: 'none' }}>
-      {(props.route !== '/') && (styles => 
+      {(props.route !== '/' && props.header_state) && (styles => 
         <StripWrapper style={styles}>
           <HeaderStrip>
             <Link to={`/`}>
@@ -65,7 +65,8 @@ const HeaderDesktop = props =>
 export default connect(
   state => ({
     route: state.router.location.pathname,
-    api_data: state.api_data
+    api_data: state.api_data,
+    header_state: state.header_state
   })
 )(HeaderDesktop)
 

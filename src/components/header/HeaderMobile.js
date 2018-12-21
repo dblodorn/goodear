@@ -29,7 +29,8 @@ const HeaderMobile = props =>
 
 export default connect(
   state => ({
-    route: state.router.location.pathname
+    route: state.router.location.pathname,
+    header_state: state.header_state
   })
 )(HeaderMobile)
 

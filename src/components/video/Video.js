@@ -20,43 +20,22 @@ const VideoInner = (props) =>
     </InnerVideoWrapper>
   </VideoContainer>
 
-class Video extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      pattern: 1
-    }
-  }
-  componentWillMount() {
-    this.setState({
-      pattern: randomNum(1, 14)
-    })
-  }
-  render() {
-    return (
-      <Fragment>
-        <ModalContentWrapper>
-          <VideoSection>
-            <VideoWrapper>
-              {(this.props.data !== null) &&
-                <VidBox>
-                  <VideoInner videoUrl={this.props.data.video_url} />
-                  <VideoCaption content={this.props.data} />
-                </VidBox>
-              }
-            </VideoWrapper>
-          </VideoSection>
-        </ModalContentWrapper>
-        <BottomLogo />
-        <PatternWrapper>
-          <img src={`assets/patterns/pattern${this.state.pattern}.svg`} />
-        </PatternWrapper>
-      </Fragment>
-    )
-  }
-}
-
-export default Video
+export default props =>
+  <Fragment>
+    <ModalContentWrapper>
+      <VideoSection>
+        <VideoWrapper>
+          {(props.data !== null) &&
+            <VidBox>
+              <VideoInner videoUrl={props.data.video_url} />
+              <VideoCaption content={props.data} />
+            </VidBox>
+          }
+        </VideoWrapper>
+      </VideoSection>
+    </ModalContentWrapper>
+    <BottomLogo />
+  </Fragment>
 
 // STYLES
 const VideoContainer = styled.div`

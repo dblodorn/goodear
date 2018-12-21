@@ -16,7 +16,18 @@ const setVideoState = (state = null, action) => {
   }
 }
 
+
+const pageCount = (state = 0, action) => {
+  switch (action.type) {
+    case 'PAGE_COUNT':
+      return action.count
+    default:
+      return state
+  }
+}
+
 export {
   pageState,
-  setVideoState
+  setVideoState,
+  pageCount
 }
