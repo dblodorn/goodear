@@ -27,8 +27,8 @@ export default props =>
         <VideoWrapper>
           {(props.data !== null) &&
             <VidBox>
-              <VideoInner videoUrl={props.data.video_url} />
-              <VideoCaption content={props.data} />
+              <VideoInner videoUrl={props.data.video_data.video_url} />
+              <VideoCaption content={props.data.video_data} />
             </VidBox>
           }
         </VideoWrapper>

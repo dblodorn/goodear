@@ -242,10 +242,9 @@ const FullPageBgWrapper = styled.aside`
 const ModalWrapper = styled.div`
   ${_.flexCenteredAll};
   position: fixed;
-  z-index: 12000;
+  z-index: 1000;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255,255,255,.95);
   padding: 0 1rem;
   ${_.media.desktopNav`
     padding: calc(${heights.header} / 2);

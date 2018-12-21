@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import { setVideoPlaying } from './../state/actions'
 import { widths, colors } from './../styles/theme.json'
 import { media, absoluteTopFull, flexRow } from './../styles/mixins'
 import { VideoGridWrapper } from './../styles/components'
@@ -25,6 +26,10 @@ class Reel extends Component {
     this._includesTerm = this._includesTerm.bind(this)
   }
 
+  componentWillMount() {
+    this.props.setVideo(null)
+  }
+
   _selectTerm(term) {
     this.setState({
       current_term: term
@@ -36,7 +41,6 @@ class Reel extends Component {
   }
 
   render() {
-    
     const ThumbLink = props =>
       <Fragment>
         {(this._includesTerm(props.item.taxonomies.category)) &&
@@ -75,6 +79,9 @@ export default connect(
     videos: state.videos,
     categories: state.categories,
     current_category: state.current_category
+  }),
+  dispatch => ({
+    setVideo: (bool) => dispatch(setVideoPlaying(bool))
   })
 )(Reel)
 

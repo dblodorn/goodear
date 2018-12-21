@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Transition } from 'react-spring'
 import styled from 'styled-components'
-import { colors, breakpoints } from './../../styles/theme.json'
+import { colors } from './../../styles/theme.json'
 import { ModalWrapper, PatternWrapper } from './../../styles/components'
 import { absoluteTopFull } from './../../styles/mixins'
 import { randomNum } from './../../scripts'
@@ -12,7 +12,6 @@ import Video from './Video'
 import FitImage from './../utils/FitImage'
 import Close from './../utils/Close'
 import PlayButton from './../utils/PlayButton'
-import { PrevButton, NextButton } from './../utils/PrevNextButton'
 
 class VideoModal extends Component {
   constructor(props) {
@@ -56,7 +55,7 @@ class VideoModal extends Component {
             <Modal>
               <ModalWrapper style={styles}>
                 <Close clickFunction={() => this._closePopup()}/>
-                <Video data={this.props.video.video_data}/>
+                {this.props.video !== null && <Video data={this.props.video}/>}
                 <PatternWrapper>
                   <img src={`assets/patterns/pattern${this.state.pattern}.svg`} />
                 </PatternWrapper>
