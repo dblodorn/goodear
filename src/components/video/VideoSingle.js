@@ -8,9 +8,11 @@ import BackClose from './../utils/BackClose'
 import { PrevButton, NextButton } from './../utils/PrevNextButton'
 import { breakpoints } from './../../styles/theme.json'
 import { PatternWrapper } from './../../styles/components'
+import HeaderStripDesk from './../header/HeaderStripDesk'
 import Video from './Video'
 import Modal from './../Modal'
 import FitImage from './../utils/FitImage'
+import { HEADER_MENU } from './../../config.json'
 
 const returnSlug = slug => slug.split('/')[2]
 
@@ -67,7 +69,8 @@ class VideoSingle extends Component {
     return (
       <Fragment>
         <Modal>
-          {(this.props.page_count !== 0) && <BackClose/>}
+          {((this.props.page_count === 0) && this.props.resize_state.window_width >= breakpoints.desktop) && <HeaderStripDesk menu={HEADER_MENU}/>}
+          {((this.props.page_count !== 0) || this.props.resize_state.window_width < breakpoints.desktop) && <BackClose/>}
           {((this.props.resize_state.window_width >= breakpoints.desktop) && this.state.nav) &&
             <Fragment>
               <NextButton link={`/video/${this.state.next}`} clickFunction={() => this._nextVid()}/>

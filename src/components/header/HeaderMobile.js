@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Logo from './../Logo'
 import { connect } from 'react-redux'
-import { buttonInit, shadow, flexRowCenteredAll } from './../../styles/mixins'
-import { fonts, spacing, colors } from './../../styles/theme.json'
+import { sidebarNav, shadow, flexRowCenteredAll } from './../../styles/mixins'
+import { spacing, colors } from './../../styles/theme.json'
 
 const HeaderMobile = props =>
   <Fragment>
@@ -78,27 +78,5 @@ const NavBar = styled.nav`
   position: sticky;
   top: 0;
   z-index: 9000;
-  a {
-    text-decoration: none;
-    margin-right: ${spacing.double_pad};
-    color: #ffffff;
-    &:hover {
-      color: ${colors.yellow}!important;
-    }
-    &.active {
-      color: ${colors.yellow}!important;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
-    span {
-      ${buttonInit};
-      font-family: ${fonts.sans_medium};
-      font-weight: 500;
-      font-size: ${fonts.sizes.body};
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-    }
-  }
+  ${sidebarNav};
 `

@@ -38,7 +38,6 @@ const Main = styled.main`
   width: 100vw;
   position: relative;
   min-height: 100vh;
-  overflow-x: hidden;
 `
 
 // NORMALIZE CSS

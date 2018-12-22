@@ -136,7 +136,7 @@ const PatternWrapper = styled.aside`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: 900;
   display: block;
   img,
   svg,
@@ -258,7 +258,7 @@ const ModalContentWrapper = styled.div`
   height: 100%;
   max-width: 100rem;
   position: relative;
-  z-index: 1;
+  z-index: 1000;
 `
 
 const CloseButton = styled.button`

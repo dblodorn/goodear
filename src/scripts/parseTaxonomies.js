@@ -11,15 +11,10 @@ mixin(_, {
   flattenDeep: flattenDeep,
 });
 
-const uniqSubArray = (array, filterKey) => {
-  const result = _.uniq(_.flattenDeep(_.map(array, filterKey)));
-  const alphabeticalResult = result.sort();
-  return alphabeticalResult;
-};
+const uniqSubArray = (array, filterKey) =>
+  _.uniq(_.flattenDeep(_.map(array, filterKey)));
 
-export default (array, key, subKey) => {
-  const trimToTerms = uniqSubArray(
+export default (array, key, subKey) =>
+  uniqSubArray(
     uniqSubArray(array, key)
     , subKey);
-  return trimToTerms;
-}

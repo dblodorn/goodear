@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Transition } from 'react-spring'
 import { flexColumn, mediumType, shadow } from '../../styles/mixins'
 import { StyledLink, Manifesto } from './../../styles/components'
 import { colors, widths, spacing } from './../../styles/theme.json'
-import Logo from './../Logo'
 import HeaderStrip from './HeaderStrip'
+import Logo from './../Logo'
+import HeaderStripDesk from './HeaderStripDesk'
 import Socials from './../social/Socials'
 import NewsletterModal from './../NewsletterModal'
 import SidebarBg from './SidebarBg'
@@ -46,18 +46,7 @@ const HeaderDesktop = props =>
     </Transition>
     <Transition from={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})` }} enter={{ opacity: 1, transform: `translateY(0})` }} leave={{ opacity: 0, transform: `translateX(-${widths.sidebar_desktop})`, pointerEvents: 'none' }}>
       {(props.route !== '/' && props.header_state) && (styles => 
-        <StripWrapper style={styles}>
-          <HeaderStrip>
-            <Link to={`/`}>
-              <span>Home</span>
-            </Link>
-            {props.menu.map((item, i) =>
-              <Link to={`/${item.slug}`} className={(`/${item.slug}` == `${props.route}`) ? `active` : ``} key={`link-${item.slug}${i}`}>
-                <span>{item.title}</span>
-              </Link>
-            )}
-          </HeaderStrip>
-        </StripWrapper>
+        <HeaderStripDesk styles={styles} menu={props.menu}/>
       )}
     </Transition>
   </Fragment>
@@ -121,12 +110,7 @@ const NavLink = styled(StyledLink)`
   }
 `
 
-const StripWrapper = styled.header`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9000;
-`
+
 
 const LogoWrapper = styled.div`
   width: 100%;

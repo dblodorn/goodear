@@ -1,22 +1,27 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import Vimeo from '@u-wave/react-vimeo'
 import styled from 'styled-components'
-import { Section, PatternWrapper, ModalContentWrapper } from './../../styles/components'
+import { Section, ModalContentWrapper } from './../../styles/components'
 import { absoluteTopFull, shadow, flexCenteredAll, media, flexColumn, animationFadeIn } from './../../styles/mixins'
 import { colors, spacing } from './../../styles/theme.json'
-import { randomNum } from './../../scripts'
 import BottomLogo from './../BottomLogo'
 import VideoCaption from './VideoCaption'
+import FitImage from '../utils/FitImage';
 
 const VideoInner = (props) =>
   <VideoContainer>
     <InnerVideoWrapper>
-      <Vimeo
-        video={props.videoUrl}
-        autoplay
-        className={'player'}
-        loop={true}
-      />
+      {props.videoUrl.video_url
+        ? <Vimeo
+            video={props.videoUrl.video_url}
+            autoplay
+            className={'player'}
+            loop={true}
+          />
+        : <VidThumb>
+            <div className={`inner`}><FitImage src={props.videoUrl.thumbnail} fit={'contain'}/></div>
+          </VidThumb>
+      }
     </InnerVideoWrapper>
   </VideoContainer>
 
@@ -27,7 +32,7 @@ export default props =>
         <VideoWrapper>
           {(props.data !== null) &&
             <VidBox>
-              <VideoInner videoUrl={props.data.video_data.video_url} />
+              <VideoInner videoUrl={props.data.video_data} />
               <VideoCaption content={props.data.video_data} />
             </VidBox>
           }
@@ -50,10 +55,20 @@ const VidBox = styled.div`
   ${animationFadeIn(250, 10)};
 `
 
+const VidThumb = styled.div`
+  ${absoluteTopFull};
+  padding: ${spacing.double_pad};
+  .inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+`
+
 const InnerVideoWrapper = styled.div`
   ${absoluteTopFull};
   ${shadow};
-  background-color: ${colors.dk_grey};
+  background-color: ${colors.black};
   .player,
   iframe {
     ${absoluteTopFull};

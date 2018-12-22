@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import Color from 'color'
-import { flexColumn, rotoHalf, buttonInit, linkInit } from '../../styles/mixins'
+import { flexColumn, rotoHalf, sidebarNav } from '../../styles/mixins'
 import { widths, fonts, colors, spacing } from './../../styles/theme.json'
 
 const HeaderStrip = props =>
@@ -37,30 +37,17 @@ const SidebarNavWrapper = styled.div`
   height: 100vh;
   background-color: ${Color(colors.orange).darken(.2).hsl().string()};
   z-index: 10000;
-  a,
-  button {
-    ${linkInit}
-    margin-right: ${spacing.single_pad};
-    &:last-child {
-      margin-right: 0;
-    }
-    color: ${colors.white};
-    &:hover {
-      color: ${colors.yellow}!important;
-    }
-    &.active {
-      pointer-events: none;
-      color: ${colors.yellow}!important;
-    }
-  }
-  span {
-    ${buttonInit};
-    font-family: ${fonts.sans_medium};
-    font-weight: 500;
-    font-size: ${fonts.sizes.small};
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
+  ${sidebarNav};
+  &:before {
+    content: '';
+    display: block;
+    width: ${widths.sidebar_nav};
+    left: 0;
+    top: 0;
+    height: 10rem;
+    background-color: ${Color(colors.orange).darken(.2).hsl().string()};
+    position: absolute;
+    transform: translateY(-10rem);
   }
 `
 

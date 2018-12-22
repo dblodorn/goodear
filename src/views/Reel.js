@@ -1,10 +1,11 @@
 import React, { Fragment, Component } from 'react'
+import Color from 'color'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { setVideoPlaying } from './../state/actions'
-import { widths, colors } from './../styles/theme.json'
-import { media, absoluteTopFull, flexRow } from './../styles/mixins'
+import { widths, colors, spacing } from './../styles/theme.json'
+import { media, absoluteTopFull, flexRow, sidebarNav, shadow, flexRowWrap } from './../styles/mixins'
 import { VideoGridWrapper } from './../styles/components'
 import { Head, VideoCard, FitImage, PlayButton } from './../components'
 import { PatternHome } from './../patterns'
@@ -56,12 +57,12 @@ class Reel extends Component {
     return (
       <Fragment>
         <Head title={'Reel'} description={'Our Work'}/>
+        <VideoCats>
+          {this.props.categories.map((item, i) =>
+            <button className={(item === this.state.current_term) ? `active` : ``} onClick={() => this._selectTerm(item)} key={'cat' + i}><span>{item}</span></button>
+          )}
+        </VideoCats>
         <ReelWrapper>
-          <VideoCats>
-            {this.props.categories.map((item, i) =>
-              <button onClick={() => this._selectTerm(item)} key={'cat' + i}><span>{item}</span></button>
-            )}
-          </VideoCats>
           <VideoGridWrapper className={`reel`}>
             {this.props.videos.map((item, i) =>
               <ThumbLink item={item} key={item.post_id + 'vg' + i} />
@@ -85,24 +86,64 @@ export default connect(
   })
 )(Reel)
 
-// STYLES
-const VideoLink = styled(Link)`
-  ${absoluteTopFull};
-  overflow: hidden;
-`
-
 const ReelWrapper = styled.section`
   width: 100%;
   position: relative;
+  overflow-x: hidden;
   ${media.desktopNav`
     padding-left: ${widths.sidebar_nav};
   `}
 `
 
 const VideoCats = styled.menu`
-  ${flexRow};
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 9000;
+  ${flexRowWrap};
+  position: relative;
+  z-index: 100;
+  width: 100vw;
+  background-color: ${Color(colors.bg).darken(.1).hsl().string()};
+  ${media.desktopNav`
+    position: sticky;
+    top: 0;
+    left: 0;  
+    padding: 0 ${spacing.double_pad};
+    justify-content: flex-end;
+    height: ${widths.sidebar_nav};
+    &:before {
+      content: '';
+      display: block;
+      width: 100vw;
+      left: 0;
+      top: 0;
+      height: 10rem;
+      background-color: ${Color(colors.bg).darken(.1).hsl().string()};
+      position: absolute;
+      transform: translateY(-10rem);
+    }
+  `}
+  ${sidebarNav};
+  button {
+    position: relative;
+    width: 50%;
+    margin-right: 0!important;
+    padding: ${spacing.single_pad};
+    &:nth-child(odd) {
+      border-right: 1px solid ${Color(colors.bg).darken(.2).hsl().string()};
+    }
+    &:nth-child(1) {
+      border-bottom: 1px solid ${Color(colors.bg).darken(.2).hsl().string()};
+    }
+    &:nth-child(2) {
+      border-bottom: 1px solid ${Color(colors.bg).darken(.2).hsl().string()};
+    }
+    ${media.desktopNav`
+      width: auto;
+      margin-right: ${spacing.double_pad};
+      border: 0!important;
+    `}
+  }
+`
+
+const VideoLink = styled(Link)`
+  ${absoluteTopFull};
+  overflow: hidden;
 `
