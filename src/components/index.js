@@ -8,9 +8,9 @@ import Close from './utils/Close'
 import BackClose from './utils/BackClose'
 import Head from './utils/Head'
 import VideoModal from './video/VideoModal'
-import VideoGrid from './VideoGrid'
+import VideoCard from './VideoCard'
 import pageData from './HOC/pageData'
-import Video from './video/Video'
+import VideoSingle from './video/VideoSingle'
 
 export {
   FitImage,
@@ -21,9 +21,9 @@ export {
   Close,
   Head,
   Logo,
-  VideoGrid,
+  VideoCard,
   BottomLogo,
   pageData,
   BackClose,
-  Video
+  VideoSingle
 }

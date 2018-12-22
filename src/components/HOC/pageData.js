@@ -12,10 +12,7 @@ export default (InnerComponent) => {
   class PostWrapper extends Component {
     constructor(props){
       super(props)
-      this.state = {
-        project: null,
-        style: this.props.style
-      }
+      this.state = { project: null }
       this._postFilter = this._postFilter.bind(this);
     }
     _postFilter = (data, route) => {
@@ -53,8 +50,7 @@ export default (InnerComponent) => {
     state => ({
       data: state.api_data.posts,
       slug: state.router.location.pathname,
-      router: state.router,
-      style: state.header_style
+      router: state.router
     })
   )(PostWrapper)
 }

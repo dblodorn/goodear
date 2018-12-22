@@ -487,6 +487,35 @@ const rotoHalf = css`
   padding: 3px ${spacing.single_pad} 0;
 `
 
+const sidebarNav = css`
+  a,
+  button {
+    ${linkInit};
+    ${buttonInit};
+    margin-right: ${spacing.single_pad};
+    &:last-child {
+      margin-right: 0;
+    }
+    color: ${colors.white};
+    &:hover {
+      color: ${colors.yellow}!important;
+    }
+    &.active {
+      pointer-events: none;
+      color: ${colors.yellow}!important;
+    }
+  }
+  span {
+    ${buttonInit};
+    font-family: ${fonts.sans_medium};
+    font-weight: 500;
+    font-size: ${fonts.sizes.small};
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+`
+
 export {
   media,
   maxWidth,
@@ -529,5 +558,6 @@ export {
   fixedWindow,
   fancyScroll,
   rotoHalf,
-  linkInit
+  linkInit,
+  sidebarNav
 }

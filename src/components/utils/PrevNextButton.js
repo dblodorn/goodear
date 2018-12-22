@@ -1,9 +1,36 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { Link } from 'react-router-dom'
 import { opacityTransition, buttonInit, flexCenteredAll } from '../../styles/mixins'
 import { colors } from './../../styles/theme.json'
 
-const Button = styled.button`
+const NextButton = props =>
+  <BwRight>
+    <Button to={props.link || `/`}>
+      <svg version="1.1" viewBox="0 0 64 64" width="64" height="64">
+        <g strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" transform="translate(0.5 0.5)" fill="#ffffff" stroke="#ffffff">
+          <polyline fill="none" stroke="#ffffff" strokeMiterlimit="10" points="18,4 46,32 18,60 "></polyline></g>
+        </svg>
+    </Button>
+  </BwRight>
+
+const PrevButton = props =>
+  <BwLeft>
+    <Button to={props.link || `/`}>
+      <svg version="1.1" viewBox="0 0 64 64" width="64" height="64">
+        <g strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" transform="translate(0.5 0.5)" fill="#ffffff" stroke="#ffffff">
+          <polyline fill="none" stroke="#ffffff" strokeMiterlimit="10" points="46,60 18,32 46,4 "></polyline>
+        </g>
+      </svg>
+    </Button>
+  </BwLeft>
+
+export {
+  NextButton,
+  PrevButton
+}
+
+const Button = styled(Link)`
   ${buttonInit};
   width: 6.5rem;
   height: 6.5rem;
@@ -28,7 +55,7 @@ const buttonStyles = css`
   height: 100vh;
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 10000;
 `
 
 const BwLeft = styled.div`
@@ -40,29 +67,3 @@ const BwRight = styled.div`
   ${buttonStyles};
   right: 0;
 `
-
-const NextButton = props =>
-  <BwRight>
-    <Button onClick={props.clickFunction || null}>
-      <svg version="1.1" viewBox="0 0 64 64" width="64" height="64">
-        <g strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" transform="translate(0.5 0.5)" fill="#ffffff" stroke="#ffffff">
-          <polyline fill="none" stroke="#ffffff" strokeMiterlimit="10" points="18,4 46,32 18,60 "></polyline></g>
-        </svg>
-    </Button>
-  </BwRight>
-
-const PrevButton = props =>
-  <BwLeft>
-    <Button onClick={props.clickFunction || null}>
-      <svg version="1.1" viewBox="0 0 64 64" width="64" height="64">
-        <g strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" transform="translate(0.5 0.5)" fill="#ffffff" stroke="#ffffff">
-          <polyline fill="none" stroke="#ffffff" strokeMiterlimit="10" points="46,60 18,32 46,4 "></polyline>
-        </g>
-      </svg>
-    </Button>
-  </BwLeft>
-
-export {
-  NextButton,
-  PrevButton
-}

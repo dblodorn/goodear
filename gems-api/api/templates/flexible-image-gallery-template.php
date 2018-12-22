@@ -177,6 +177,7 @@
             'short_description' => get_field('short_description', $p_data->ID),
             'post_type' => $p_data->post_type,
             'thumbnail' => return_thumb_url($p_data),
+            'thumbnail_arr' => return_thumb_arr($p_data),
             'thumbnail_description' =>  return_thumb_meta($p),
             'video_url' => get_field('video_url', $p->ID, false, false),
             'video_cover' => get_field('video_cover_image', $p->ID),

@@ -9,9 +9,17 @@ const trimExcerpt = text => {
 const randomNum = (min, max) =>
   Math.floor(Math.random() * (+max - +min)) + +min
 
+const removeItem = (arr, item) => {
+  console.log(arr, item)
+  const index = arr.indexOf(item)
+  console.log(index)
+  return arr.splice(index)
+}
+
 export {
   routeName,
   parseTaxonomies,
   trimExcerpt,
-  randomNum
+  randomNum,
+  removeItem
 }

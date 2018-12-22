@@ -3,14 +3,13 @@ import { connect } from 'react-redux'
 import HeaderDesktop from './HeaderDesktop'
 import HeaderMobile from './HeaderMobile'
 import { breakpoints } from './../../styles/theme.json'
-
-
+import { HEADER_MENU } from './../../config.json'
 
 const Header = (props) => {
   if (props.resize_state.window_width >= breakpoints.desktop) {
-    return <HeaderDesktop header_state={props.header_state}/>
+    return <HeaderDesktop header_state={props.header_state} menu={HEADER_MENU}/>
   } else {
-    return <HeaderMobile/>
+    return <HeaderMobile menu={HEADER_MENU}/>
   }
 }
 

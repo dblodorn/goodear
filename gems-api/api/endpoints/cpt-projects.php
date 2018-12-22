@@ -11,6 +11,7 @@
       'title' => $post->post_title,
       'slug' => $post->post_name,
       'thumbnail' => return_thumb_url($post->ID),
+      'thumbnail_arr' => return_thumb_arr($post->ID),
       'template' => 'single-video',
       'theme' => get_field('theme', $post->ID),
       'short_description' => get_field('short_description', $post->ID),

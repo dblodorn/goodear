@@ -15,7 +15,6 @@ const projectIndexes = (currentSlug, projects) => {
   });
   const project = returnIndex();
   const prevProject = (project, projectCount) => {
-    console.log(project);
     if (project === 0) {
       return projectCount - 1;
     } else {
@@ -51,23 +50,31 @@ const setVideoState = (data) => {
   }
 }
 
+const setPageCount = (count) => {
+  return {
+    type: 'PAGE_COUNT',
+    count
+  }
+}
+
 const setVideoPlaying = (data) => {
   return (dispatch) => {
     let currentVideo = null
     const videos = store.getState().videos
     if (data !== null) {
       currentVideo = _.find(videos, { slug: data })
+      dispatch(setVideoState({
+        video_index: projectIndexes(data, videos),
+        video_data: currentVideo
+      }))
     } else {
-      currentVideo = null
-    } 
-    dispatch(setVideoState({
-      video_index: projectIndexes(data, videos),
-      video_data: currentVideo
-    }))
+      dispatch(setVideoState(null))
+    }
   }
 }
 
 export {
   setPage,
-  setVideoPlaying
+  setVideoPlaying,
+  setPageCount
 }

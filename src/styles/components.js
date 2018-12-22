@@ -136,7 +136,7 @@ const PatternWrapper = styled.aside`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: 900;
   display: block;
   img,
   svg,
@@ -242,10 +242,9 @@ const FullPageBgWrapper = styled.aside`
 const ModalWrapper = styled.div`
   ${_.flexCenteredAll};
   position: fixed;
-  z-index: 12000;
+  z-index: 1000;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255,255,255,.95);
   padding: 0 1rem;
   ${_.media.desktopNav`
     padding: calc(${heights.header} / 2);
@@ -259,7 +258,7 @@ const ModalContentWrapper = styled.div`
   height: 100%;
   max-width: 100rem;
   position: relative;
-  z-index: 1;
+  z-index: 1000;
 `
 
 const CloseButton = styled.button`
@@ -278,6 +277,51 @@ const CloseButton = styled.button`
     height: 100%;
     object-fit: cover;
   }
+`
+
+const VideoGridWrapper = styled.ul`
+  ${_.flexRowWrap};
+  width: 100%;
+  position: relative;
+  padding: ${spacing.single_pad};
+  flex-grow: 0;
+  flex-shrink: 0;
+  &.home > li {
+    width: 50%;
+    position: relative;
+  }
+  &.reel > li {
+    width: calc(100% / 2);
+  }
+  ${_.media.desktopNav`
+    &.reel > li {
+      width: calc(100% / 5);
+    }
+    &.home > li {
+      width: calc(100% / 3);
+    }
+  `}
+  ${_.media.medium`
+    &.reel > li {
+      width: calc(100% / 7);
+    }
+    &.home > li {
+      width: calc(100% / 4);
+    }
+  `}
+  ${_.media.big`
+    &.reel > li {
+      width: calc(100% / 8);
+    }
+    &.home > li {
+      width: calc(100% / 4);
+    }
+  `}
+  ${_.media.tablet`
+    &.home > li {
+      width: calc(100% / 2);
+    }
+  `}
 `
 
 export {
@@ -305,5 +349,6 @@ export {
   ExternalLink,
   PatternWrapper,
   Manifesto,
-  CaptionInner
+  CaptionInner,
+  VideoGridWrapper
 }

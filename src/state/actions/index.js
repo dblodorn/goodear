@@ -12,7 +12,8 @@ import {
 
 import { 
   setPage,
-  setVideoPlaying
+  setVideoPlaying,
+  setPageCount
 } from './a_content-state'
 
 export {
@@ -26,5 +27,6 @@ export {
   fontsLoaded,
   setModalState,
   setFooterState,
-  setHeaderStyle
+  setHeaderStyle,
+  setPageCount
 }

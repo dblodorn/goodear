@@ -20,13 +20,6 @@ const setHeaderState = (bool) => {
   }
 }
 
-const setHeaderStyle = (string) => {
-  return {
-    type: 'HEADER_STYLE',
-    string
-  }
-}
-
 const setFooterState = (bool) => {
   return {
     type: 'FOOTER_STATE',

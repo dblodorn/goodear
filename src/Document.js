@@ -1,21 +1,19 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import styled, { injectGlobal } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { flexColumn, fancyScroll } from './styles/mixins'
-import { colors, fonts, api_colors, breakpoints } from './styles/theme.json'
+import { fonts, breakpoints } from './styles/theme.json'
 import { routeName } from './scripts'
 import { Footer, Header } from './components'
 import { LoadingPage } from './views'
 
-const Document = (props) => {
+const Document = props => {
   if (props.api_data) {
     return (
       <Fragment>
+        <GlobalStyles />
         <Header/>
-        <Main 
-          id={routeName(props.router).routeClass}
-          className={props.header_style}
-        >
+        <Main id={routeName(props.router).routeClass}>
           {props.children}
         </Main>
         {(props.resize_state.window_width < breakpoints.desktop) && <Footer />}
@@ -29,7 +27,6 @@ const Document = (props) => {
 export default connect(
   state => ({
     api_data: state.api_data,
-    header_style: state.header_style,
     router: state.router.location.pathname,
     resize_state: state.resize_state
   })
@@ -41,11 +38,10 @@ const Main = styled.main`
   width: 100vw;
   position: relative;
   min-height: 100vh;
-  overflow-x: hidden;
 `
 
 // NORMALIZE CSS
-injectGlobal`
+const GlobalStyles = createGlobalStyle`
   html {
     font-size: 58%;
     ${fancyScroll};

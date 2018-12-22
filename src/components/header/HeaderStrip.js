@@ -2,18 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import Color from 'color'
-import { flexColumn, rotoHalf, buttonInit, linkInit } from '../../styles/mixins'
-import { widths, fonts, colors, spacing, api_colors } from './../../styles/theme.json'
+import { flexColumn, rotoHalf, sidebarNav } from '../../styles/mixins'
+import { widths, fonts, colors, spacing } from './../../styles/theme.json'
 
 const HeaderStrip = props =>
-  <SidebarNavWrapper 
-    typeColor={props.typeColor}
-    hoverColor={props.hoverColor}
-    bgColor={props.router === '/' 
-      ? props.api_data.options.api_colors.home_sidebar_bg_color || api_colors.home_sidebar_bg_color
-      : props.api_data.options.api_colors.home_bg_color || api_colors.home_bg_color
-    }
-  >
+  <SidebarNavWrapper>
     <Top>
       <RotoTop>
         {props.children}
@@ -29,7 +22,8 @@ const HeaderStrip = props =>
 export default connect(
   state => ({
     router: state.router.location.pathname,
-    api_data: state.api_data
+    api_data: state.api_data,
+    header_state: state.header_state
   })
 )(HeaderStrip)
 
@@ -41,30 +35,19 @@ const SidebarNavWrapper = styled.div`
   left: 0;
   width: ${widths.sidebar_nav};
   height: 100vh;
-  background-color: ${props => Color(props.bgColor).darken(.2).hsl().string()};
+  background-color: ${Color(colors.orange).darken(.2).hsl().string()};
   z-index: 10000;
-  * {
-    ${linkInit}
-    margin-right: ${spacing.single_pad};
-    &:last-child {
-      margin-right: 0;
-    }
-    color: ${props => props.typeColor || api_colors.home_sidebar_type_color};
-    &:hover {
-      color: ${props => props.hoverColor || api_colors.home_sidebar_hover_color}!important;
-    }
-    &.active {
-      color: ${props => props.hoverColor || api_colors.home_sidebar_hover_color}!important;
-    }
-  }
-  span {
-    ${buttonInit};
-    font-family: ${fonts.sans_medium};
-    font-weight: 500;
-    font-size: ${fonts.sizes.small};
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
+  ${sidebarNav};
+  &:before {
+    content: '';
+    display: block;
+    width: ${widths.sidebar_nav};
+    left: 0;
+    top: 0;
+    height: 10rem;
+    background-color: ${Color(colors.orange).darken(.2).hsl().string()};
+    position: absolute;
+    transform: translateY(-10rem);
   }
 `
 

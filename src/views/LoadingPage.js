@@ -4,7 +4,7 @@ import { fullWindow, flexCenteredAll } from './../styles/mixins'
 import { Logo } from './../components'
 import { colors } from './../styles/theme.json'
 
-export default props =>
+export default () =>
   <LoadingWrapper>
     <LogoWrapper>
       <Logo/>

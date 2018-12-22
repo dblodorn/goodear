@@ -10,7 +10,7 @@ const Routes = props =>
       {(props.api_data) && <Route exact path={'/'} component={Home}/>}
       {(props.api_data) && <Route exact path={'/about'} component={About}/>}
       {(props.api_data) && <Route exact path={'/reel'} component={Reel} />}
-      {(props.api_data) && <Route exact path={'/video/:id'} component={SingleVideo} />}
+      {(props.api_data) && <Route exact path={'/video/:id'} component={SingleVideo}/>}
       <Route component={NotFound}/>
     </Switch>
   </Document>

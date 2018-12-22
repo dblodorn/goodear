@@ -25,7 +25,8 @@ export function videoList(payload) {
 export default () => {
   return (dispatch) => {
     const _dataHandler = (payload) => {
-      dispatch(taxonomyData(parseTaxonomies(payload.posts.video, 'taxonomies', 'category')))
+      const taxonomies = parseTaxonomies(payload.posts.video, 'taxonomies', 'category')
+      dispatch(taxonomyData(taxonomies))
       dispatch(videoList(payload.posts.video))
       dispatch(apiData(payload))
     }

@@ -138,6 +138,25 @@
     return $thumb_url;
   }
 
+  function return_thumb_arr($p) {
+    $attachment_id = get_post_thumbnail_id($p);
+    $xl = wp_get_attachment_image_src($attachment_id, 'full', false);
+    $large = wp_get_attachment_image_src($attachment_id, 'large', false);
+    $medium = wp_get_attachment_image_src($attachment_id, 'medium_large', false);
+    $small = wp_get_attachment_image_src($attachment_id, 'medium', false);
+    list($src, $width, $height) = $xl;
+    return array(
+      'xlarge' => $src,
+      'large' => $large[0],
+      'medium' => $medium[0],
+      'small' => $small[0],
+      'size' => array(
+        'w' => $width,
+        'h' => $height
+      ),
+    );
+  }
+
   function return_null_false($in) {
     if ($in != null || $in != "") {
       return $in;
