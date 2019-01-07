@@ -48,11 +48,12 @@ export default () =>
 
 // STYLES
 const MailingContainer = styled(CaptionInner)`
-  max-width: 65rem;
+  max-width: 120rem;
   width: 100%;
   padding: ${spacing.double_pad};
   transition: background-color 350ms ease;
   margin-bottom: 8rem;
+  min-width: 76rem!important;
   ${media.desktopNav`
     margin-bottom: 0;
   `}
