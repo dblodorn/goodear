@@ -16,8 +16,8 @@ const VideoCard = props =>
         </LazyLoad>
       </ThumbWrapper>
       <VideoCaptionWrapper>
-        <h4 className={'title'} dangerouslySetInnerHTML={{ __html: props.item.title }}/>
-        <h5 className={'brand'} dangerouslySetInnerHTML={{ __html: (props.item.taxonomies.brand) && props.item.taxonomies.brand[0] }}/>
+        <h4 className={'title'}><span dangerouslySetInnerHTML={{ __html: (props.item.taxonomies.brand) && props.item.taxonomies.brand[0] }} /></h4>
+        <h5 className={'brand'}><span dangerouslySetInnerHTML={{ __html: props.item.title }} /></h5>
       </VideoCaptionWrapper>
     </ThumbInner>
   </VideoThumb>
@@ -47,8 +47,12 @@ const VideoCaptionWrapper = styled.div`
   }
   h5 {
     ${monoP};
-    align-self: flex-end;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
     line-height: .9;
+    text-align: right;
   }
 `
 
