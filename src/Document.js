@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import styled, { createGlobalStyle } from 'styled-components'
-import { flexColumn, fancyScroll } from './styles/mixins'
+import { flexColumn, fancyScroll, media } from './styles/mixins'
 import { fonts, breakpoints } from './styles/theme.json'
 import { routeName } from './scripts'
 import { Footer, Header } from './components'
@@ -77,7 +77,10 @@ const GlobalStyles = createGlobalStyle`
   ::-webkit-input-placeholder,
   ::-moz-placeholder {
     color: white;
-    font-size: 15vmin;
+    font-size: ${fonts.sizes.body};
+    ${media.desktopNav`
+      font-size: ${fonts.sizes.medium};
+    `}
     ${fonts.sans};
   }
 `
