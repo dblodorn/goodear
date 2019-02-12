@@ -29,7 +29,7 @@ module.exports = merge(common, {
       cleanOptions
     ),
     new FetchJsonWebpackPlugin({
-      endpoint: 'https://gems.dmbk.io/wp-json/api/v1/data/',
+      endpoint: 'https://dmbk.network/gems/wp-json/api/v1/data/',
       filename: 'data',
       hash: true,
     }),
