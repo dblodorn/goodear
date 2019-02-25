@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const FetchJsonWebpackPlugin = require('fetch-json-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const SitemapPlugin = require('sitemap-webpack-plugin').default
 const common = require('./webpack.common.js')
 const {
   htmlOptions
@@ -21,6 +22,12 @@ const cleanOptions = {
   verbose: true,
   dry: false
 }
+
+const paths = [
+  '',
+  '/reel',
+  '/about'
+];
 
 module.exports = merge(common, {
   plugins: [
@@ -45,6 +52,12 @@ module.exports = merge(common, {
     }),
     new ManifestPlugin({
       fileName: 'asset-manifest.json'
+    }),
+    new SitemapPlugin('https://goodear.tv', paths, {
+      fileName: 'sitemap.xml',
+      lastMod: true,
+      changeFreq: 'monthly',
+      priority: '0.4'
     }),
     new SWPrecacheWebpackPlugin({
       dontCacheBustUrlsMatching: /\.\w{8}\./,
