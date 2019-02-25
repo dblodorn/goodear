@@ -2,7 +2,7 @@ import routeName from './routeName'
 import parseTaxonomies from './parseTaxonomies'
 
 const trimExcerpt = text => {
-  const str = text.substring(0, 140) + '...'
+  const str = text.substring(0, 152)
   return str.replace(/(<p[^>]+?>|<p>|<\/p>)/img, '')
 }
 

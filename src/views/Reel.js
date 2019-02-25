@@ -5,9 +5,10 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { setVideoPlaying } from './../state/actions'
 import { widths, colors, spacing } from './../styles/theme.json'
-import { media, absoluteTopFull, flexRow, sidebarNav, shadow, flexRowWrap } from './../styles/mixins'
+import { media, absoluteTopFull, sidebarNav, flexRowWrap } from './../styles/mixins'
 import { VideoGridWrapper } from './../styles/components'
 import { Head, VideoCard, FitImage, PlayButton } from './../components'
+import { trimExcerpt } from './../scripts'
 import { PatternHome } from './../patterns'
 import includes from 'lodash/includes'
 import mixin from 'lodash/mixin'
@@ -56,7 +57,7 @@ class Reel extends Component {
 
     return (
       <Fragment>
-        <Head title={'Reel'} description={'Our Work'}/>
+        <Head title={'Reel'} description={trimExcerpt(this.props.api_data.options.seo.reel_meta)}/>
         <VideoCats>
           {this.props.categories.map((item, i) =>
             <button className={(item === this.state.current_term) ? `active` : ``} onClick={() => this._selectTerm(item)} key={'cat' + i}><span>{item}</span></button>
@@ -77,6 +78,7 @@ class Reel extends Component {
 
 export default connect(
   state => ({
+    api_data: state.api_data,
     videos: state.videos,
     categories: state.categories,
     current_category: state.current_category

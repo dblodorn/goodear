@@ -26,7 +26,7 @@ class About extends Component {
   render() {
     return (
       <Fragment>
-        <Head title={this.props.api_data.options.about_us.header} description={trimExcerpt(this.props.api_data.options.about_us.statement)}/>
+        <Head title={this.props.api_data.options.about_us.header} description={trimExcerpt(this.props.api_data.options.seo.about_meta)} />
         <AboutSection>
           <CopySide className={!this.state.current_bio && 'active'}>
             <IntroWrapper>

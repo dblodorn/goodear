@@ -73,6 +73,12 @@
       'instagram' => get_field('instagram', 'option'),
       'facebook' => get_field('facebook', 'option'),
       'twitter' => get_field('twitter', 'option'),
+      'seo' => array(
+        'home_meta' => get_field('home_page_meta_description', 'options'),
+        'about_meta' => get_field('about_page_meta_description', 'options'),
+        'reel_meta' => get_field('reel_page_meta_description', 'options'),
+        'meta_keywords' => get_field('meta_keywords', 'options'),
+      ),
       'about_us' => array(
         'header' => get_field('about_us_header', 'option'),
         'statement' => get_field('about_us_statement', 'option'),
@@ -81,7 +87,19 @@
           'photos' => about_us_images(),
           'bios' => about_us_bios(),
         )
-      )
+      ),
+      'api_colors' => array(
+        'home_bg_color' => get_field('home_bg_color', 'option'),
+        'reel_bg_color' => get_field('reel_bg_color', 'option'),
+        'home_sidebar_bg_color' => get_field('home_sidebar_bg_color', 'option'),
+        'home_sidebar_type_color' => get_field('home_sidebar_type_color', 'option'),
+        'home_sidebar_hover_color' => get_field('home_sidebar_hover_color', 'option'),
+        'small_nav_bg_color' => get_field('small_nav_bg_color', 'option'),
+        'small_nav_type_color' => get_field('small_nav_type_color', 'option'),
+        'small_nav_type_selected_hover_color' => get_field('small_nav_type_selected_hover_color', 'option'),
+        'video_card_bg_color' => get_field('video_card_bg_color', 'option'),
+        'video_card_type_color' => get_field('video_card_type_color', 'option'),
+      ),
     );
   }
 ?>

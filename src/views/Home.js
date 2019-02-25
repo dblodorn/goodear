@@ -11,7 +11,7 @@ import { PatternHome } from './../patterns'
 const Home = props => {
   return (
     <Fragment>
-      <Head title={`Home`} description={trimExcerpt(props.api_data.options.manifesto)} />
+      <Head title={`Home`} description={trimExcerpt(props.api_data.options.seo.home_meta)} />
       <HomeSection>
         {(props.resize_state.window_width < breakpoints.desktop) && 
           <Manifesto dangerouslySetInnerHTML={{ __html: props.api_data.options.manifesto }} />
