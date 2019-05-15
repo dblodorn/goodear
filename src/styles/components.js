@@ -246,6 +246,7 @@ const ModalWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   padding: 0 1rem;
+  background-color: ${colors.lt_grey};
   ${_.media.desktopNav`
     padding: calc(${heights.header} / 2);
   `}
