@@ -2,9 +2,9 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Transition } from 'react-spring'
-import { flexColumn, mediumType, shadow } from '../../styles/mixins'
+import { flexColumn, shadow } from '../../styles/mixins'
 import { StyledLink, Manifesto } from './../../styles/components'
-import { colors, widths, spacing } from './../../styles/theme.json'
+import { colors, widths, spacing, fonts } from './../../styles/theme.json'
 import HeaderStrip from './HeaderStrip'
 import Logo from './../Logo'
 import HeaderStripDesk from './HeaderStripDesk'
@@ -85,7 +85,7 @@ const Sidebar = styled.header`
 `
 
 const MenuWrapper = styled.menu`
-  margin-top: ${spacing.single_pad};
+  margin-top: ${spacing.double_pad};
   padding-bottom: .5rem;
   z-index: 9000;
 `
@@ -102,8 +102,11 @@ const NavList = styled.ul`
 `
 
 const NavLink = styled(StyledLink)`
-  ${mediumType};
-  text-transform: lowercase;
+  font-family: ${fonts.sans_medium};
+  font-weight: 500;
+  font-size: ${fonts.sizes.small};
+  letter-spacing: 2px;
+  text-transform: uppercase;
   color: ${colors.white};
   &:hover {
     color: ${colors.yellow}!important;
