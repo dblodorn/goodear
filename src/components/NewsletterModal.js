@@ -24,7 +24,7 @@ class NewsletterModal extends Component {
       modal: !this.state.modal
     })
   }
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
       pattern: randomNum(1, 14)
     })

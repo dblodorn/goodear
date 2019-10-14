@@ -1,10 +1,9 @@
 import fetch from 'isomorphic-fetch'
-import config from './../config.json'
 
 export default () => {
   return new Promise((resolve, reject) => {
     fetch((process.env.NODE_ENV === 'development')
-      ? config.wp_endpoint 
+      ? 'https://dmbk.network/gems/wp-json/api/v1/data/' 
       : `data.${__webpack_hash__}.json`,
       { method: 'GET' })
         .then(res => resolve(res))

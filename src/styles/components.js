@@ -85,7 +85,7 @@ const StyledMarkup = styled.div`
   }
   h3 {
     ${_.bodyType};
-    color: ${props => props.theme.body_copy_color}!important;
+    color: ${colors.orange}!important;
   }
   h4 {
     ${_.bodyType};

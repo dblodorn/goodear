@@ -65,6 +65,5 @@ export {
   hasTouch,
   setModalState,
   setHeaderState,
-  setFooterState,
-  setHeaderStyle
+  setFooterState
 }

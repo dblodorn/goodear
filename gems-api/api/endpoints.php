@@ -4,12 +4,8 @@
     $data['site_basics'] = site_basics_data();
     $data['options'] = options_data();
     $data['posts'] = array(
-      'pages' => page_data(),
       'video' => cpt_videos(),
     );
-    /*
-    $data['options'] = options_data();
-    */
     return $data;
   }
   function api_setup_endpoints() {

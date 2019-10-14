@@ -6,8 +6,7 @@ import {
   fontsLoaded,
   setModalState,
   setHeaderState,
-  setFooterState,
-  setHeaderStyle
+  setFooterState
 } from './a_window_data'
 
 import { 
@@ -27,6 +26,5 @@ export {
   fontsLoaded,
   setModalState,
   setFooterState,
-  setHeaderStyle,
   setPageCount
 }
