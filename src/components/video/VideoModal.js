@@ -38,7 +38,7 @@ class VideoModal extends Component {
     })
   }
   
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
       pattern: randomNum(1, 14)
     })

@@ -28,7 +28,7 @@ class Reel extends Component {
     this._includesTerm = this._includesTerm.bind(this)
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.setVideo(null)
   }
 

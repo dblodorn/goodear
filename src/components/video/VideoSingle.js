@@ -28,7 +28,7 @@ class VideoSingle extends Component {
     }
   }
   
-  componentWillMount() {
+  componentDidMount() {
     this.setState({pattern: randomNum(1, 14)})
     setTimeout(() => {
       this.props.setVideo(this.state.slug)

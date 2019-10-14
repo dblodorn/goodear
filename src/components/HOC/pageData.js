@@ -16,14 +16,14 @@ export default (InnerComponent) => {
       this._postFilter = this._postFilter.bind(this);
     }
     _postFilter = (data, route) => {
-      let postType = 'pages'
+      let postType = 'video'
       if (route !== '/') {
         const splitRoute = route.split('/')
         const routeLength = splitRoute.length
         if (routeLength === 3) {
           postType = splitRoute[routeLength - 2]
         } else {
-          postType = 'pages'
+          postType = 'video'
         }
         return _.find(data[postType], {slug: splitRoute[routeLength - 1]})
       } else {

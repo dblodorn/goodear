@@ -58,19 +58,6 @@ module.exports = merge(common, {
       lastMod: true,
       changeFreq: 'monthly',
       priority: '0.4'
-    }),
-    new SWPrecacheWebpackPlugin({
-      dontCacheBustUrlsMatching: /\.\w{8}\./,
-      filename: 'service-worker.js',
-      logger(message) {
-        if (message.indexOf('Total precache size is') === 0) {
-          return;
-        }
-        console.log(message);
-      },
-      minify: true,
-      navigateFallback: '/index.html',
-      staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
     })
   ]
 })

@@ -21,6 +21,7 @@ add_action( 'admin_menu', 'my_remove_menu_pages' );
 
 function my_remove_menu_pages() {
   remove_menu_page('edit-comments.php');
+  remove_menu_page('edit.php?post_type=page');
 }
 
 function my_theme_setup() {
