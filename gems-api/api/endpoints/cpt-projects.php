@@ -1,25 +1,18 @@
 <?php
   // ALL PROJECTS CPT
   function return_videos($post) {
-    $description = get_field('description', $post->ID);
-    $superstars = get_field('superstars', $p->ID);
-    $cover = get_field('cover', $p->ID);
-    $films = get_field('films', $p->ID);
-    $hidden_gems = get_field('hidden_gems', $p->ID);
     return array (
       'post_id' => $post->ID,
       'title' => $post->post_title,
       'slug' => $post->post_name,
       'thumbnail' => return_thumb_url($post->ID),
       'thumbnail_arr' => return_thumb_arr($post->ID),
-      'template' => 'single-video',
-      'theme' => get_field('theme', $post->ID),
       'short_description' => get_field('short_description', $post->ID),
-      'video_url' => get_field('video_url', $p->ID, false, false),
-      'song_title' => get_field('song_title', $p->ID),
-      'additional_information' => get_field('additional_information', $p->ID),
-      'short_description' => get_field('short_description', $p->ID),
+      'video_url' => get_field('video_url', $post->ID, false, false),
       'taxonomies' => taxonomy_data($post),
+      'song_title' => get_field('song_title', $post->ID),
+      'additional_information' => get_field('additional_information', $post->ID),
+      'short_description' => get_field('short_description', $post->ID),
     );
   }
 
