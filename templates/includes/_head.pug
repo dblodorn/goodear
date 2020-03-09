@@ -11,3 +11,12 @@ head
   meta(name="keywords", content= htmlWebpackPlugin.options.keywords)
   meta(name="fragment" content="!")
   meta(name="google-site-verification" content="GONtCvmHrRn2wUGvKE-caaqeKzGLz36nIybw5tkOgaA")
+  script.
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+      for(let registration of registrations) {
+        registration.unregister()
+      }}).catch(function(err) {
+        console.log('Service Worker registration failed: ', err);
+      });
+    }
