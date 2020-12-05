@@ -20,3 +20,7 @@ head
         console.log('Service Worker registration failed: ', err);
       });
     }
+    caches.keys().then(function(names) {
+      for (let name of names)
+        caches.delete(name);
+    });
